@@ -8,4 +8,19 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new
   end
 
+  def create
+    @tweet = Tweet.new(tweet_params)
+    if @tweet.save
+      redirect_to root_path
+      flash[:notice] = "投稿が完了しました"
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def tweet_params
+    params.require(:tweet).permit(:text, :image).merge(user_id: current_user.id)
+
 end
