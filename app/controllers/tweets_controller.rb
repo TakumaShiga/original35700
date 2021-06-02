@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   
+  
   def index
     @tweets = Tweet.all
   end
@@ -26,6 +27,16 @@ class TweetsController < ApplicationController
 
   def edit
     @tweet = Tweet.find(params[:id])
+  end
+
+  def update
+    tweet = Tweet.find(params[:id])
+    if tweet.update(tweet_params)
+       flash[:notice] = "編集が完了しました"
+       redirect_to root_path
+    else
+       render :edit
+    end
   end
 
   private

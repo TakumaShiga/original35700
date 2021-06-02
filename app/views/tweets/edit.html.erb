@@ -3,8 +3,8 @@
     <h3>編集する</h3>
     <%= form_with model: @tweet, url: , local: true do |f| %>
       <%= f.text_area :text %>
-      <%= f.text_field :image %>
+      <%= f.file_field :image %>
       <%= f.submit "SEND" %>
-    <%= end %>
+    <% end %>
   </div>
 </div>      
