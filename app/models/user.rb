@@ -15,4 +15,5 @@ class User < ApplicationRecord
 
   validates :full_name, presence: true, format: {with: /\A[ぁ-んァ-ン一-龥々ー]+\z/, message: 'には全角(ひらがな、カタカナ、漢字)で入力してください' }
   validates :email, uniqueness: true
+  validates :password, presence: true, length: { minimum: 6 }
 end
