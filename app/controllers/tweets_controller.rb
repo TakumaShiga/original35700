@@ -29,8 +29,8 @@ class TweetsController < ApplicationController
   end
 
   def update
-    tweet = Tweet.find(params[:id])
-    if tweet.update(tweet_params)
+    @tweet = Tweet.find(params[:id])
+    if @tweet.update(tweet_params)
        flash[:notice] = "編集が完了しました"
        redirect_to root_path
     else
@@ -48,6 +48,6 @@ class TweetsController < ApplicationController
   end
 
   def tweet_params
-    params.require(:tweet).permit(:text, :image).merge(user_id: current_user.id)
-
+    params.require(:tweet).permit(:text, :image).merge(user_id: @tweet.user.id)
+  end
 end

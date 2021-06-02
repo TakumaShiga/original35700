@@ -2,7 +2,7 @@
   <div class="container">
     <h3>投稿する<h3>
     <%= form_with model: @tweet, url: tweets_path, local: true do |f| %>
-      <%= f.text_area :text, placeholder: "text", rows : "10" %>
+      <%= f.text_area :text, placeholder: "text", rows: "10" %>
       <%= f.file_field :image %>
       <%= f.submit "SEND" %>
     <% end %>
