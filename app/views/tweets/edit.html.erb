@@ -1,0 +1,10 @@
+<div class="contents row">
+  <div class="container">
+    <h3>編集する</h3>
+    <%= form_with model: @tweet, url: , local: true do |f| %>
+      <%= f.text_area :text %>
+      <%= f.text_field :image %>
+      <%= f.submit "SEND" %>
+    <%= end %>
+  </div>
+</div>      
