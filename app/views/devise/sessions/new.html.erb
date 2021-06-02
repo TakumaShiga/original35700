@@ -5,8 +5,13 @@
       <h5>新規登録はこちら</h5>
       <a href="#">Sign up </a>
     </div>
+    <div class="'login-flash-message">
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+    </div>  
     <div class='account-page__inner--right user-form'>
-      <%= form_with model: resource, as: resource_name, url: session_path(resource_name), local: true do |f|%>
+      <%= form_with model: @user url: new_user_session_path, local: true do |f|%>
+      <%= render 'layouts/error_messages' model: f.object %>
         <div class='field'>
           <div class='field-label'>
             <%= f.label :email%>
