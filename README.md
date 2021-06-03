@@ -33,14 +33,16 @@ Things you may want to cover:
 | full_name          | string   | null: false              |
 | birth_day          | date     | null: false              |
 | gender             | string   | null: false              |
+| introduce          | text     |                          |
+| profile_image      | string   |                          |
 
-has_many :posts
+has_many :tweets
 has_many: comments
 has_many :items
 has_many :orders
 has_one :address
 
-## posts
+## tweets
 
 | Column             | Type       | Options                  |
 | ------------------ | ---------- | ------------------------ |
@@ -56,11 +58,11 @@ belongs_to :user
 
 | Column            | Type       |  Options          |
 | ------------------| -----------| ----------------- |
-| text              | text       | null :false       |
-| post              | references | foreign_key: true |
+| comment           | text       | null :false       |
+| tweet             | references | foreign_key: true |
 | user              | references | foreign_key: true |
 
-belongs_to :post
+belongs_to :tweet
 belongs_to :user
 
 
