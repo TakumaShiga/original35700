@@ -1,23 +1,22 @@
 <div class="contents row">
- <% @tweets.each do |tweet| %>
-  <span><%= image_tag tweet.image %></span>
-  <ul class="more_list">
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "詳細", tweet_path(tweet.id), method: :get %>
-      </li>
-      <li>
-        <%= link_to "編集", edit_tweet_path(tweet.id), method: :get %>
-    </li>
-    <li>
-      <%= link_to "削除", tweet_path(tweet.id), method: :delete %> 
-    </li> 
-    <% end %>
-  </ul>  
-    <p><%= tweet.text %></p>
-      <span class="name">
-        <%= tweet.user.nickname %>
-      </span>
+ 
+  <% @tweets.each do |tweet| %>
+    <span><%= image_tag tweet.image %></span>
+      <p><%= tweet.text %></p>
+    <span class="name">
+      <%= tweet.user.nickname %>
+    </span>
+  <% end %>     
+      <ul class="more_list">
+        <% if user_signed_in? %>
+            <li>
+              <%= link_to "詳細", tweet_path(@tweets.ids), method: :get %>
+            </li>
+            <li>
+              <%= link_to "編集", edit_tweet_path(@tweets.ids), method: :get %>
+          </li>
+        <% end %>
+      </ul>  
   </div>
- <% end %>
+ 
 </div>      
