@@ -5,6 +5,6 @@ class Tweet < ApplicationRecord
   validates :text, presence: true, unless: :was_attached?
 
   def was_attached?
-    self.image.was_attached?
+    self.image.attached?
   end
 end
