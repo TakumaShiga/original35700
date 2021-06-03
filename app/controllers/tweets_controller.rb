@@ -1,6 +1,8 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: [:edit, :show]
-  
+  before_action :authenticate_user!, except: :index
+  before_action :set_tweet, only: [:edit, :update, :show, :destroy]
+  before_action :move_to_index, only: [:edit, :update, :destroy] 
+
   def index
     @tweets = Tweet.all
   end
@@ -13,15 +15,13 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
       redirect_to root_path
-      flash[:notice] = "投稿が完了しました"
     else
       render :new
     end
   end
 
   def destroy
-    tweet = Tweet.find(params[:id])
-    tweet.delete
+    @tweet.delete
     redirect_to root_path
   end
 
@@ -29,9 +29,7 @@ class TweetsController < ApplicationController
   end
 
   def update
-    @tweet = Tweet.find(params[:id])
     if @tweet.update(tweet_params)
-       flash[:notice] = "編集が完了しました"
        redirect_to root_path
     else
        render :edit
@@ -45,6 +43,12 @@ class TweetsController < ApplicationController
 
   def set_tweet
     @tweet = Tweet.find(params[:id])
+  end
+
+  def move_to_index
+    unless current_user.id == @tweet.user_id
+      redirect_to root_path
+    end
   end
 
   def tweet_params
