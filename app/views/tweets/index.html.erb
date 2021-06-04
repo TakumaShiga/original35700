@@ -8,13 +8,10 @@
       <p><%= tweet.text %></p>
     <span class="name">
       <%= tweet.user.nickname %>
-      <% if current_user.already_liked?(tweet) %>
-        <%= link_to "いいねを外す", tweet_likes_path(tweet), method: :delete %>
-        <% else %>
-        <%= link_to "いいね", tweet_likes_path(tweet), method: :post %>
-      <% end %>  
-      <%= tweet.likes.count %>
     </span>  
+    <div class="like-icon">
+      <%= render partial: 'likes/like', locals {tweet: tweet} %>
+    </div>
       <ul class="more_list">
         <% if user_signed_in? %>
             <li>
