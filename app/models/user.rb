@@ -15,6 +15,7 @@ class User < ApplicationRecord
        
  has_many :tweets
  has_many :comments
+ has_many :likes
  has_one_attached :image
          
  validates :full_name, format: { with: /\A[ぁ-んァ-ン一-龥々ー]+\z/, message: 'は全角(ひらがな、カタカナ、漢字)で入力してください'}
