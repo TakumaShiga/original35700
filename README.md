@@ -40,6 +40,7 @@ has_many :tweets
 has_many: comments
 has_many :items
 has_many :orders
+has_many :likes
 has_one :address
 
 ## tweets
@@ -50,6 +51,7 @@ has_one :address
 | user               | references | foreign_key: true        |
 
 has_many :comments
+has_many :likes
 has_many_attached
 belongs_to :user
 
@@ -64,6 +66,17 @@ belongs_to :user
 
 belongs_to :tweet
 belongs_to :user
+
+
+## likes
+
+| Column  | Type       | Options           |
+| --------| ---------- | ----------------- |
+| user    | references | foreign_key: true |
+| tweet   | references | foreign_key: true |
+
+belongs_to :user
+belongs_to :tweet
 
 
 ## addresses 
