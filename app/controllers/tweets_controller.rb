@@ -1,11 +1,12 @@
 class TweetsController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :search]
   before_action :set_tweet, only: [:edit, :update, :show, :destroy]
-  before_action :move_to_index, only: [:edit, :update, :destroy] 
+  before_action :prohibit_access, only: [:edit, :update, :destroy] 
 
   def index
     @tweets = Tweet.includes(:user).order("created_at DESC")
-
+  end
+  
   def new
     @tweet = Tweet.new
   end
@@ -36,15 +37,20 @@ class TweetsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @tweet.comments.includes(:user)
   end
 
+  def search
+    @tweets = Tweet.search(params[:keyword])
+  end
   private
 
   def set_tweet
     @tweet = Tweet.find(params[:id])
   end
 
-  def move_to_index
+  def prohibit_access
     unless current_user.id == @tweet.user_id
       redirect_to root_path
     end
