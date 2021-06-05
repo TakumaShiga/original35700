@@ -9,8 +9,8 @@
     <span class="name">
       <%= tweet.user.nickname %>
     </span>  
-    <div class="like-icon">
-      <%= render partial: 'likes/like', locals {tweet: tweet} %>
+    <div id="like-button-<%= tweet.id %>">
+      <%= render partial: 'likes/like', locals: {tweet: tweet} %>
     </div>
       <ul class="more_list">
         <% if user_signed_in? %>

@@ -3,8 +3,8 @@
     <div class="more">
       <span><%= image_tag @tweet.image %>
       </span>
-      <div class="like-icon">
-        <%= render partial: 'likes/like', local {tweet: @tweet} %>
+      <div id="like-button-<%= @tweet.id %>">
+        <%= render partial: 'likes/like', local: {tweet: @tweet} %>
       </div>
       <ul class="more-list">
       <% if current_user.id == @tweet.user_id %>
