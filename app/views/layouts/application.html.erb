@@ -23,6 +23,9 @@
               <li>
                 <%= link_to "マイページ", user_path(current_user.id) %>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                
+               <%= link_to "編集する",  edit_user_registration_path, method: :get %>
+              
               </li>
             </ul>
             <%= link_to "投稿する", new_tweet_path, class: "post" %>

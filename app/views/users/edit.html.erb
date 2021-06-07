@@ -1,0 +1,11 @@
+<div class="contents row">
+  <div class="container">
+    <h3>プロフィールを編集する</h3>
+    <%= form_with model: @user, url: user_path(@user), local: true do |f| %>
+      <%= @user.nickname %>
+      <%= f.file_field :image %>
+      <%= f.text_area :introduce %>     
+      <%= f.submit "SEND" %>
+    <% end %>
+  </div>
+</div>      

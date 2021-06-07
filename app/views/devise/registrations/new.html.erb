@@ -5,12 +5,16 @@
     <div class='account-page__inner--right user-form'>
       <%= form_with model: @user, url: user_registration_path, method: :post, local: true do |f|%>
       <%= render 'layouts/error_messages', model: f.object %>
+        <div class="image-field">
+          <%= f.label :image %>
+          <%= f.file_field :image %>
+        </div>
          <div class="field">
           <div class="field-label">
             <%= f.label :full_name %>
           </div>
           <div class="field-input">
-            <%= f.text_field :full_name, autofocus: true, placeholder: ""%>
+            <%= f.text_field :full_name, autofocus: true, placeholder: "", placeholder: "全角文字"%>
           </div>
         </div>
         <div class='field'>
@@ -77,8 +81,13 @@
                     end_year: (Time.now.year - 5),
                     date_separator: '%s'),
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
-    </div>
-       
+        </div class=field-label>
+          <%= f.label :"自己紹介文" %>
+        </div>
+        <div class="field-input">
+          <%= f.text_area :introduce %>
+        </div>
+
         <div class='actions'>
           <%= f.submit "Create Account", class: 'btn'%>
         </div>

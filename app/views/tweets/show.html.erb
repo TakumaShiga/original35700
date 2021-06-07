@@ -1,11 +1,7 @@
 <div class="contents row">
   <div class="content-post" style="background-image: url(<%= @tweet.image %>);">
     <div class="more">
-      <span><%= image_tag @tweet.image %>
-      </span>
-      <div id="like-button-<%= @tweet.id %>">
-        <%= render partial: 'likes/like', local: {tweet: @tweet} %>
-      </div>
+      <span><%= image_tag @tweet.image %></span>
       <ul class="more-list">
       <% if current_user.id == @tweet.user_id %>
         <li>

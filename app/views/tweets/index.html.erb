@@ -4,7 +4,7 @@
 <% end %>
 <div class="contents row">
   <% @tweets.each do |tweet| %>
-    <span><%= image_tag tweet.image %></span>
+    <span><%= image_tag tweet.image.variant(resize: '600x600') %></span>
       <p><%= tweet.text %></p>
     <span class="name">
       <%= tweet.user.nickname %>
