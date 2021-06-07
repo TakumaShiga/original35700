@@ -17,6 +17,11 @@ class User < ApplicationRecord
  has_many :comments
  has_many :likes
  has_one_attached :image
+
+ has_many :active_relationships, class_name: 'Follow', foreign_key: 'user_id'
+ has_many :passive_relationships, class_name: 'Follow', foreign_key: 'target_user_id'
+ has_many :followings, through: :active_relationships, source: :target_user
+ has_many :followers, through: :passive_relationships, source: :user
          
  validates :full_name, format: { with: /\A[ぁ-んァ-ン一-龥々ー]+\z/, message: 'は全角(ひらがな、カタカナ、漢字)で入力してください'}
  validates :email, uniqueness: true   
