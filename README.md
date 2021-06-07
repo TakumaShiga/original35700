@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 
-## usersテーブル
+## users
 
 | Column             | Type     | Options                  |
 | ------------------ | -------- | ------------------------ |
@@ -42,6 +42,21 @@ has_many :items
 has_many :orders
 has_many :likes
 has_one :address
+
+has_many :active_relationships, class_name: 'Follow', foreign_key: 'user_id'
+has_many :passive_relationships, class_name: 'Follow', foreign_key: 'target_user_id'
+has_many :followings, through: :active_relationships, source: :target_user
+has_many :followers, through: :passive_relationships, source: :user
+
+## follows
+
+| Column      | Type       | Options
+| ------------| ---------- | ----------
+| user        | references | foreign_key: true
+| target_user | references | foreign_key: false
+
+belongs_to :user
+belongs_to :target_user, class_name: 'User', foreign_key: 'target_user_id'
 
 ## tweets
 
