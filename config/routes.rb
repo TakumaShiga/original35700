@@ -11,10 +11,10 @@ Rails.application.routes.draw do
     resources :followings
     resources :followers
   end
-  
+
   resources :tweets do
     resource :likes, only: [:create, :destroy]
-    resources :comments, only: :create
+    resources :comments, only: [:create, :destroy]
     collection do
       get 'search'
     end

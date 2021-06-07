@@ -30,6 +30,7 @@
         <p>
           <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %></strong>
         <%= comment.comment %>
+        <%= link_to "削除", tweet_comment_path(comment.tweet.id, comment.id), method: :delete %>
         </p>
       <% end %>  
     </div>    
