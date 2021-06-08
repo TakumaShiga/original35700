@@ -110,6 +110,7 @@ belongs_to :tweet
 
 | Column | Type       | Options            |    
 | -------| ---------- | ------------------ | 
+| title  | string     |  null: false       | 
 | post   | text       |  null: false       | 
 | user   | references |  foreign_key: true |
 
