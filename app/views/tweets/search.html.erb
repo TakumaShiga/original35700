@@ -4,11 +4,15 @@
 <% end %>
 <div class="container row">
   <% @tweets.each do |tweet| %>
-    <span><%= image_tag tweet.image %></span>
+    <div class="tweets">
+      <% tweet.images.each do |image| %>
+        <span><%= image_tag image.variant(gravity: :center, resize:"500x500^", crop:"500x500+0+0").processed, class: 'images' %></span>
+      <% end %>  
+    
       <p><%= tweet.text %></p>
-    <span class="name">
-      <%= tweet.user.nickname %>
-    </span>  
+      <span class="name">
+        <%= tweet.user.nickname %>
+      </span>  
       <ul class="more_list">
         <% if user_signed_in? %>
             <li>
@@ -20,7 +24,8 @@
           </li>
           <% end %>
         <% end %>
-      </ul>  
+      </ul> 
+    </div> 
   </div>
   <% end %> 
 </div>  

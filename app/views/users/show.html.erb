@@ -10,8 +10,12 @@
   </div>
   <p><%= @nickname %>さんの投稿一覧</p>
   <% @tweets.each do |tweet| %>
-    <%= image_tag tweet.image.variant(resize: '600x600') %>
+    <div class="tweets">
+     <% tweet.images.each do |image| %>
+        <span><%= image_tag image.variant(gravity: :center, resize:"500x500^", crop:"500x500+0+0").processed, class: 'images' %></span>
+      <% end %>
       <p><%= tweet.text %></p>
+    </div>
     </div>
   <% end %>
   <div class="follow-function">

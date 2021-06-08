@@ -2,12 +2,12 @@ class Tweet < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_one_attached :image
+  has_many_attached :images
 
   validates :text, presence: true, unless: :was_attached?
 
   def was_attached?
-    self.image.attached?
+    self.images.attached?
   end
 
   def self.search(search)

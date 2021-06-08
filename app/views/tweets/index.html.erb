@@ -4,7 +4,11 @@
 <% end %>
 <div class="contents row">
   <% @tweets.each do |tweet| %>
-    <span><%= image_tag tweet.image.variant(resize: '600x600') %></span>
+    <div class="tweets">
+      <% tweet.images.each do |image| %>
+        <span><%= image_tag image.variant(gravity: :center, resize:"450x450^", crop:"450x450+0+0").processed, class: 'images' %></span>
+      <% end %>  
+   
       <p><%= tweet.text %></p>
     <span class="name">
       <%= tweet.user.nickname %>
@@ -12,18 +16,17 @@
     <div id="like-button-<%= tweet.id %>">
       <%= render partial: 'likes/like', locals: {tweet: tweet} %>
     </div>
-      <ul class="more_list">
         <% if user_signed_in? %>
-            <li>
+          
               <%= link_to "詳細", tweet_path(tweet.id), method: :get %>
-            </li>
+            
            <% if current_user.id == tweet.user_id %> 
-            <li>
+           
               <%= link_to "編集", edit_tweet_path(tweet.id), method: :get %>
-          </li>
+          
           <% end %>
         <% end %>
-      </ul>  
+      </div>  
   </div>
  <% end %>   
 </div>      

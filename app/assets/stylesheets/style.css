@@ -1091,3 +1091,10 @@ footer p {
 .num-of-followers {
   margin-right: 10px; 
 }
+
+.tweets {
+  margin-left: auto;
+  margin-right: auto;
+  width: 30em
+  
+}
