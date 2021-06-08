@@ -1,6 +1,6 @@
 class Question < ApplicationRecord
-  
-  validates :post, presence: true, length: { maximum: 300 }
+  validates :title, presence: true, length: { maximum: 100 }
+  validates :post, presence: true, length: { maximum: 400 }
 
   has_many :answers, dependent: :destroy
   belongs_to :user
