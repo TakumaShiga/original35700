@@ -93,6 +93,16 @@ belongs_to :user
 belongs_to :user
 belongs_to :tweet
 
+## sns_credential
+
+| Column   | Type       | Options           |
+| -------- | ---------- | ----------------- |
+| provider | string     |                   |
+| uid      | string     |                   |
+| user     | references | foreign_key: true |
+ 
+ belongs_to :user
+
 
 ## addresses 
 
