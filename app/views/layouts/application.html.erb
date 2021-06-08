@@ -11,7 +11,10 @@
 
   <body>
    <header class="header">
-    <div class="flash-message">
+    <div class="notifications">
+     <%flash.each do |key, value|%>
+      <%= content_tag(:div, value, class: key) %>
+     <% end %>
     </div>    
       <div class="header__bar row">
         <div class="header__bar row">
@@ -24,7 +27,7 @@
                 <%= link_to "マイページ", user_path(current_user.id) %>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
                 
-               <%= link_to "編集する",  edit_user_registration_path, method: :get %>
+               <%= link_to "編集する",  edit_user_path(current_user), method: :get %>
               
               </li>
             </ul>
