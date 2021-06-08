@@ -41,6 +41,8 @@ has_many: comments
 has_many :items
 has_many :orders
 has_many :likes
+has_many :questions
+has_many :answers
 has_one :address
 
 has_many :active_relationships, class_name: 'Follow', foreign_key: 'user_id'
@@ -102,6 +104,28 @@ belongs_to :tweet
 | user     | references | foreign_key: true |
  
  belongs_to :user
+
+
+## question
+
+| Column | Type       | Options            |    
+| -------| ---------- | ------------------ | 
+| post   | text       |  null: false       | 
+| user   | references |  foreign_key: true |
+
+has_many: answers
+belongs_to :user
+
+
+## answer
+
+| Column   | Type       | Options           |
+| -------- | ---------- | ----------------- |
+| message  | text       | null: false       |
+| question | references | foreign_key: true |
+
+belongs_to :user
+belongs_to :question
 
 
 ## addresses 
