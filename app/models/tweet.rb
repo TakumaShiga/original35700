@@ -4,11 +4,11 @@ class Tweet < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many_attached :images
 
-  validates :text, presence: true, unless: :was_attached?
+  validates :text, presence: true #unless: :was_attached?
 
-  def was_attached?
-    self.images.attached?
-  end
+  # def was_attached?
+  #   self.images.attached?
+  # end
 
   def self.search(search)
     if search != ""
