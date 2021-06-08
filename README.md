@@ -113,7 +113,7 @@ belongs_to :tweet
 | post   | text       |  null: false       | 
 | user   | references |  foreign_key: true |
 
-has_many: answers
+has_many: answers, dependent: :destroy
 belongs_to :user
 
 
