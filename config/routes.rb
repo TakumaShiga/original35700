@@ -24,6 +24,6 @@ Rails.application.routes.draw do
   end
 
   resources :questions do
-    resources :answers, only: [:create, :destroy]
+    resources :answers, only: :create
   end
 end
