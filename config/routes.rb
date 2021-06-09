@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :questions, only: [:index, :show, :create, :destroy] do
+  resources :questions do
     resources :answers, only: [:create, :destroy]
   end
 end
