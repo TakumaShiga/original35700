@@ -1,0 +1,43 @@
+<div class="contents row">
+  <div class="container">
+    <p>
+      <%= @question.title %>
+      <%= @question.created_at %>
+    </p>
+     <p class="question-content"><%= @question.post %></p>
+    <span>
+    <% if current_user.id == @question.user_id %>
+      <%= link_to question_path(@question), method: :delete, data: {
+            confirm: '本当に削除して良いですか?',
+            cencel: 'やめる',
+            commit: '削除する'}, title: '削除確認'  do %>
+        <i class="fas fa-trash-alt"></i>
+    <% end %>  
+      <%= link_to edit_question_path(@question), method: :get do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+    <% end %>  
+    </span>
+    <div class="answer-container">
+      <%= form_with(model: [@question, @answer], local: true) do |f| %>
+        <%= f.label :"回答する"%>
+        <%= f.text_area :message, placeholder: "500文字以内でご入力ください" %> 
+        <%= f.submit "回答" %>
+      <% end %>   
+      <div id="answers">
+      <b>回答一覧</b>
+        <% @answers.each do |answer| %> 
+          <p><%= link_to answer.user.nickname, user_path(answer.user.id) %><p>
+          <div class="answer-content">
+            <strong><%= answer.message %></strong>   
+            <span>
+              <%=link_to question_answer_path(@question, @question.answers.ids), method: :delete do %>
+              <i class="fas fa-trash-alt"></i>
+              <% end %>
+            </span>
+          </div>
+        <% end %>
+      <div>
+    </div>
+  </div>
+</div>
