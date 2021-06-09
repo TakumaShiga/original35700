@@ -1,0 +1,16 @@
+<div class="contents row">
+  <div class="container">
+    <h3>質問を編集する<h3>
+  <%=form_with model:@question, url: question_path(@question), local: true do |f| %>
+    <div class="">
+      <%= f.label :"タイトル" %>
+      <%= f.text_field :title, placeholder: "100文字以内でご入力ください" %>
+    </div>
+    <div class="">
+      <%= f.label :post%>
+      <%= f.text_area :post, placeholder: "600文字以内でご入力ください" %>
+    </div>
+      <%= f.submit "編集する" %>
+  <% end %>
+  </div>
+</div>
