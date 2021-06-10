@@ -38,12 +38,13 @@ Things you may want to cover:
 
 has_many :tweets
 has_many: comments
-has_many :items
-has_many :orders
+has_many :entry
 has_many :likes
 has_many :questions
 has_many :answers
 has_one :address
+has_many :registrations, through: :registration_users
+has_many :registration_users
 
 has_many :active_relationships, class_name: 'Follow', foreign_key: 'user_id'
 has_many :passive_relationships, class_name: 'Follow', foreign_key: 'target_user_id'
@@ -136,37 +137,41 @@ belongs_to :question
 | postal_code   | string     | null: false          |
 | prefecture_id | integer    | null: false          |
 | city          | string     | null: false          |
-| house_number  | string     | null: false          |
+| place_number  | string     | null: false          |
 | building_name | string     |                      |
 | phone_number  | integer    | null: false          |
 | user          | references | foreign_key: true    |
 
 belongs_to :user
 
-## items 
+## event 
 
 | Column             | Type       | Options           |
 | ------------------ | ---------- | ----------------- |
-| name               | string     | null: false       |
-| price              | integer    | null: false       |
+| event_name         | string     | null: false       |
+| fee                | integer    | null: false       |
 | description        | text       | null: false       |
 | category_id        | integer    | null: false       |
-| condition_id       | integer    | null: false       |
 | prefecture_id      | integer    | null: false       |
-| shipping_burden_id | integer    | null: false       |
-| shipping_date_id   | integer    | null: false       |
+| place_number       | string     | null: false       |
+| place_name         | string     | null: false       |
+| event_date         | date       | null: false       |
+| start_time         | time       | null: false       |
+| finish_time        | time       | null: false       |
+| deadline           | date       | null: false       | 
 | user               | references | foreign_key: true |
 
 belongs_to :user
-has_many_attached: images
-has_one :order
+has_one_attached: image
+has_many :registration
 
-## orders
+## registration
 
 | Column    | Type       | Options           |
 | --------- | ---------- | ----------------- |
 | user      | references | foreign_key: true |
-| item      | references | foreign_key: true |
+| event     | references | foreign_key: true |
 
-belongs_to :user
-belongs_to :item
+has_many :users, through: :registration_users
+has_many :registration_users
+belongs_to :entry
