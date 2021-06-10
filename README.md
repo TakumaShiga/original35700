@@ -43,8 +43,7 @@ has_many :likes
 has_many :questions
 has_many :answers
 has_one :address
-has_many :registrations, through: :registration_users
-has_many :registration_users
+belongs_to :registration
 
 has_many :active_relationships, class_name: 'Follow', foreign_key: 'user_id'
 has_many :passive_relationships, class_name: 'Follow', foreign_key: 'target_user_id'
@@ -144,7 +143,7 @@ belongs_to :question
 
 belongs_to :user
 
-## event 
+## events 
 
 | Column             | Type       | Options           |
 | ------------------ | ---------- | ----------------- |
@@ -162,16 +161,16 @@ belongs_to :user
 | user               | references | foreign_key: true |
 
 belongs_to :user
+has_many :registrations
 has_one_attached: image
-has_many :registration
 
-## registration
+
+## registrations
 
 | Column    | Type       | Options           |
 | --------- | ---------- | ----------------- |
 | user      | references | foreign_key: true |
 | event     | references | foreign_key: true |
 
-has_many :users, through: :registration_users
-has_many :registration_users
-belongs_to :entry
+belongs_to :user
+belongs_to :event
