@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_052137) do
+ActiveRecord::Schema.define(version: 2021_06_10_041032) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -53,6 +53,24 @@ ActiveRecord::Schema.define(version: 2021_06_09_052137) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "event_name", null: false
+    t.integer "fee", null: false
+    t.text "description", null: false
+    t.integer "category_id", null: false
+    t.integer "prefecture_id", null: false
+    t.string "place_number", null: false
+    t.string "place_name", null: false
+    t.date "event_date", null: false
+    t.time "start_time", null: false
+    t.time "finish_time", null: false
+    t.date "deadline", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
   create_table "follows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "target_user_id", null: false
@@ -78,6 +96,15 @@ ActiveRecord::Schema.define(version: 2021_06_09_052137) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "title", null: false
     t.index ["user_id"], name: "index_questions_on_user_id"
+  end
+
+  create_table "registrations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "event_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_registrations_on_event_id"
+    t.index ["user_id"], name: "index_registrations_on_user_id"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -120,10 +147,13 @@ ActiveRecord::Schema.define(version: 2021_06_09_052137) do
   add_foreign_key "answers", "users"
   add_foreign_key "comments", "tweets"
   add_foreign_key "comments", "users"
+  add_foreign_key "events", "users"
   add_foreign_key "follows", "users"
   add_foreign_key "likes", "tweets"
   add_foreign_key "likes", "users"
   add_foreign_key "questions", "users"
+  add_foreign_key "registrations", "events"
+  add_foreign_key "registrations", "users"
   add_foreign_key "sns_credentials", "users"
   add_foreign_key "tweets", "users"
 end
