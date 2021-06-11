@@ -6,9 +6,10 @@
 require("@rails/ujs").start()
 // require("turbolinks").start()
 require("@rails/activestorage").start()
-require("channels")
+require("channels");
 require('jquery')
 require('../preview')
+require('../entry_fee')
 $(function(){
   setTimeout("$('.notifications').fadeOut('slow')", 2000);
 });
