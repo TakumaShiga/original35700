@@ -28,4 +28,6 @@ Rails.application.routes.draw do
   end
 
   resources :events do
+    resources :registrations, only: [:index, :create]
+  end
 end
