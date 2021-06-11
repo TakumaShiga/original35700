@@ -5,7 +5,7 @@ class RegistrationAddress
   with_options presence: true do
     validates :user_id
     validates :event_id
-    validates :postal_code, format: {:with /\A[0-9]{3}-[0-9]{4}\z/, message: "はハイフンを含む半角英数字で入力してください"}
+    validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "はハイフンを含む半角英数字で入力してください"}
     validates :city
     validates :place_number
     validates :phone_number
