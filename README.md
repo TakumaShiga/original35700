@@ -141,7 +141,7 @@ belongs_to :question
 | phone_number  | integer    | null: false          |
 | user          | references | foreign_key: true    |
 
-belongs_to :user
+belongs_to :registration
 
 ## events 
 
@@ -174,3 +174,4 @@ has_one_attached: image
 
 belongs_to :user
 belongs_to :event
+has_one: address

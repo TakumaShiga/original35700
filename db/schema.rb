@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_11_032339) do
+ActiveRecord::Schema.define(version: 2021_06_11_051141) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -40,10 +40,10 @@ ActiveRecord::Schema.define(version: 2021_06_11_032339) do
     t.string "place_number", null: false
     t.string "building_name"
     t.integer "phone_number", null: false
-    t.bigint "user_id"
+    t.bigint "registration_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_addresses_on_user_id"
+    t.index ["registration_id"], name: "index_addresses_on_registration_id"
   end
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -156,7 +156,7 @@ ActiveRecord::Schema.define(version: 2021_06_11_032339) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "addresses", "users"
+  add_foreign_key "addresses", "users", column: "registration_id"
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
   add_foreign_key "comments", "tweets"
