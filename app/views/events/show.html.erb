@@ -1,0 +1,51 @@
+<div class="contents row">
+  <div class="content-post" style="background-image: url(<%= @event.image %>);">
+    <div class="event">
+        <span><%= image_tag @event.image.variant(gravity: :center, resize:"350x350^", crop:"350x350+0+0").processed, class: 'images' %></span>
+
+      <h3><%= @event.event_name %><h3>
+      <span class="nickname">主催者<%= @event.user.nickname %></span>
+
+      <div class="event-category">
+        <h1>種目</h1>
+        <%= @event.category.name %>
+      </div>
+
+      <div class="event-date-time">
+      <h1>開催日時<h1>
+        <%= @event.event_date %>
+        <%= @event.start_time.strftime('%H:%H') %>〜<%= @event.finish_time.strftime('%H:%H') %>
+      </div>
+
+      <div class="event-place">
+      <h1>開催場所<h1>
+        <%= @event.prefecture.name %>
+        <%= @event.place_number %>
+      <h1>集合場所</h1>
+        <%= @event.place_name %>
+      </div>
+
+      <div class="event-char">
+        <h1>イベントの特徴<h1>
+        <%= @event.description%>
+      </div>
+
+      <div class="event-deadliner">
+        <h1>お申し込み期限<h1>
+        <%= @event.deadline %>
+      </div>
+
+      <ul class="more-list">
+        <% if current_user.id == @event.user_id %>
+        <li>
+          <%= link_to "編集", edit_event_path(@event), method: :get %>
+          <%= link_to "削除", event_path(@event), method: :delete, data: {
+            confirm: '本当に削除して良いですか?',
+            cencel: 'やめる',
+            commit: '削除する'}, title: '削除確認' %>
+        </li>
+       <% end %> 
+      </ul>
+    </div>    
+  </div>
+</div>  
