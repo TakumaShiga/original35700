@@ -38,12 +38,12 @@ Things you may want to cover:
 
 has_many :tweets
 has_many: comments
-has_many :entry
+has_many :events
 has_many :likes
 has_many :questions
 has_many :answers
 has_one :address
-belongs_to :registration
+has_many :registrations
 
 has_many :active_relationships, class_name: 'Follow', foreign_key: 'user_id'
 has_many :passive_relationships, class_name: 'Follow', foreign_key: 'target_user_id'
