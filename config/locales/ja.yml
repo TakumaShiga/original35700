@@ -23,3 +23,14 @@ ja:
         description: イベントの特徴
         category_id: カテゴリー
         prefecture_id: 地域
+
+  activemodel:
+    attributes:      
+        registration_address:
+          postal_code: 郵便番号  
+          prefecture_id: 都道府県
+          city: 市区町村
+          place_number: 番地
+          phone_number: 電話番号
+          token: カード情報
+          
