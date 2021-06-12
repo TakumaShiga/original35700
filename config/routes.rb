@@ -28,10 +28,9 @@ Rails.application.routes.draw do
   end
 
   resources :events do
-    resources :registrations, only: [:index, :show, :create] do
-      collection do
-        post 'confirm'
-      end
+    resources :registrations, only: [:index, :create]
+    collection do
+      get 'search'
     end
   end
 end
