@@ -1,7 +1,7 @@
-<% if @registration.errors.any? %>
+<% if @registration_address.errors.any? %>
   <div class="error-alert">
     <ul>
-      <% @registration.errors.full_messages.each do |message| %>
+      <% @registration_address.errors.full_messages.each do |message| %>
        <li class="error-message">
        <%= message %>
        </li>
