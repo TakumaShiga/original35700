@@ -10,6 +10,7 @@ require("channels");
 require('jquery')
 require('../preview')
 require('../entry_fee')
+require('../card.js')
 $(function(){
   setTimeout("$('.notifications').fadeOut('slow')", 2000);
 });
