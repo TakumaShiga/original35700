@@ -1,6 +1,6 @@
 class RegistrationAddress
   include ActiveModel::Model
-  attr_accessor :postal_code, :city, :place_number, :building_name, :phone_number, :user_id, :event_id, :token
+  attr_accessor :postal_code, :prefecture_id, :city, :place_number, :building_name, :phone_number, :user_id, :event_id, :token
 
   with_options presence: true do
     validates :user_id
@@ -12,6 +12,7 @@ class RegistrationAddress
     validates :token
   end
 
+    validates :event_id, uniqueness: { scope: :user_id }
     validates :prefecture_id, numericality: {other_than: 1, message: "を選択してください"}
     validates :phone_number, numericality: {with: /\A\d{10,11}\z/, message: "は11桁以内の半角数字で入力してください"}
 
