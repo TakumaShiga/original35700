@@ -107,7 +107,10 @@
         <b><%= @event.fee %>円</b>
       </div>
       <div class="submit-btn">
-        <%= f.submit "エントリーする" %>
+        <%= f.submit "エントリーする", data: {
+            confirm: '入力内容にお間違いはございませんか?',
+            cencel: '修正する',
+            commit: 'エントリーする'}, title: 'エントリー確認' %>
       </div>
     <% end %>
   </div>
