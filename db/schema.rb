@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_12_125022) do
+ActiveRecord::Schema.define(version: 2021_06_11_032339) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -49,9 +49,9 @@ ActiveRecord::Schema.define(version: 2021_06_12_125022) do
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "message", null: false
     t.bigint "question_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
@@ -78,9 +78,9 @@ ActiveRecord::Schema.define(version: 2021_06_12_125022) do
     t.time "start_time", null: false
     t.time "finish_time", null: false
     t.date "deadline", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -104,10 +104,10 @@ ActiveRecord::Schema.define(version: 2021_06_12_125022) do
 
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "post", null: false
+    t.string "title", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "title", null: false
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
@@ -117,7 +117,6 @@ ActiveRecord::Schema.define(version: 2021_06_12_125022) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_registrations_on_event_id"
-    t.index ["user_id", "event_id"], name: "index_registrations_on_user_id_and_event_id", unique: true
     t.index ["user_id"], name: "index_registrations_on_user_id"
   end
 
@@ -157,7 +156,7 @@ ActiveRecord::Schema.define(version: 2021_06_12_125022) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "addresses", "users", column: "registration_id"
+  add_foreign_key "addresses", "registrations"
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
   add_foreign_key "comments", "tweets"
