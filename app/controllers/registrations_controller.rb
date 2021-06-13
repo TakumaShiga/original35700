@@ -3,32 +3,22 @@ class RegistrationsController < ApplicationController
   before_action :set_event_params
   before_action :prohibit_access
 
-
   def index
-    @registration = RegistrationAddress.new
-  end
-
-  def confirm
-    @registration = Registration.new(registration_params)
-    render :index if @registration.invalid?
-  end
-
-  def show
-    @registration = RegistrationAddress.find_by(event_id: @event.id, id: params[:id])
+    @registration_address = RegistrationAddress.new
   end
 
   def create
-    @registration = RegistrationAddress.new(registration_params)
-    if @registration.valid?
+    @registration_address = RegistrationAddress.new(registration_params)
+    if @registration_address.valid?
       pay_event
-      
-      @registration.save
-      return redirect_to root_path, notice: "エントリー及び決済が完了しました"
+      @registration_address.save
+      redirect_to root_path, notice: "エントリー及び決済が完了しました"
     else
       flash.now[:alert] = "エントリーに失敗しました"
       render :index
     end
   end
+
 
   private
 
@@ -38,7 +28,7 @@ class RegistrationsController < ApplicationController
 
   def prohibit_access
     if current_user.id == @event.user_id
-      redirect_to root_path
+      redirect_to root_path, notice: '権限がありません'
     end
   end
 
@@ -47,10 +37,10 @@ class RegistrationsController < ApplicationController
   end
 
   def pay_event
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-      Payjp::Charge.create(
-        amount: registration_params[:fee]
-        card: registration_params[:token]
+    Payjp::api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp::Charge.create(
+        amount: @event.fee,
+        card: registration_params[:token],
         currency: 'jpy'
       )
   end
