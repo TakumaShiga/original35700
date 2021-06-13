@@ -14,7 +14,7 @@
       <div class="input-event-datetime">
         <h6>開催日時</h6>
         <%= f.date_field :event_date,class:'select-event' %>
-        <%= f.time_field :start_time, :minuete_step => 10 %>〜<%= f.time_field :finish_time %>
+        <%= f.time_select :start_time, minute_step: 15 %>〜<%= f.time_select :finish_time, minute_step: 15 %>
       </div>
       
       <div class="active-hash-field">
