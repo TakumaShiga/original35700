@@ -25,5 +25,11 @@ class Event < ApplicationRecord
     end
   end
 
-
+  def self.search(search)
+    if search != ""
+      Event.where('event_name LIKE(?)', "%#{search}%")
+    else
+      Event.all
+    end
+  end
 end
