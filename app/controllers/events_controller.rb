@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :move_to_index, only: [:edit, :update, :destroy]
+  before_action :move_to_index, except: [:index, :show, :search]
+  before_action :prohibit_user, only: [:edit, :update, :destroy]
+  
   def index
     @events = Event.all.order("created_at DESC")
   end
@@ -39,13 +41,23 @@ class EventsController < ApplicationController
     redirect_to events_path, notice: 'エントリー募集を削除しました'
   end
 
+  def search
+    @events = Event.search(params[:keyword])
+  end
+
   private
 
   def set_event
     @event = Event.find(params[:id])
   end
-
+  
   def move_to_index
+    unless user_signed_in?
+      redirect_to root_path
+    end
+  end
+
+  def prohibit_user
     unless current_user.id == @event.user_id
       redirect_to root_path
     end 
