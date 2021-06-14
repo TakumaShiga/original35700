@@ -1,0 +1,11 @@
+<div class="contents row">
+  <div class="container">
+    <h3>編集する</h3>
+    <%= form_with model: @tweet, url: tweet_path(@tweet.id) , local: true do |f| %>
+      <%= f.text_area :text %>
+      <%= f.file_field :images, name: 'tweet[images][]', id: 'tweet_image' %>
+      <%= f.submit "SEND" %>
+      <div id="image-list"></div>
+    <% end %>
+  </div>
+</div>      

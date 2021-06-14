@@ -1,0 +1,43 @@
+<div class="contents row">
+  <div class="content-post" style="background-image: url(<%= @tweet.images %>);">
+    <div class="tweets">
+      <% @tweet.images.each do |image| %>
+        <span><%= image_tag image.variant(gravity: :center, resize:"500x500^", crop:"500x500+0+0").processed, class: 'images' %></span>
+      <% end %>  
+      <p><%= @tweet.text %><p>
+      <span class="nickname"><%= @tweet.user.nickname %>
+      </span>
+      <ul class="more-list">
+        <% if current_user.id == @tweet.user_id %>
+        <li>
+          <%= link_to "編集", edit_tweet_path(@tweet.id), method: :get %>
+          <%= link_to "削除", tweet_path(@tweet.id), method: :delete, data: {
+            confirm: '本当に削除して良いですか?',
+            cencel: 'やめる',
+            commit: '削除する'}, title: '削除確認' %>
+        </li>
+       <% end %> 
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <% if user_signed_in? %>
+      <%= form_with model: [@tweet, @comment], local: true do |f| %>
+        <%= f.text_area :comment, placeholder:"コメントする" %>
+        <%= f.submit "SEND" %>
+      <% end %>
+    <% end %>
+    <div class="comments">
+      <h4>コメント一覧</h4>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %></strong>
+        <%= comment.comment %>
+        <% if current_user.id == comment.user_id %>
+          <%= link_to "削除", tweet_comment_path(comment.tweet.id, comment.id), method: :delete %>
+        <% end %>
+        </p>
+      <% end %>  
+    </div>    
+  </div>
+</div>  

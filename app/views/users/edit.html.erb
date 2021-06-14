@@ -1,0 +1,27 @@
+<h2>プロフィール編集</h2>
+  <p><%= @user.nickname %></p>
+
+<%= form_with model: @user, url: user_path(@user), method: :patch, local: true do |f| %>
+
+<div class="field">
+  <%= f.label :nickname, "ニックネーム" %>
+   <%= f.text_field :nickname, autofocus: true, class: "form-control", placeholder: "最大10文字", maxlength: 10 %>
+</div>
+        
+  <div class="field">
+    <%= f.label :image, "プロフィール画像" %><br />
+     <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :introduce, "自己紹介文" %><br />
+    <%= f.text_area :introduce %>     
+  </div> 
+
+  <div class="actions">
+    <%= f.submit "Update",  data: {
+            confirm: '編集してよろしいですか?',
+            cencel: 'やめる',
+            commit: '編集する'}, title: '編集確認' %>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+<div class="contents row">
+  <div class="container">
+    <h3>投稿する<h3>
+    <%= form_with model: @tweet, url: tweets_path, local: true do |f| %>
+      <%= f.text_area :text, placeholder: "text", rows: "10" %>
+      <%= f.file_field :images, name: 'tweet[images][]', id: 'tweet_image' %>
+      <%= f.submit "SEND" %>
+      <div id="image-list"></div>
+    <% end %>
+
+    <% @tweet.images.each do |tweet| %>
+      <%= image_tag image, class: 'images' %>
+    <% end %>
+  </div>
+</div>    

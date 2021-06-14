@@ -1,0 +1,85 @@
+<div class="contents row">
+  <div class="container">
+    <h3>新しいイベントを募集する<h3>
+    <%= form_with model: @event, url: events_path, local: true do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+
+      <div class="field">
+        <h6>イベント名</h6>
+        <div class="field-input">
+          <%= f.text_field :event_name, autofocus: true %>
+        </div>
+      </div>  
+
+      <div class="input-event-datetime">
+        <h6>開催日時</h6>
+        <%= f.date_field :event_date,class:'select-event' %>
+        <%= f.time_select :start_time, minute_step: 15 %>〜<%= f.time_select :finish_time, minute_step: 15 %>
+      </div>
+      
+      <div class="active-hash-field">
+      <h6>カテゴリー</h6>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"event-category"}) %>
+      </div>  
+
+      <div class="active-hash-field">
+      <h6>開催地域</h6>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"event-place"}) %>
+      </div>
+
+      <div class="field">
+        <h6>開催場所(住所)</h6>
+        <div class="field-input">
+          <%= f.text_field :place_number %>
+        </div>
+      </div>
+
+      <div class="field">
+       <h6>集合場所</h6>
+        <div class="field-input">
+          <%= f.text_field :place_name, placeholder: "詳しい場所の名前をご記入ください" %>
+        </div>
+      </div>  
+
+      <div class="field">
+        <h6>イベントの特徴</h6>
+        <div class="field-input">
+          <%= f.text_area :description, placeholder: "イベント内容を記入してください"%>
+        </div>
+      </div>
+
+      <div class="input-deadline">
+        <h6>申込期限日</h6>
+        <%= f.date_field :deadline,class:'select-deadline' %>
+      </div>
+
+      <div id="image-list">
+        <%= f.file_field :image %>
+      </div>
+
+      <div class="fee-content">
+          <div class="fee-text">
+            <h6>エントリー費</h6>
+          </div>
+          <%= f.text_field :fee, class:"fee-input", id:"entry-price", placeholder:"例）1000円" %>
+        </div>
+        <div class="fee-content">
+          <h6>エントリー手数料(10%)</h6>
+          <span>
+            <span id='add-tax-fee'></span><h6>円</h6>
+          </span>
+        </div>
+        <div class="fee-content">
+          <h6>エントリー利益(各エントリーにつき)</h6>
+          <span>
+            <span id='profit'></span><h6>円</h6>
+        </div>
+        </span>
+      </div>
+      <div class="submit-btn">
+        <h6>ご記入内容にお間違いがないかもう一度ご確認ください</h6>
+        <%= f.submit "募集内容を投稿する" %>
+      </div>
+    <% end %>
+  </div>
+</div>    

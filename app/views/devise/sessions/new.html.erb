@@ -1,37 +1,46 @@
-<div class='account-page' id='account-page'>
-  <div class='account-page__inner clearfix'>
-    <div class='account-page__inner--left account-page__header'>
-      <h2>Log in</h2>
-      <h5>新規登録はこちら</h5>
-      <a href="#">Sign up </a>
-    </div>
-    <div class="'login-flash-message">
+
+<div class="contents row">
+  <div class="container">
+    
+    <h2>Log in</h2>
+      <div class="sign-up">
+        <h5>新規登録はこちら</h5>
+        <a href="#">Sign up </a>
+      </div>
+      <div class="sns-login">
+        <%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post%>
+        <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post%>
+      </div>
+      
+    <div class= "login-flash-message">
       <%= flash[:notice] %>
       <%= flash[:alert] %>
-    </div>  
-    <div class='account-page__inner--right user-form'>
-      <%= form_with model: @user url: new_user_session_path, local: true do |f|%>
-      <%= render 'layouts/error_messages' model: f.object %>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :email%>
-          </div>
-          <div class='field-input'>
-            <%= f.email_field :email, autofocus: true%>
-          </div>
-          <div class='field'>
-            <div class='field-label'>
-              <%= f.label :password%>
-            </div>
-            <div class='field-input'>
-              <%= f.password_field :password, autocomplete: "off"%>
-            </div>
-          </div>
-          <div class='actions'>
-            <%= f.submit "Log in", class: 'btn'%>
-          </div>
+    </div> 
+
+    <%= form_with model: @user, url: new_user_session_path, local: true do |f|%>
+      <%= render 'layouts/error_messages', model: f.object %>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.label :remember_me %><br />
+          <%= f.check_box :remember_me %>
         </div>
       <% end %>
-    </div>
+
+      <div class="actions">
+        <%= f.submit "Log in" %>
+      </div>
+    <% end %>
+
   </div>
 </div>

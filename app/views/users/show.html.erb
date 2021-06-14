@@ -1,33 +1,40 @@
-<div class='account-page' id='account-page'>
-  <div class='account-page__inner clearfix'>
-    <div class='account-page__inner--left account-page__header'>
-      <h2>Edit Account</h2>
-      <h5>アカウントの編集</h5>
-      <%= link_to "ログアウト", "#", class: 'btn'%>
-      <%= link_to "チャットページに戻る", :back, class: 'btn'%>
-    </div>
-    <div class='account-page__inner--right user-form'>
-      <%= form_with model: current_user, local: true do |f|%>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :name%>
-          </div>
-          <div class='field-input'>
-            <%= f.text_field :name, autofocus: true%>
-          </div>
-        </div>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :email%>
-          </div>
-          <div class='field-input'>
-            <%= f.email_field :email%>
-          </div>
-        </div>
-        <div class='actions'>
-          <%= f.submit "Update", class: 'btn'%>
-        </div>
+
+<div class="contents row">
+  <div class="introduce">
+    <ul class="self-introduce">
+      <li>
+        <%= image_tag @user.image.variant(resize: '400x400') if @user.image.attached? %>
+      </li>
+      <li> <%= @user.nickname %></li>
+      <li><%= @user.introduce %></li>
+    </ul>
+  </div>
+  <p><%= @nickname %>さんの投稿一覧</p>
+  <% @tweets.each do |tweet| %>
+    <div class="tweets">
+     <% tweet.images.each do |image| %>
+        <span><%= image_tag image.variant(gravity: :center, resize:"500x500^", crop:"500x500+0+0").processed, class: 'images' %></span>
       <% end %>
+      <p><%= tweet.text %></p>
+    </div>
+    </div>
+  <% end %>
+  <div class="follow-function">
+  <% if user_signed_in? && current_user != @user %>
+    <% if current_user.active_relationships.exists?(target_user_id: @user.id ) %>
+      <%= link_to 'フォローをやめる', [@user, :follow], method: :delete %>
+    <% else %>
+      <%= link_to 'フォローする', [@user, :follow], method: :post %>
+    <% end %>
+   <% end %>
+    <div class="follower">
+      <%= link_to 'フォロー中', [@user, :followings] %>
+      <%= @user.followings.count %>
+    </div>
+    <div class="follower">
+      <%= link_to 'フォロワー', [@user, :followers] %>
+      <%= @user.followers.count %>
+
     </div>
   </div>
 </div>

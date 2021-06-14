@@ -1,0 +1,117 @@
+<div class="contents row">
+  <div class="container">
+    <h3>エントリー内容の確認<h3>
+    
+      <%# <%エントリー内容の確認表示%> 
+
+      <div class="event-confirm">
+        <h6>イベント名</h6>
+          <h3><%= @event.event_name %><h3>
+        <h6>開催日時<h6>
+          <%= @event.event_date %>
+          <%= @event.start_time.strftime('%H:%H') %>〜<%= @event.finish_time.strftime('%H:%H') %>
+      </div>
+
+      <%# <%エントリー内容の表示%> 
+      <div class="field">
+        <h6>エントリー料金</h6>
+        <div class="field-input">
+          ¥<%= @event.fee %>
+        </div>
+      </div>  
+
+    <%= form_with model: @registration_address, url: event_registrations_path(@event), id: "charge-form", class: 'transaction-form-wrap', local: true do |f| %>
+      <%= render 'error_messages', model: @registration_address %>
+
+      <%# カード情報の入力 %>
+    <div class='credit-card-form'>
+      <h1 class='info-input-haedline'>
+        クレジットカード情報入力
+      </h1>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">カード情報</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :number, class:"input-default", id:"card-number", placeholder:"カード番号(半角英数字)", maxlength:"16" %>
+        <div class='available-card'>
+          <%= image_tag 'card-visa.gif', class: 'card-logo'%>
+          <%= image_tag 'card-mastercard.gif', class: 'card-logo'%>
+          <%= image_tag 'card-jcb.gif', class: 'card-logo'%>
+          <%= image_tag 'card-amex.gif', class: 'card-logo'%>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">有効期限</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <div class='input-expiration-date-wrap'>
+          <%= f.text_field :exp_month, class:"input-expiration-date", id:"card-exp-month", placeholder:"例)3" %>
+          <p>月</p>
+          <%= f.text_field :exp_year, class:"input-expiration-date", id:"card-exp-year", placeholder:"例)23" %>
+          <p>年</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">セキュリティコード</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :cvc, class:"input-default", id:"card-cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4" %>
+      </div>
+    </div>
+    <%# /カード情報の入力 %>
+
+     <%# /住所情報の入力 %>
+      <div class="field">
+       <h6>郵便番号</h6>
+        <div class="field-input">
+          <%= f.text_field :postal_code, id: "postal_code", placeholder:"例) 123-4567", maxlength: "8" %>
+        </div>
+      </div>  
+
+      <div class="active-hash-field">
+      <h6>都道府県</h6>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"event-place"}) %>
+      </div>
+
+      <div class="field">
+        <h6>市区町村</h6>
+        <div class="field-input">
+          <%= f.text_field :city, id: "city", placeholder:"例) 東京都品川区" %>
+        </div>
+      </div>
+
+      <div class="field">
+       <h6>番地</h6>
+        <div class="field-input">
+          <%= f.text_field :place_number, id:"addresses", placeholder: "例) 青山1-1-1" %>
+        </div>
+      </div>  
+
+      <div class="field">
+        <h6>建物名</h6>
+        <div class="field-input">
+          <%= f.text_field :building_name, placeholder: "例) 志賀ビル101"%>
+        </div>
+      </div>
+
+      <div class="input-deadline">
+        <h6>電話番号</h6>
+        <%= f.text_field :phone_number, id: "phone-number", placeholder: "例) 09012345678", maxlength:"11" %>
+      </div>
+
+      <div class="fee-content">
+        <h6>エントリー費合計</h6>
+        <b><%= @event.fee %>円</b>
+      </div>
+      <div class="submit-btn">
+        <%= f.submit "エントリーする", data: {
+            confirm: '入力内容にお間違いはございませんか?',
+            cencel: '修正する',
+            commit: 'エントリーする'}, title: 'エントリー確認' %>
+      </div>
+    <% end %>
+  </div>
+</div>    
