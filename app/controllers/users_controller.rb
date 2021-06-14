@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   before_action :authenticate_user!, only: :show
   
 
@@ -28,4 +29,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(:nickname, :email, :introduce, :image)
   end
   
+
 end

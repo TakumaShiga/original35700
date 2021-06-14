@@ -23,7 +23,9 @@ Things you may want to cover:
 
 * ...
 
+
 ## users
+
 
 | Column             | Type     | Options                  |
 | ------------------ | -------- | ------------------------ |
@@ -33,6 +35,7 @@ Things you may want to cover:
 | full_name          | string   | null: false              |
 | birth_day          | date     | null: false              |
 | gender             | string   | null: false              |
+
 | introduce          | text     |                          |
 | profile_image      | string   |                          |
 
@@ -60,6 +63,14 @@ has_many :followers, through: :passive_relationships, source: :user
 belongs_to :user
 belongs_to :target_user, class_name: 'User', foreign_key: 'target_user_id'
 
+
+has_many :posts
+has_many: comments
+has_many :items
+has_many :orders
+has_one :address
+
+
 ## tweets
 
 | Column             | Type       | Options                  |
@@ -68,7 +79,9 @@ belongs_to :target_user, class_name: 'User', foreign_key: 'target_user_id'
 | user               | references | foreign_key: true        |
 
 has_many :comments
+
 has_many :likes
+
 has_many_attached
 belongs_to :user
 
@@ -164,8 +177,8 @@ belongs_to :user
 has_many :registrations
 has_one_attached: image
 
-
 ## registrations
+
 
 | Column    | Type       | Options           |
 | --------- | ---------- | ----------------- |

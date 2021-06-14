@@ -6,6 +6,7 @@ ja:
         full_name: 名前
         birth_day: 生年月日
         gender: 性別
+
         
       tweet:
         text: テキスト
@@ -33,4 +34,3 @@ ja:
           place_number: 番地
           phone_number: 電話番号
           token: カード情報
-          

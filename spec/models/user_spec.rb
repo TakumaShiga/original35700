@@ -37,12 +37,15 @@ describe 'ユーザー新規登録' do
       @user.full_name = ""
       @user.valid?
       expect(@user.errors.full_messages).to include("名前は全角(ひらがな、カタカナ、漢字)で入力してください")
+
     end
 
     it 'full_nameが半角文字では登録できない' do
       @user.full_name = "shigatakuma"
       @user.valid?
+
       expect(@user.errors.full_messages).to include("名前は全角(ひらがな、カタカナ、漢字)で入力してください")
+
     end
 
     it 'passwordが空では登録できない' do
@@ -67,12 +70,14 @@ describe 'ユーザー新規登録' do
       @user.password = "123456"
       @user.valid?
       expect(@user.errors.full_messages).to include("パスワードは6文字以上の英字と数字の両方を含めて設定してください")
+
     end
 
     it 'passwordが英字だけでは登録できない' do
       @user.password = "abcdefg"
       @user.valid?
       expect(@user.errors.full_messages).to include("パスワードは6文字以上の英字と数字の両方を含めて設定してください")
+
     end
 
     it 'genderが空では登録できない' do
@@ -87,4 +92,6 @@ describe 'ユーザー新規登録' do
       expect(@user.errors.full_messages).to include("生年月日を入力してください")
     end
   end
+
 end
+

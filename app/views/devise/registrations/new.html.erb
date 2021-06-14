@@ -1,3 +1,4 @@
+
 <div class="contents row">
   <div class="container">
       <h2>Create Account</h2>
@@ -13,11 +14,13 @@
           <%= f.label :image %>
           <%= f.file_field :image %>
         </div>
+
          <div class="field">
           <div class="field-label">
             <%= f.label :full_name %>
           </div>
           <div class="field-input">
+
             <%= f.text_field :full_name, autofocus: true, placeholder: "", placeholder: "全角文字"%>
           </div>
         </div>
@@ -52,6 +55,7 @@
             <%= f.email_field :email%>
           </div>
         </div>
+
         <%if @sns_id.present? %>
           <%= hidden_field_tag :sns_auth, true %>
         <% else %>
@@ -67,6 +71,7 @@
             <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
           </div>
         <% end %>
+
         <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">Birthday</label>
@@ -83,12 +88,14 @@
                     end_year: (Time.now.year - 5),
                     date_separator: '%s'),
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+
         </div class=field-label>
           <%= f.label :"自己紹介文" %>
         </div>
         <div class="field-input">
           <%= f.text_area :introduce %>
         </div>
+
 
         <div class='actions'>
           <%= f.submit "Create Account", class: 'btn'%>
