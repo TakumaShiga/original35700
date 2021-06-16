@@ -1,5 +1,10 @@
 class LikesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_post
+
+  def show
+    @likes = Like.all.order("created_at DESC")
+  end
 
   def create
     @like = Like.create(user_id: current_user.id, tweet_id: @tweet.id)
