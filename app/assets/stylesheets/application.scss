@@ -20,6 +20,11 @@
 box-sizing: border-box;
 }
 
+.under-line {
+  text-decoration-line: none;
+}
+
+
 .notifications {
   color: white;
   text-align: center;  
@@ -30,4 +35,9 @@ box-sizing: border-box;
 
   .alert {
     background-color: orange;
+  }
+
+  h2 {
+    font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+    font-weight: bold;
   }

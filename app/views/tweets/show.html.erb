@@ -1,43 +1,62 @@
 <div class="contents row">
   <div class="content-post" style="background-image: url(<%= @tweet.images %>);">
     <div class="tweets">
-      <% @tweet.images.each do |image| %>
-        <span><%= image_tag image.variant(gravity: :center, resize:"500x500^", crop:"500x500+0+0").processed, class: 'images' %></span>
-      <% end %>  
+      <div class="nickname">
+        <span><%= image_tag @tweet.user.image, class:"user-pic" %></span>
+          <%=link_to @tweet.user.nickname, user_path(@tweet.user.id), class: "under-line" %>
+      </div>
+      <div class="slider">
+        <% @tweet.images.each do |image| %>
+          <span><%= image_tag image.variant(resize:"600x600", crop:"600x600+0+0").processed, class: 'images' %></span>
+        <% end %>  
+      </div>
       <p><%= @tweet.text %><p>
-      <span class="nickname"><%= @tweet.user.nickname %>
+      
       </span>
       <ul class="more-list">
         <% if current_user.id == @tweet.user_id %>
         <li>
-          <%= link_to "編集", edit_tweet_path(@tweet.id), method: :get %>
-          <%= link_to "削除", tweet_path(@tweet.id), method: :delete, data: {
+          <%= link_to edit_tweet_path(@tweet.id), method: :get, class: "under-line" do %>
+            <i class="far fa-edit fa-lg"></i>
+          <% end %>
+          <%= link_to tweet_path(@tweet.id), method: :delete, class: "under-line", data: {
             confirm: '本当に削除して良いですか?',
             cencel: 'やめる',
-            commit: '削除する'}, title: '削除確認' %>
+            commit: '削除する'}, title: '削除確認' do %>
+            <i class="fas fa-trash-alt fa-lg"></i>
+          <% end %>  
         </li>
-       <% end %> 
-      </ul>
+        <% end %> 
+            <p class= "under-line "><%=link_to @tweet.likes.count, tweet_likes_path(@tweet),class: "how-many-likes" %>Likes</p>
+        </ul>
     </div>
   </div>
-  <div class="container">
+  <div class="comment-area">
     <% if user_signed_in? %>
       <%= form_with model: [@tweet, @comment], local: true do |f| %>
-        <%= f.text_area :comment, placeholder:"コメントする" %>
-        <%= f.submit "SEND" %>
+        <%= f.text_area :comment, class: "commentform",placeholder:"コメントする" %>
+        <%= f.submit "SEND", class: "submit" %>
       <% end %>
     <% end %>
-    <div class="comments">
-      <h4>コメント一覧</h4>
+  </div>  
+    <div class="comment-container" >
       <% @comments.each do |comment| %>
-        <p>
-          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %></strong>
-        <%= comment.comment %>
-        <% if current_user.id == comment.user_id %>
-          <%= link_to "削除", tweet_comment_path(comment.tweet.id, comment.id), method: :delete %>
-        <% end %>
-        </p>
-      <% end %>  
-    </div>    
-  </div>
-</div>  
+        <div class="balloon">
+         <figure class="balloon-image-left">
+            <%= image_tag comment.user.image, id:"img" %>
+         <figcaption class="balloon-image-description">
+           <%= comment.user.nickname %>
+          </figcaption>
+          </figure>
+         <div class="balloon-text-right">
+           <p><%= comment.comment %>
+            <% if current_user.id == comment.user_id %>
+              <%= link_to tweet_comment_path(comment.tweet.id, comment.id), method: :delete, class: "under-line" do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+            </p>  
+            <% end %>
+        </div>    
+      <%end%> 
+     </div>
+  

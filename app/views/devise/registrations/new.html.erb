@@ -30,16 +30,20 @@
             <%= f.text_field :nickname, class: "Form-Item-Input"%>
           </div>
   
-          <%# <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>性別</p>
-            <div class='male-select'>
-              male
-              <%= f.radio_button :gender, :male, class: "Form-Item-Input" %>
-            <%# </div> %>
-            <%# <div class="female-select">
-            female
-              <%= f.radio_button :gender, :female , class: "Form-Item-Input"%>
-            <%# </div> %> 
-      
+           <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>性別</p>
+           <div class='Form-Item'>
+            <div class='gender-select'>
+
+              <div class="male-select">
+                male
+                <%= f.radio_button :gender, :male, style: "transform:scale(0.58);", class: "Form-Item-Input", id:"gender-select" %>
+              </div>
+              <div class="female-select">
+                female
+                <%= f.radio_button :gender, :female , style:"transform:scale(0.45);", class: "Form-Item-Input", id:"gender-select" %>
+              </div>
+              </div>
+            </div>
         <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>メールアドレス</p>
           <div class='Form-Item'>
             <%= f.email_field :email, class: "Form-Item-Input"%>

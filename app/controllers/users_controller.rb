@@ -1,11 +1,9 @@
 class UsersController < ApplicationController
-
   before_action :authenticate_user!, only: :show
-  
 
   def show
     @user = User.find(params[:id])
-    @nickname = @user.nickname 
+    @nickname = @user.nickname
     @tweets = @user.tweets
   end
 
@@ -21,13 +19,11 @@ class UsersController < ApplicationController
       flash.now[:alert] = '編集できませんでした。'
       render :edit
     end
-    
   end
+
   private
 
   def user_params
     params.require(:user).permit(:nickname, :email, :introduce, :image)
   end
-  
-
 end

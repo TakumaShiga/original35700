@@ -1,32 +1,59 @@
-<%= form_with(url: search_tweets_path, local: true, method: :get,  class: "search-form") do |f| %>
-  <%= f.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
-  <%= f.submit "検索", class: "serach-btn" %>
-<% end %>
-<div class="contents row">
-  <% @tweets.each do |tweet| %>
-    <div class="tweets">
-      <% tweet.images.each do |image| %>
-        <span><%= image_tag image.variant(gravity: :center, resize:"450x450^", crop:"450x450+0+0").processed, class: 'images' %></span>
-      <% end %>  
-   
-      <p><%= tweet.text %></p>
-    <span class="name">
-      <%= tweet.user.nickname %>
-    </span>  
-    <div id="like-button-<%= tweet.id %>">
-      <%= render partial: 'likes/like', locals: {tweet: tweet} %>
-    </div>
-        <% if user_signed_in? %>
-          
-              <%= link_to "詳細", tweet_path(tweet.id), method: :get %>
-            
-           <% if current_user.id == tweet.user_id %> 
-           
-              <%= link_to "編集", edit_tweet_path(tweet.id), method: :get %>
-          
-          <% end %>
+
+  <div class="article">
+    <div class="side">
+      <%= form_with(url: search_tweets_path, local: true, method: :get,  class: "search-form") do |f| %>
+        <%= f.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+        <%= f.submit "検索", class: "search-btn" %>
+      <% end %>
+      <ul class="menu-contents">
+  
+       <li class="content">
+        <%=link_to events_path,class:"under-line" do %>
+          <i class="fas fa-calendar-week"><span>大会・イベント</span></i>
         <% end %>
-      </div>  
+        </li>
+       <li class="content">
+        <%= link_to questions_path, class:"under-line" do %>
+          <i class="fas fa-question"><span>ランナー知恵袋</span></i>
+        <% end %>
+        </li>
+        <li class="tweet-btn">
+          <%= link_to new_tweet_path, class:"under-line" do%>
+            <p>Tweetする<p>
+            <% end %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="contents row">
+      <% @tweets.each do |tweet| %>
+        <div class="tweets">
+          <div class="nickname">
+          <span><%= image_tag current_user.image, class:"user-pic" %></span>
+          <%=link_to tweet.user.nickname, user_path(tweet.user.id), class: "under-line" %>
+          </div>
+          <div class="slider">
+            <% tweet.images.each do |image| %>
+              <span><%=image_tag image.variant(resize:"600x600").processed, class: 'images'%></span> 
+            <% end %>  
+          </div>
+          <div class="text-area">
+             <%= tweet.text %>
+          </div>
+          <div class="like-and-detail" >
+            <div id="like-button-<%= tweet.id %>">
+              <%= render partial: 'likes/like', locals: {tweet: tweet} %>
+          </div>
+            <div class="detail">
+              <% if user_signed_in? %>
+                <%= link_to tweet_path(tweet.id), method: :get, class:"under-line" do %>  
+                <i class="far fa-comment-dots fa-2x"></i>
+              <% end %>
+              
+              <% end %>
+            </div>
+          </div>
+        </div>  
+      <% end %>   
+    </div>   
   </div>
- <% end %>   
-</div>      

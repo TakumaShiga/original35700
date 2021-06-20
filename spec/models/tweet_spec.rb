@@ -15,9 +15,9 @@ RSpec.describe Tweet, type: :model do
     end
 
     it 'textが空では投稿できないこと' do
-      @tweet.text = ""
+      @tweet.text = ''
       @tweet.valid?
-      expect(@tweet.errors.full_messages).to include("テキストを入力してください")
+      expect(@tweet.errors.full_messages).to include('テキストを入力してください')
     end
   end
 end

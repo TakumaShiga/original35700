@@ -8,7 +8,12 @@
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
     <script type="text/javascript" src="https://js.pay.jp/v1/"></script>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
     <%= javascript_pack_tag 'application' %>
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
   <body>
@@ -23,8 +28,12 @@
         <h1 class="logo"><%= link_to root_path, class: "under-line" do %>
          <i class="fas fa-running fa-lg"></i>
          RUNTweet
+         </h1>
         <% end %>
-        </h1>
+        <% if user_signed_in? %>
+        <span><%= image_tag current_user.image, class:"user-pic header-pic" %></span>
+        <% end %>
+        
         <nav class="header-nav">
         <% if user_signed_in? %>
         
@@ -41,7 +50,7 @@
            
             <ul>
               <li class="a" >
-                <%= link_to current_user.nickname, user_path(current_user.id), class: "" %>
+                <%= link_to "マイページ", user_path(current_user.id), class: "" %>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
                <%= link_to "編集する",  edit_user_path(current_user), method: :get %>
               </li>

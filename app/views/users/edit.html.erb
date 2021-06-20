@@ -1,27 +1,33 @@
-<h2>プロフィール編集</h2>
-  <p><%= @user.nickname %></p>
+  <div class="Form">
+    <div class="header-container">
+      <span><%=image_tag @user.image, class: "user-pic" %><span>
+        <div class="profile-edit" >
+          <h1>プロフィール編集</h1>
+        </div>
+      </div>
+      <%= form_with model: @user, url: user_path(@user), local: true do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
 
-<%= form_with model: @user, url: user_path(@user), method: :patch, local: true do |f| %>
+          <p class="Form-Item-Label"><span class="Form-Item-Label-Required fas fa-user-edit"></i></span>ニックネーム</p>
+          <div class="Form-Item">
+            <%= f.text_field :nickname, autofocus: true, class: "Form-Item-Input", maxlength: 10 %>
+          </div>
 
-<div class="field">
-  <%= f.label :nickname, "ニックネーム" %>
-   <%= f.text_field :nickname, autofocus: true, class: "form-control", placeholder: "最大10文字", maxlength: 10 %>
-</div>
-        
-  <div class="field">
-    <%= f.label :image, "プロフィール画像" %><br />
-     <%= f.file_field :image %>
-  </div>
+          <p class="Form-Item-Label"><span class="Form-Item-Label-Required fas fa-user-edit"></span>プロフィール画像</p>        
+          <div class="Form-Item">
+            <%= f.file_field :image, class: "Form-Item-Input"%>
+          </div>
 
-  <div class="field">
-    <%= f.label :introduce, "自己紹介文" %><br />
-    <%= f.text_area :introduce %>     
-  </div> 
+          <p class="Form-Item-Label"><span class="Form-Item-Label-Required fas fa-user-edit"></span>自己紹介文</p>
+          <div class="Form-Item">
+            <%= f.text_area :introduce, class: "Form-Item-Input"%>     
+          </div> 
 
-  <div class="actions">
-    <%= f.submit "Update",  data: {
-            confirm: '編集してよろしいですか?',
-            cencel: 'やめる',
-            commit: '編集する'}, title: '編集確認' %>
-  </div>
-<% end %>
+          <div class="actions">
+            <%= f.submit "Update", class: "Form-Btn", data: {
+                    confirm: '編集してよろしいですか?',
+                    cencel: 'やめる',
+                    commit: '編集する'}, title: '編集確認' %>
+          </div> 
+        <% end %>
+    </div>

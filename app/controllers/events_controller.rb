@@ -2,9 +2,9 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, except: [:index, :show, :search]
   before_action :prohibit_user, only: [:edit, :update, :destroy]
-  
+
   def index
-    @events = Event.all.order("created_at DESC")
+    @events = Event.all.order('created_at DESC')
   end
 
   def show
@@ -15,13 +15,13 @@ class EventsController < ApplicationController
   end
 
   def create
-     @event= Event.new(event_params)
-     if @event.save
+    @event = Event.new(event_params)
+    if @event.save
       redirect_to event_path(@event), notice: 'エントリー募集しました'
-     else
+    else
       flash.now[:alert] = 'エントリー募集ができませんでした'
       render :new
-     end
+    end
   end
 
   def edit
@@ -29,10 +29,10 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-       redirect_to event_path(@event),notice: 'エントリーを編集しました'
+      redirect_to event_path(@event), notice: 'エントリーを編集しました'
     else
-       flash.now[:alert] = 'エントリーを編集できませんでした'
-       render :edit
+      flash.now[:alert] = 'エントリーを編集できませんでした'
+      render :edit
     end
   end
 
@@ -50,17 +50,13 @@ class EventsController < ApplicationController
   def set_event
     @event = Event.find(params[:id])
   end
-  
+
   def move_to_index
-    unless user_signed_in?
-      redirect_to root_path
-    end
+    redirect_to root_path unless user_signed_in?
   end
 
   def prohibit_user
-    unless current_user.id == @event.user_id
-      redirect_to root_path
-    end 
+    redirect_to root_path unless current_user.id == @event.user_id
   end
 
   def event_params

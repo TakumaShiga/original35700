@@ -1,0 +1,17 @@
+<div class="like-wrapper">
+  <div class="like-container">
+    <h1>Liked by</h1>
+    <% @likes.each do |like| %>
+    <div class="like-index">
+    <% if @tweet.likes.ids.present? %>
+      <div><%= image_tag like.user.image, class:"user-pic", id: "img" %>
+        <%= link_to like.user.nickname, user_path(like.user.id), class: "under-line do-following " %> 
+      </div>
+    <%end%>
+      <div class="like-introduce">
+        <%= like.user.introduce %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

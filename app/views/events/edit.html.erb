@@ -1,84 +1,80 @@
-<div class="contents row">
-  <div class="container">
-    <h3>イベント内容を編集する<h3>
-    <%= form_with model: @event, url: event_path(@event), local: true do |f| %>
+<div class="Form">
+    <div class="event-subject">
+      <h2>イベントを編集する<h2>
+    </div>
+    <%= form_with model: @event,  local: true do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
 
-      <div class="field">
-        <h6>イベント名</h6>
-        <div class="field-input">
-          <%= f.text_field :event_name, autofocus: true %>
+     <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>イベント名</p>
+        <div class="Form-Item">
+          <%= f.text_field :event_name, autofocus: true, class: "Form-Item-Input" %>
         </div>
-      </div>  
+    
 
-      <div class="input-event-datetime">
-        <h6>開催日時</h6>
-        <%= f.date_field :event_date,class:'select-event' %>
-        <%= f.time_select :start_time, minute_step: 15 %>〜<%= f.time_select :finish_time, minute_step: 15 %>
-      </div>
-      
-      <div class="active-hash-field">
-      <h6>カテゴリー</h6>
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"event-category"}) %>
-      </div>  
-
-      <div class="active-hash-field">
-      <h6>開催地域</h6>
-        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"event-place"}) %>
-      </div>
-
-      <div class="field">
-        <h6>開催場所(住所)</h6>
-        <div class="field-input">
-          <%= f.text_field :place_number %>
-        </div>
-      </div>
-
-      <div class="field">
-       <h6>集合場所</h6>
-        <div class="field-input">
-          <%= f.text_field :place_name, placeholder: "詳しい場所の名前をご記入ください" %>
-        </div>
-      </div>  
-
-      <div class="field">
-        <h6>イベントの特徴</h6>
-        <div class="field-input">
-          <%= f.text_area :description, placeholder: "イベント内容を記入してください"%>
-        </div>
-      </div>
-
-      <div class="input-deadline">
-        <h6>申込期限日</h6>
-        <%= f.date_field :deadline,class:'select-deadline' %>
-      </div>
-
-      <div id="image-list">
-        <%= f.file_field :image %>
-      </div>
-
-      <div class="fee-content">
-          <div class="fee-text">
-            <h6>>エントリー費</h6>
+       <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>開催日時</p>
+        <div class="Form-Item">
+          <%= f.date_field :event_date,class: "Form-Item-Input" %>
           </div>
-          <%= f.text_field :fee, class:"fee-input", id:"entry-price", placeholder:"例）1000円" %>
-        </div>
-        <div class="fee-content">
-          <h6>エントリー手数料(10%)</h6>
-          <span>
-            <span id='add-tax-fee'></span><h6>円</h6>
-          </span>
-        </div>
-        <div class="fee-content">
-          <h6>エントリー利益(各エントリーにつき)</h6>
-          <span>
-            <span id='profit'></span><h6>円</h6>
-        </div>
-        </span>
+          <div class="event-date">
+          <%= f.time_select :start_time, minute_step: 15, class: "Form-Item-Input" %>〜<%= f.time_select :finish_time, minute_step: 15, class: "Form-Item-Input" %>
+       </div>
+      
+      <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>カテゴリー</p>
+          <div class="Form-Item">
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"Form-Item-Input", id:"event-category"}) %>
+      </div>  
+
+      <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>開催地域</p>
+        <div class="Form-Item">
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class: "Form-Item-Input", id:"event-place"}) %>
       </div>
+
+      <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>開催場所(住所)</p>
+          <div class="Form-Item">
+          <%= f.text_field :place_number, class: "Form-Item-Input" %>
+        </div>
+      
+
+      <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>集合場所</p>
+          <div class="Form-Item">
+          <%= f.text_field :place_name, placeholder: "詳しい場所の名前をご記入ください", class: "Form-Item-Input" %>
+        </div>
+        
+
+      <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>イベントの特徴</p>
+          <div class="Form-Item">
+          <%= f.text_area :description, placeholder: "イベント内容を記入してください", class: "Form-Item-Textarea"%>
+        </div>
+    
+
+      <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>申し込み期限</p>
+          <div class="Form-Item">
+        <%= f.date_field :deadline,class: "Form-Item-Input" %>
+      </div>
+
+      <p class="Form-Item-Label"><span class="Form-Item-Label-Required">任意</span>画像</p>
+          <div class="Form-Item">
+        <%= f.file_field :image, class: "Form-Item-Input" %>
+      </div>
+
+     <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>エントリー費</p>
+          <div class="Form-Item">
+          <%= f.text_field :fee, class:"Form-Item-Input", id:"entry-price", placeholder:"例）1000円" %>
+        </div>
+
+        <p class="Form-Item-Label">エントリー手数料(10%)</p>
+          <div class="Form-Item">
+            <div class="Form-Item-Input" id='add-tax-fee'></div>
+         </div>
+
+        <p class="Form-Item-Label">エントリー利益(各エントリーにつき)</p>
+          <div class="Form-Item">
+            <span class="Form-Item-Input" id='profit'></span>
+         </div>
+        
       <div class="submit-btn">
-        <h6>ご記入内容にお間違いがないかもう一度ご確認ください</h6>
-        <%= f.submit "編集内容を投稿する" %>
+        <h6>※ご記入内容にお間違いがないかもう一度ご確認ください</h6>
+        <%= f.submit "募集内容を編集する", class: 'Form-Btn'%>
       </div>
     <% end %>
   </div>

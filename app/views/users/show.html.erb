@@ -1,40 +1,48 @@
 
-<div class="contents row">
-  <div class="introduce">
-    <ul class="self-introduce">
-      <li>
-        <%= image_tag @user.image.variant(resize: '400x400') if @user.image.attached? %>
-      </li>
-      <li> <%= @user.nickname %></li>
-      <li><%= @user.introduce %></li>
-    </ul>
-  </div>
-  <p><%= @nickname %>さんの投稿一覧</p>
-  <% @tweets.each do |tweet| %>
-    <div class="tweets">
-     <% tweet.images.each do |image| %>
-        <span><%= image_tag image.variant(gravity: :center, resize:"500x500^", crop:"500x500+0+0").processed, class: 'images' %></span>
-      <% end %>
-      <p><%= tweet.text %></p>
+    <%# 自己紹介エリア %>
+    <div class="introduce-wrapper">
+      <div class="introduce-container">
+        <div class="introduce-myself">
+          <span><%= image_tag @user.image, class:"introduce-pic" %></span>
+          <span class="my-nickname"><%= @user.nickname %>
+          <%=link_to edit_user_path(@user) do%>
+          <i class="edit-icon fas fa-user-edit">プロフィールを編集</i>
+          <% end %>
+          </span>
+          <span class="introduce-text">
+            <%= @user.introduce %>
+          </span>
+        </div>   
+      <div class="follow-function">
+        <% if user_signed_in? && current_user != @user %>
+          <% if current_user.active_relationships.exists?(target_user_id: @user.id ) %>
+            <%= link_to 'フォローをやめる', [@user, :follow], method: :delete, class: "under-line do-following" %>
+          <% else %>
+            <%= link_to 'フォローする', [@user, :follow], method: :post, class: "under-line done-followed" %>
+          <% end %>
+        <% end %>
+        <div class="follower">
+          <%= @user.followings.count %>
+          <%= link_to 'Following', [@user, :followings], class: "under-line" %>
+          
+        </div>
+        <div class="follower">
+          <%= @user.followers.count %>
+          <%= link_to 'Followers', [@user, :followers], class: "under-line" %>
+        </div>
+     </div>
     </div>
-    </div>
-  <% end %>
-  <div class="follow-function">
-  <% if user_signed_in? && current_user != @user %>
-    <% if current_user.active_relationships.exists?(target_user_id: @user.id ) %>
-      <%= link_to 'フォローをやめる', [@user, :follow], method: :delete %>
-    <% else %>
-      <%= link_to 'フォローする', [@user, :follow], method: :post %>
-    <% end %>
-   <% end %>
-    <div class="follower">
-      <%= link_to 'フォロー中', [@user, :followings] %>
-      <%= @user.followings.count %>
-    </div>
-    <div class="follower">
-      <%= link_to 'フォロワー', [@user, :followers] %>
-      <%= @user.followers.count %>
+  <%# 自己紹介エリア %>
 
-    </div>
+  <%# ここから投稿一覧 %>
+  <div class="contents row">
+    <p><%= @nickname %>さんの投稿一覧</p>
+      <% @tweets.each do |tweet| %>
+      <div class="tweets">
+        <% tweet.images.each do |image| %>
+          <span><%= image_tag image.variant(gravity: :center, resize:"600x600").processed, class: 'images' %></span>
+        <% end %>
+        <p><%= tweet.text %></p>
+      </div>
+     <% end %>
   </div>
-</div>

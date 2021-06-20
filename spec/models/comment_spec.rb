@@ -10,21 +10,21 @@ RSpec.describe Comment, type: :model do
     end
 
     it 'commentが空では投稿できないこと' do
-      @comment.comment = ""
+      @comment.comment = ''
       @comment.valid?
-      expect(@comment.errors.full_messages).to include("Commentを入力してください")
+      expect(@comment.errors.full_messages).to include('Commentを入力してください')
     end
 
     it 'tweetが紐づいていないと投稿できないこと' do
       @comment.tweet = nil
       @comment.valid?
-      expect(@comment.errors.full_messages).to include("Tweetを入力してください")
+      expect(@comment.errors.full_messages).to include('Tweetを入力してください')
     end
 
     it 'userが紐づいていないと投稿できないこと' do
       @comment.user = nil
       @comment.valid?
-      expect(@comment.errors.full_messages).to include("Userを入力してください")
+      expect(@comment.errors.full_messages).to include('Userを入力してください')
     end
   end
 end

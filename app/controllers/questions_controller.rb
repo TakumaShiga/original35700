@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
-    @questions = Question.all.order("created_at DESC")
+    @questions = Question.all.order('created_at DESC')
   end
 
   def show
@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to question_path(@question), notice: '質問の投稿が完了しました'
+      redirect_to questions_path, notice: '質問の投稿が完了しました'
     else
       flash.now[:alert] = '質問の投稿できませんでした'
       render :new
@@ -50,9 +50,7 @@ class QuestionsController < ApplicationController
   end
 
   def move_to_index
-    unless current_user.id == @question.user_id
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_user.id == @question.user_id
   end
 
   def question_params
