@@ -25,6 +25,10 @@ ja:
         category_id: カテゴリー
         prefecture_id: 地域
 
+      question:
+        title: タイトル
+        post: 質問
+
   activemodel:
     attributes:      
         registration_address:

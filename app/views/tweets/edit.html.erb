@@ -1,11 +1,18 @@
-<div class="contents row">
-  <div class="container">
-    <h3>編集する</h3>
-    <%= form_with model: @tweet, url: tweet_path(@tweet.id) , local: true do |f| %>
-      <%= f.text_area :text %>
-      <%= f.file_field :images, name: 'tweet[images][]', id: 'tweet_image' %>
-      <%= f.submit "SEND" %>
-      <div id="image-list"></div>
+  <div class="tweet-container">
+    <span><%= image_tag current_user.image, class:"user-pic" %>さん、こんにちは</span>
+      <%= form_with model: @tweet, url: tweet_path(@tweet), local: true do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+
+       <%= f.text_area :text, class:"text-post", rows: "10" %>
+        <div class="tweet-image">
+          <label>
+            <%= f.label :images, id: "images", class: "far fa-images fa-2x" do %>
+             <%= f.file_field :images, name: 'tweet[images][]', id: "images", style:"display:none;" %>
+            <% end %>
+          </label>
+        </div>
+        <div>
+          <%= f.submit "Edit", class:"submit-tweet" %>
+        </div>
+      
     <% end %>
-  </div>
-</div>      

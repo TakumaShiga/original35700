@@ -1,11 +1,36 @@
-<div class="contents row">
-  <div class="container">
+<div class="question-index-wrapper">
+  <div class="question-index-container">
+  <h1>ランナー知恵袋</h1>
+  <%= link_to new_question_path, class:"under-line" do %>
+        <i class="fas fa-question"></i> <span>質問する</span>
+      <% end %>
    <% @questions.each do |question| %>
-    <p>
-      <%= link_to question.title, question_path(question) %>
-      <%= link_to question.user.nickname, user_path(question.user.id) %>
-      <%= question.created_at %>
-    </p>
+    <div class="question-contents">
+      <div class="title-katamari">
+        <div class="question-index-title">
+          <p>タイトル</p>
+          <div class="name-of-title">
+            <%= link_to question.title, question_path(question),class:"under-line" %>
+          </div>
+        </div>
+      </div>
+      <div class="title-katamari">
+        <div class="question-index-title">
+          <p>投稿者</p>
+          <div class="question-index-nickname">
+            <%= link_to question.user.nickname, user_path(question.user.id), class:"under-line" %>
+          </div>
+        </div>
+      </div>
+      <div class="title-katamari">
+        <div class="question-index-title">
+          <p>投稿日時</p>
+          <div class="question-index-createdate">
+            <%= question.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+          </div>
+        </div>
+      </div>
+    </div>
    <% end %>
   </div>
 </div>

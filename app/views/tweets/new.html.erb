@@ -1,15 +1,23 @@
-<div class="contents row">
-  <div class="container">
-    <h3>投稿する<h3>
+ <div class="tweet-container">
+  <span><%= image_tag current_user.image, class:"user-pic" %>さん、どんな1日でしたか?</span>
     <%= form_with model: @tweet, url: tweets_path, local: true do |f| %>
-      <%= f.text_area :text, placeholder: "text", rows: "10" %>
-      <%= f.file_field :images, name: 'tweet[images][]', id: 'tweet_image' %>
-      <%= f.submit "SEND" %>
-      <div id="image-list"></div>
+      <%= render 'layouts/error_messages', model: f.object %>
+      <%= f.text_area :text, placeholder: "How was your day?", class:"text-post", rows: "10" %>
+        <div class="tweet-image">
+          <label>
+            <%= f.label :image, id: "images", class: "far fa-images fa-2x" do %>
+              <%= f.file_field :images, name: 'tweet[images][]', id: "tweet_image", style:"display:none;" %>
+            <% end %>
+          </label>
+        </div>
+      <div>
+        <%= f.submit "Tweet", class:"submit-tweet" %>
+      </div>
+     <div id="image-list"></div>
     <% end %>
 
-    <% @tweet.images.each do |tweet| %>
+    <% @tweet.images.each do |image| %>
       <%= image_tag image, class: 'images' %>
     <% end %>
   </div>
-</div>    
+  

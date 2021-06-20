@@ -1,51 +1,90 @@
-<div class="contents row">
-  <div class="content-post" style="background-image: url(<%= @event.image %>);">
-    <div class="event">
-        <span><%= image_tag @event.image.variant(gravity: :center, resize:"350x350^", crop:"350x350+0+0").processed, class: 'images' %></span>
+<div class="Form">
+        <div class="event-owner">
+          <h2>主催 <%= @event.user.nickname %></h2>
+        </div>
+        <div class="event-pic">
+          <%= image_tag @event.image.variant(gravity: :center, resize:"200x200^", crop:"200x200+0+0").processed %>
+        </div>
 
-      <h3><%= @event.event_name %><h3>
-      <span class="nickname">主催者<%= @event.user.nickname %></span>
+      <p class="Form-Item-Label"><span class="Form-Item-Label-Required confirmation">イベント名</span></p>
+      <div class="entry-event-name">
+        <%= @event.event_name %>
+      </div>  
+      <div class="Form-Item">
+      </div>
+      
 
-      <div class="event-category">
-        <h1>種目</h1>
+      <p class="Form-Item-Label"><span class="Form-Item-Label-Required confirmation">カテゴリー</span></p>
+      <div class="entry-event-name">
         <%= @event.category.name %>
       </div>
+      <div class="Form-Item">
+      </div>
 
-      <div class="event-date-time">
-      <h1>開催日時<h1>
+      <p class="Form-Item-Label"><span class="Form-Item-Label-Required confirmation">開催日時</span></p>
+        <div class="entry-event-date">
         <%= @event.event_date %>
         <%= @event.start_time.strftime('%H:%H') %>〜<%= @event.finish_time.strftime('%H:%H') %>
       </div>
+      <div class="Form-Item">
+      </div>
 
-      <div class="event-place">
-      <h1>開催場所<h1>
+      <p class="Form-Item-Label"><span class="Form-Item-Label-Required confirmation">開催場所</span></p>
+      <div class="entry-event-name">
         <%= @event.prefecture.name %>
         <%= @event.place_number %>
-      <h1>集合場所</h1>
+      </div>
+      <div class="Form-Item">
+      </div>
+
+      <p class="Form-Item-Label"><span class="Form-Item-Label-Required confirmation">集合場所</span></p>
+      <div class="entry-event-name">
         <%= @event.place_name %>
       </div>
-
-      <div class="event-char">
-        <h1>イベントの特徴<h1>
-        <%= @event.description%>
+      <div class="Form-Item">
       </div>
 
-      <div class="event-deadliner">
-        <h1>お申し込み期限<h1>
-        <%= @event.deadline %>
+
+       <p class="Form-Item-Label"><span class="Form-Item-Label-Required confirmation">イベントの特徴</span></p>
+      <div class="entry-event-name">
+        <%= @event.description%>
+        </div>
+      <div class="Form-Item">
+      </div>
+
+      <p class="Form-Item-Label"><span class="Form-Item-Label-Required confirmation">お申し込み期限</span></p>
+      <div class="entry-event-name">
+      <%= @event.deadline %>
+      </div>
+      <div class="Form-Item">
+      </div>
+
+      <p class="Form-Item-Label"><span class="Form-Item-Label-Required confirmation">エントリー料金</span></p>
+       <div class="entry-total-fee">
+          ¥<%= @event.fee %>
+        </div>
+        <div class="Form-Item"></div>
+
+      <div class="entry-btn">
+          <%= link_to event_registrations_path(@event), method: :get, class:"under-line" do%>
+            <p>エントリーする<p>
+            <% end %>
       </div>
 
       <ul class="more-list">
         <% if current_user.id == @event.user_id %>
         <li>
-          <%= link_to "編集", edit_event_path(@event), method: :get %>
-          <%= link_to "削除", event_path(@event), method: :delete, data: {
+          <%= link_to edit_event_path(@event), method: :get, class: "under-line" do %>
+          <i class="far fa-edit fa-lg"></i>
+          <% end %>
+          <%= link_to event_path(@event), method: :delete, class: "under-line", data: {
             confirm: '本当に削除して良いですか?',
             cencel: 'やめる',
-            commit: '削除する'}, title: '削除確認' %>
+            commit: '削除する'}, title: '削除確認' do %>
+            <i class="fas fa-trash-alt fa-lg"></i>
+          <% end %>  
         </li>
        <% end %> 
-      </ul>
-    </div>    
-  </div>
-</div>  
+      </ul>   
+
+     

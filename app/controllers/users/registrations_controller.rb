@@ -17,8 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       params[:user][:password_confirmation] = pass
     end
     super
-   end
-  
+  end
 
   # GET /resource/edit
   # def edit
@@ -68,9 +67,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update_resource(resource, params)
     resource.update_without_password(params)
-  end  
+  end
 
-  def after_update_path_for(resource)
+  def after_update_path_for(_resource)
     user_path(current_user)
   end
 end

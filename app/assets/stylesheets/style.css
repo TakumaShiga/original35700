@@ -6,1070 +6,316 @@
  * ========================================================================== */
 /*
  * Correct `block` display not defined in IE 8/9. */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section,
-summary {
-  display: block;
+ *, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 
-/*
- * Correct `inline-block` display not defined in IE 8/9. */
-audio,
-canvas,
-video {
-  display: inline-block;
+
+/* 画像のサイズ */
+.images {
+  max-width:100%;
+  height:auto;
+}
+.slick-slide img {
+  width:100%;
+  height:auto;
 }
 
-/*
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices. */
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-/*
- * Address `[hidden]` styling not present in IE 8/9.
- * Hide the `template` element in IE, Safari, and Firefox < 22. */
-[hidden],
-template {
-  display: none;
-}
-
-/* ==========================================================================
- * Base
- * ========================================================================== */
-/*
- * 1. Set default font family to sans-serif.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom. */
-html {
-  font-family: sans-serif;
-  /* 1 */
-  -ms-text-size-adjust: 100%;
-  /* 2 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */
-}
-
-/*
- * Remove default margin. */
-body {
-  margin: 0;
-}
-
-/* ==========================================================================
- * Links
- * ========================================================================== */
-/*
- * Remove the gray background color from active links in IE 10. */
-a {
-  background: transparent;
-}
-
-/*
- * Address `outline` inconsistency between Chrome and other browsers. */
-a:focus {
-  outline: thin dotted;
-}
-
-/*
- * Improve readability when focused and also mouse hovered in all browsers. */
-a:active,
-a:hover {
-  outline: 0;
-}
-
-/* ==========================================================================
- * Typography
- * ========================================================================== */
-/*
- * Address variable `h1` font-size and margin within `section` and `article`
- * contexts in Firefox 4+, Safari 5, and Chrome. */
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-/*
- * Address styling not present in IE 8/9, Safari 5, and Chrome. */
-abbr[title] {
-  border-bottom: 1px dotted;
-}
-
-/*
- * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome. */
-b,
-strong {
-  font-weight: bold;
-}
-
-/*
- * Address styling not present in Safari 5 and Chrome. */
-dfn {
-  font-style: italic;
-}
-
-/*
- * Address differences between Firefox and other browsers. */
-hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  height: 0;
-}
-
-/*
- * Address styling not present in IE 8/9. */
-mark {
-  background: yellow;
-  color: black;
-}
-
-/*
- * Correct font family set oddly in Safari 5 and Chrome. */
-code,
-kbd,
-pre,
-samp {
-  font-family: monospace, serif;
-  font-size: 1em;
-}
-
-/*
- * Improve readability of pre-formatted text in all browsers. */
-pre {
-  white-space: pre-wrap;
-}
-
-/*
- * Set consistent quote types. */
-q {
-  quotes: "“""”""‘""’";
-}
-
-/*
- * Address inconsistent and variable font size in all browsers. */
-small {
-  font-size: 80%;
-}
-
-/*
- * Prevent `sub` and `sup` affecting `line-height` in all browsers. */
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sup {
-  top: -0.5em;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-/* ==========================================================================
- * Embedded content
- * ========================================================================== */
-/*
- * Remove border when inside `a` element in IE 8/9. */
-img {
-  border: 0;
-}
-
-/*
- * Correct overflow displayed oddly in IE 9. */
-svg:not(:root) {
-  overflow: hidden;
-}
-
-/* ==========================================================================
- * Figures
- * ========================================================================== */
-/*
- * Address margin not present in IE 8/9 and Safari 5. */
-figure {
-  margin: 0;
-}
-
-/* ==========================================================================
- * Forms
- * ========================================================================== */
-/*
- * Define consistent border, margin, and padding. */
-fieldset {
-  border: 1px solid silver;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
-}
-
-/*
- * 1. Correct `color` not being inherited in IE 8/9.
- * 2. Remove padding so people aren't caught out if they zero out fieldsets. */
-legend {
-  border: 0;
-  /* 1 */
-  padding: 0;
-  /* 2 */
-}
-
-/*
- * 1. Correct font family not being inherited in all browsers.
- * 2. Correct font size not being inherited in all browsers.
- * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome. */
-button,
-input,
-select,
-textarea {
-  font-family: inherit;
-  /* 1 */
-  font-size: 100%;
-  /* 2 */
-  margin: 0;
-  /* 3 */
-}
-
-/*
- * Address Firefox 4+ setting `line-height` on `input` using `!important` in
- * the UA stylesheet. */
-button,
-input {
-  line-height: normal;
-}
-
-/*
- * Address inconsistent `text-transform` inheritance for `button` and `select`.
- * All other form control elements do not inherit `text-transform` values.
- * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
- * Correct `select` style inheritance in Firefox 4+ and Opera. */
-button,
-select {
-  text-transform: none;
-}
-
-/*
- * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
- *    and `video` controls.
- * 2. Correct inability to style clickable `input` types in iOS.
- * 3. Improve usability and consistency of cursor style between image-type
- *    `input` and others. */
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  -webkit-appearance: button;
-  /* 2 */
-  cursor: pointer;
-  /* 3 */
-}
-
-/*
- * Re-set default cursor for disabled elements. */
-button[disabled],
-html input[disabled] {
-  cursor: default;
-}
-
-/*
- * 1. Address box sizing set to `content-box` in IE 8/9/10.
- * 2. Remove excess padding in IE 8/9/10. */
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box;
-  /* 1 */
-  padding: 0;
-  /* 2 */
-}
-
-/*
- * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
- * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
- *    (include `-moz` to future-proof). */
-input[type="search"] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  /* 2 */
-  box-sizing: content-box;
-}
-
-/*
- * Remove inner padding and search cancel button in Safari 5 and Chrome
- * on OS X. */
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-/*
- * Remove inner padding and border in Firefox 4+. */
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
-/*
- * 1. Remove default vertical scrollbar in IE 8/9.
- * 2. Improve readability and alignment in all browsers. */
-textarea {
-  overflow: auto;
-  /* 1 */
-  vertical-align: top;
-  /* 2 */
-}
-
-/* ==========================================================================
- * Tables
- * ========================================================================== */
-/*
- * Remove most spacing between table cells. */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* ==========================================================================
- * CSS SETTING
- * by Hiroaki WAKATSUKI
- * Converted 2014/2/16
- * ========================================================================== */
-*,
-*:before,
-*:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-img,
-object,
-embed {
+#img{
   max-width: 100%;
-  height: auto;
-}
-
-object,
-embed {
-  height: 100%;
-}
-
-.left {
-  float: left;
-}
-
-.right {
-  float: right;
-}
-
-.clearfix {
-  *zoom: 1;
-}
-
-.clearfix:after {
-  content: "\0020";
-  display: block;
-  height: 0;
-  clear: both;
-  overflow: hidden;
-  visibility: hidden;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-justify {
-  text-align: justify;
-}
-
-.hide {
-  display: none;
-}
-
-.antialiased {
-  -webkit-font-smoothing: antialiased;
 }
 
 img {
-  display: inline-block;
-  vertical-align: middle;
+  margin: auto;
+  max-width:25%;
+  height:auto;
 }
 
-textarea {
-  height: auto;
-  min-height: 50px;
+.image-element {
+  padding: 20px 0;
 }
 
-select {
-  width: 100%;
+
+
+/* 画像サイズここまで */
+
+/* エラーメッセージ */
+
+.error-alert {
+color: red;
+padding: 2px;
+width: 70%;
+margin: 0 auto;
+font-weight: bold;
+font-size:large;
+font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 }
 
-i {
-  font-style: normal;
+/* エラーメッセージ */
+
+.menu {
+	display: block;
+	overflow: hidden;
+	width: 60px;
+	height: 55px;
+	margin: 30px auto;
+	cursor: pointer;
+	-webkit-transition: all 0.5s ease-in-out;
+	        transition: all 0.5s ease-in-out;
+	border: 3px solid transparent;
+	border-radius: 50%;
+	background-color: #00aced;
 }
 
-.animate {
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 0.2s;
-  -o-transition-duration: 0.2s;
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-  -moz-transition-timing-function: ease-in;
-  -o-transition-timing-function: ease-in;
-  -webkit-transition-timing-function: ease-in;
-  transition-timing-function: ease-in;
+.menu div.menubar {
+	width: 20px;
+	margin: 15px auto;
 }
-
-.button {
-  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.05) 1%, rgba(0, 0, 0, 0.2) 100%);
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.05) 1%, rgba(0, 0, 0, 0.2) 100%);
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1%, rgba(0, 0, 0, 0.2) 100%);
+.menu div.menubar .bar {
+	display: block;
+	width: 100%;
+	height: 5px;
+	margin-top: 3px;
+	border-radius: 2px;
+	background-color: #ffffff;
 }
-
-ul {
-  margin: 0;
-  padding: 0;
+.menu ul {
+	display: none;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	-webkit-transition: all 0.5s ease;
+	        transition: all 0.5s ease;
+	text-align: center;
+	opacity: 0;
 }
-
-ul li {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.menu ul li {
+	display: inline-block;
 }
-
-.row {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0;
-  max-width: 660px;
-  *zoom: 1;
-}
-
-.row .grid-1,
-.row .grid-2,
-.row .grid-3,
-.row .grid-4,
-.row .grid-5,
-.row .grid-6,
-.row .grid-7,
-.row .grid-8,
-.row .grid-9,
-.row .grid-10,
-.row .grid-11,
-.row .grid-12 {
-  float: left;
-  margin-left: 0.9%;
-  margin-right: 0.9%;
-}
-
-.row .grid-1 {
-  width: 6.53333%;
-}
-
-.row .grid-2 {
-  width: 14.86667%;
-}
-
-.row .grid-3 {
-  width: 23.2%;
-}
-
-.row .grid-4 {
-  width: 31.53333%;
-}
-
-.row .grid-5 {
-  width: 39.86667%;
-}
-
-.row .grid-6 {
-  width: 48.2%;
-}
-
-.row .grid-7 {
-  width: 56.53333%;
-}
-
-.row .grid-8 {
-  width: 64.86667%;
-}
-
-.row .grid-9 {
-  width: 73.2%;
-}
-
-.row .grid-10 {
-  width: 81.53333%;
-}
-
-.row .grid-11 {
-  width: 89.86667%;
-}
-
-.row .grid-12 {
-  width: 98.2%;
-}
-
-.row:before,
-.row:after {
-  content: " ";
-  display: table;
-}
-
-.row:after {
-  clear: both;
-}
-
-.row.collapse>.column,
-.row.collapse>.columns {
-  position: relative;
-  padding-left: 0;
-  padding-right: 0;
-  float: left;
-}
-
-.row.collapse .row {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.row .row {
-  width: auto;
-  margin-left: -0.9375em;
-  margin-right: -0.9375em;
-  margin-top: 0;
-  margin-bottom: 0;
-  max-width: none;
-  *zoom: 1;
-}
-
-.row .row:before,
-.row .row:after {
-  content: " ";
-  display: table;
-}
-
-.row .row:after {
-  clear: both;
-}
-
-.row .row.collapse {
-  width: auto;
-  margin: 0;
-  max-width: none;
-  *zoom: 1;
-}
-
-.row .row.collapse:before,
-.row .row.collapse:after {
-  content: " ";
-  display: table;
-}
-
-.row .row.collapse:after {
-  clear: both;
-}
-
-@media only screen and (max-width: 40em) {
-
-  .row {
-    width: 100%;
-    padding: 0 20px !important;
-  }
-
-  .row .grid-1,
-  .row .grid-2,
-  .row .grid-3,
-  .row .grid-4,
-  .row .grid-5,
-  .row .grid-6,
-  .row .grid-7,
-  .row .grid-8,
-  .row .grid-9,
-  .row .grid-10,
-  .row .grid-11,
-  .row .grid-12 {
-    float: none;
-    width: 100% !important;
-    margin: 0 !important;
-    position: static !important;
-  }
-}
-
-/* max-width 640px, mobile-only styles, use when QAing mobile issues */
-@media only screen and (min-width: 40.063em) and (max-width: 64em) {
-
-  .row .grid-1,
-  .row .grid-2,
-  .row .grid-3,
-  .row .grid-4 {
-    width: 48.2% !important;
-  }
-}
-
-/* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
-body,
-html {
-  height: 100%;
-  background-color: #f5f5f3;
-}
-
-body {
-  padding-top: 60px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-body {
-  line-height: 1.57;
-  letter-spacing: 0.15em;
-  font-size: 16px;
-  color: #666;
-  font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
-  margin: 0;
-}
-
-a {
-  text-decoration: none;
-  color: #666;
-}
-
-a:hover {
-  color: #57C3E9;
-}
-
-.bold {
+.menu ul li a {
+	display: inline-block;
+	padding: 0.7em 0.5em;
+	-webkit-transition: all 0.3s ease-in;
+	        transition: all 0.3s ease-in;
+	text-decoration: none;
+	color: #00aced;
+	border-bottom: 4px solid transparent;
+	height: 56px;
+	line-height: 2em;
   font-weight: bold;
 }
-
-.serif,
-div.contents.row div.content_post p {
-  font-family: 'ほのか明朝', serif;
+.menu ul li a:hover {
+	color: #ffffff;
+	background-color: #00aced;
+}
+.menu ul li a:target {
+	border-bottom-color: #00aced
+}
+/* クリックした時の動き */
+#cp_navimenuid {
+	display: none;
+}
+#cp_navimenuid:checked ~ .menu {
+	width: 100%;
+	height: 60px;
+	border: 3px solid #00aced;
+	border-radius: 5px;
+	background-color: transparent;
+}
+#cp_navimenuid:checked ~ .menu > ul {
+	display: block;
+	opacity: 1;
+}
+#cp_navimenuid:checked ~ .menu > .menubar {
+	display: none;
 }
 
-.ultra {
-  font-size: 2em !important;
-}
 
-::selection {
-  background: #D8D8D8;
-}
-
-.transition,
-a,
-form input[type="submit"] {
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 0.2s;
-  -o-transition-duration: 0.2s;
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-  -moz-transition-timing-function: linear;
-  -o-transition-timing-function: linear;
-  -webkit-transition-timing-function: linear;
-  transition-timing-function: linear;
-}
-
-.btn,
-header.header div.header__bar.row div.grid-6 a.post {
-  padding: 8px 20px;
-  font-size: 14px;
-  border: 2px solid #57C3E9;
-  color: #57C3E9;
-  font-weight: bold;
-  text-align: center;
-  border-radius: 3px;
-  display: inline-block;
-}
-
-.btn:hover,
-header.header div.header__bar.row div.grid-6 a.post:hover {
-  border-color: #9bdbf2;
-  color: #9bdbf2;
-}
-
-.title {
-  font-weight: bold;
-}
-
-.title--big {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-.title--big i {
-  font-style: italic;
-  font-size: 1.8em;
-}
-
-header.header {
-  padding: 10px;
-  border-bottom: 1px solid #D8D8D8;
-  background-color: #fff;
+.header-3 { 
+  box-sizing: border-box; 
+  width: 100%; 
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 5;
-  height: 62px;
+  top: 0px;
+  z-index: 10;
+} 
+
+.header-inner { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  max-width: 100%; 
+  height: 60px; 
+  padding: 50px;
+  margin: 0 auto; 
+  font-size: 1.2em; 
+} 
+
+.header-button {
+   box-sizing: border-box; 
+   display: inline-block; 
+   padding: 0.5em 1.2em; 
+   font-size: 10px; 
+   text-decoration: none; 
+   cursor: pointer; 
+   user-select: none; 
+  } 
+  
+.header-login { 
+  color: #999; 
+} 
+
+.logo {
+  font-size: 37px; 	
+  font-family: 'Anton', sans-serif;
+  color: #00aced;
 }
 
-header.header div.header__bar.row {
-  position: relative;
+.fas {
+  color: #00aced;
+} 
+
+.header-pic {
+  margin-left: 700px;
+  margin-top: 12px;
 }
 
-header.header div.header__bar.row h1.grid-6 {
-  font-size: 20px;
-  line-height: 41px;
-  float: left;
+.header-inner h6 {
+  margin-right: 950px;
+  margin-top: 60px;
+  font-size: small;
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 }
 
-header.header div.header__bar.row h1.grid-6 a {
-  display: block;
+/* ヘッダーここまで */
+
+/* 検索フォーム */
+
+.search-form {
+  margin: 20px 0 70px 0;
 }
 
-header.header div.header__bar.row div.grid-6 {
-  float: right;
-  text-align: right;
+.search-input {
+  margin-left: 20px;
+  padding: 0 10px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  padding: 3px;
+  width: 70%;
 }
 
-header.header div.header__bar.row div.grid-6 a.post {
-  width: 120px;
-  display: inline-left;
+.search-btn{
+  border-radius: 20px;
+  background: #3879D9;
+  color: #fff;
+  width: 3.0em;
+  height: 2.0em;
+  right:0px;
+  top: -3px;
+  outline : none;
+  cursor: pointer;
+}
+/* ここまで */
+
+/* サイドメニュー */
+
+.article {
+  display:flex;
+}
+
+.side {
+  background-color:#fff;
+  width: 380px;
+  height: 100%;
+  text-align:center;
+  margin-left: 0 auto;
+  position: fixed;
+  padding-top: 100px;
+}
+
+.content {
+  margin: 50px auto;
+  font-size: large;
+  font-weight: bold;
+}
+.content span {
   margin-left: 10px;
 }
 
-header.header .user_nav {
-  position: relative;
-  height: 100px;
-  right: 0;
-}
-
-header.header .user_nav span {
-  top: 5px;
-  display: block;
-  float: left;
-  margin-left: 30px;
-  width: 150px;
-  height: 50px;
-  font-size: 1em;
-  cursor: pointer;
-  position: relative;
-}
-
-header.header .user_nav span:after {
-  content: '▼';
-  font-size: .7em;
-  margin-left: -4px;
-}
-
-header.header .user_nav span:hover ul {
-  color: #57C3E9;
-  display: block;
-}
-
-header.header .user_nav ul {
-  display: none;
-  position: absolute;
-  top: 46px;
-  right: 0;
-  border-left: 1px solid #d8d8d8;
-  border-right: 1px solid #d8d8d8;
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-header.header .user_nav ul li {
-  background-color: #f0f0f0;
-}
-
-header.header .user_nav ul li a {
-  display: block;
-  padding: 10px 20px;
-  text-align: left;
-  border-bottom: 1px solid #d8d8d8;
-}
-
-.form {
-  background: url(https://dl.dropboxusercontent.com/u/5840617/DeathtoStock_Wired3.jpg);
-  background-size: cover;
-}
-
-.form .contents {
-  position: absolute;
-  left: 0;
-  top: 30%;
-  bottom: 0;
-  right: 0;
-}
-
-.form footer {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-}
-
-div.contents.row h2 {
-  margin: 20px 0;
-  padding: 0;
-  font-weight: normal;
-}
-
-div.contents.row h2 strong {
-  font-weight: bold;
-  padding-right: 5px;
-  font-size: 1.2em;
-}
-
-div.contents.row .new_user {
-  font-family: "游ゴシック", "YuGothic";
-}
-
-div.contents.row div.content_post {
-  margin: 20px 0;
-  padding: 30px;
-  position: relative;
-  height: 400px;
-  color: #fff;
-  background-size: cover;
-  background-position: center center;
-  border-radius: 3px;
-  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
-}
-
-div.contents.row div.content_post:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF000000', endColorstr='#FFA60000');
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjAiLz48c3RvcCBvZmZzZXQ9IjYyJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC44NSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-  background-size: 100%;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(62%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.85)));
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 62%, rgba(0, 0, 0, 0.85) 100%);
-  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 62%, rgba(0, 0, 0, 0.85) 100%);
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 62%, rgba(0, 0, 0, 0.85) 100%);
-  z-index: 1;
-  border-radius: 3px;
-}
-
-div.contents.row div.content_post .more {
-  position: absolute;
-  cursor: pointer;
-  top: 20px;
-  right: 30px;
-  z-index: 2;
-  height: 100px;
-  width: 80px;
-  text-align: right;
-}
-
-div.contents.row div.content_post .more:hover ul.more_list {
-  display: block;
-}
-
-div.contents.row div.content_post .more ul.more_list {
-  position: absolute;
-  text-align: left;
-  width: 80px;
-  right: 0;
-  font-size: 12px;
-  background-color: #fff;
+.tweet-btn {
   border: 1px solid #ddd;
-  display: none;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-}
-
-div.contents.row div.content_post .more ul.more_list li {
-  border-bottom: 1px solid #ddd;
-}
-
-div.contents.row div.content_post .more ul.more_list li:last-child {
-  border-bottom: 0;
-}
-
-div.contents.row div.content_post .more ul.more_list li a {
+  border-radius: 30px;
+  padding: 12px;
+  width: 80%;
+  margin: 0 auto;
   display: block;
-  padding: 5px;
+  background-color: #00aced;
+  cursor: pointer;
 }
 
-div.contents.row div.content_post .more ul.more_list li a:hover {
-  background-color: #57C3E9;
+.tweet-btn:hover {
+  opacity: 0.7;
+}
+.tweet-btn p {
   color: #fff;
-}
-
-div.contents.row div.content_post p {
-  position: absolute;
-  left: 30px;
-  right: 100px;
-  bottom: 30px;
-  margin: 0;
-  font-size: 20px;
-  z-index: 2;
+  font-size: large;
   font-weight: bold;
-  text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
+  
 }
-
-div.contents.row div.content_post span.name {
-  position: absolute;
-  right: 30px;
-  bottom: 30px;
-  z-index: 2;
-  font-size: 13px;
-}
-
-div.contents.row div.content_post span.name a {
-  display: block;
-  color: #aaa;
-}
-
-div.contents.row div.content_post span.name a:hover {
-  text-decoration: underline;
-  color: #aaa;
-}
-
-div.contents.row div.content_post span.name span {
-  font-size: 9px;
-  display: block;
-}
-
-div.contents.row .success {
-  margin: 20px 0;
-  padding: 30px;
-  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
-  background-color: white;
-  box-sizing: border-box;
+.boshuusuru {
   text-align: center;
 }
 
-div.contents.row .success h3 {
-  margin: 10px auto;
-}
+/* サイドメニューここまで */
 
-form input,
-form textarea {
+.contents {
+  background-color: #fff;
   width: 100%;
-  margin: 5px 0 15px;
-  padding: 10px;
-  border: 1px solid #D8D8D8;
-  border-radius: 5px;
-  font-family: "游ゴシック", "YuGothic";
-}
-
-form input[type="submit"] {
-  background-color: #57C3E9;
-  border-radius: 20px;
-  color: #fff;
-  border: 0;
-  font-size: 18px;
-}
-
-form input[type="submit"]:hover {
-  background-color: #84d3ef;
-}
-
-.container {
-  margin: 20px 0;
-  padding: 30px;
-  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
-  background-color: white;
-  box-sizing: border-box;
-}
-
-.container h3 {
-  margin: 0 0 20px;
+  height: 100%;
   text-align: center;
-  font-weight: normal;
-  font-size: 20px;
-  color: #666;
+  padding-top: 70px;
+  
 }
 
-.comments {
-  padding: 5px;
-  margin-top: 15px;
-}
+.tweets {
+  margin: 3em auto;
+  margin-bottom: 50px;
+  padding:50px 80px;
+  width: 100%;
+  background-color: #fff; /* 背景色 */
+  border: 1px solid #fff; /* 枠線 */
+  box-shadow: 0 0 5px 1.5px #a9a9a9;
+ }
 
-.comments a {
-  color: #57C3E9;
-}
+ .nickname {
+   font-size: large;
+   font-weight: bold; 
+   text-align: left;
+   margin-bottom: 20px;
+   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+ }
 
-.comments a:hover {
-  text-decoration: underline;
-}
+ .user-pic {
+    width:60px;
+    height:60px;
+    object-fit:cover;
+    border-radius:50%;
+    object-position:0px 0px;
+ }
 
-footer {
-  margin: 30px auto;
-  padding: 10px;
-  color: #D8D8D8;
-}
+ .text-area {
+   padding: 20px;
+ }
+ .images {
+  width:100%;
+  height:100%;
+  object-fit: cover;
+ }
 
-footer p {
-  text-align: center;
-}
-
-.search-form {
-  text-align: center;
-  padding-top: 32px;
-}
-
-.search-form .search-input {
-  width: 30%;
-  margin-right: 10px;
-}
-
-.search-form .search-btn {
-  width: 10%;
-}
-
-.sign-up{
-  margin-bottom: 12px;
-}
-
-.sign-up h5 {
-  font-size: 12px;
-  color: blue;
-}
-
-.sign-up a {
-  font-size: 12px;
-  color: blue;
+.like-and-detail {
+  display: flex;
+  justify-content: space-between; 
 }
 
 .like-btn {
@@ -1088,21 +334,847 @@ footer p {
   margin-left: 20px;
   }
 
-.num-of-followers {
-  margin-right: 10px; 
+/* トップページメインここまで */
+
+/* ユーザー編集ページ */
+/* ユーザーサインページ */
+/* ユーザーログインページ */
+
+.header-container {
+  display: flex;
+  margin-bottom: 40px;
 }
 
-.tweets {
+.profile-edit{
+  padding-left: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
+#user_birth_day_1i {
+  padding: 5px;
+  margin: 0 5px 0 225px;
+  border-radius: 5px;
+  border:1px solid #ddd;
+  text-align: right;
+}
+
+#user_birth_day_2i {
+  padding: 5px;
+  margin: 0 5px;
+  border-radius: 5px;
+  border:1px solid #ddd;
+}
+
+#user_birth_day_3i{
+  padding: 5px;
+  margin: 0 5px;
+  border-radius: 5px;
+  border:1px solid #ddd;
+}
+
+.Form {
+  margin-top: 80px;
   margin-left: auto;
   margin-right: auto;
-  width: 30em
+  max-width: 720px;
+}
+
+.Form-Item {
+  border-top: 1px solid #ddd;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.Form-Item-Label {
+  width: 100%;
+  max-width: 248px;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+
+.Form-Item-Label-Required {
+  border-radius: 6px;
+  margin-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 48px;
+  display: inline-block;
+  text-align: center;
+  background: #00aced;
+  color: #fff;
+  font-size: 14px;
+}
+
+
+.Form-Item-Input {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin: 0 auto;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 48px;
+  flex: 1;
+  width: 100%;
+  max-width: 410px;
+  background: #eaedf2;
+  font-size: 18px;
   
 }
 
+.Form-Item-Textarea {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin: 0 auto;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 216px;
+  flex: 1;
+  width: 100%;
+  max-width: 410px;
+  background: #eaedf2;
+  font-size: 18px;
+}
+
+.Form-Btn {
+  border-radius: 6px;
+  margin-top: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 280px;
+  display: block;
+  letter-spacing: 0.05em;
+  background: #00aced;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.Form-Btn:hover {
+ opacity: 0.7;
+}
+
+.sign-up{ 
+  margin-top: 20px;
+}
+
+/* ユーザー編集ページここまで */
+
+
+
+/* ユーザー新規登録 */
+h1 {
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  font-size: xx-large;
+  color: #00aced;
+}
+
+h5 {
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+}
+.sns-login {
+  
+  font-family:'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+}
+.sns-login span {
+  padding-left: 5px;
+}
+.sns-login p {
+  display: block;
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.fab {
+  margin:30px 20px;
+  border: 1px solid #bbb;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: bold;
+} 
+
+.fa-facebook-f{
+  background-color: #305097;
+}
+.fa-google{
+  background-color: #db4a39;
+}
+
+.gender-select{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+.male-select{
+  padding :0 30px;
+}
+.female-select{
+  padding :0 30px;
+}
+#gender-select{
+  width: 40%;
+  font-size: small;
+  margin-left:10px ;
+
+}
+
+/* ユーザー新規登録ここまで */
+
+
+/* マイページここから */
+.introduce-wrapper {
+  height: 100%;
+  
+}
+
+ .my-nickname {
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  font-size: 40px;
+  padding: 0 40px
+ }
+
+ .introduce-pic {
+  width:150px;
+  height:150px;
+  object-fit:cover;
+  border-radius:50%;
+  object-position:0px 0px;
+  
+ }
+
+ .edit-icon {
+   font-size: 15px;
+   text-align: center;
+   padding: 7px 0;
+   width: 100%;
+   border: 1px solid #fff;
+   color: white;
+   background-color: #00aced;
+   border-radius: 10px;
+ }
+
+ .fa-user-edit:hover{
+   opacity: 0.7;
+ }
+
+ .introduce-text {
+   width: 100%;
+   padding: 40px;
+ }
+
+ .introduce-container {
+   padding: 0 200px;
+   background-color: #fff;
+   margin-top: 15px;
+  
+ }
+ .introduce-myself {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   padding-top: 100px;
+   padding-left: 70px;
+ }
+.follow-function {
+  width: 100%;
+  height: 100%;
+  padding-left: 70px;
+}
+.contents p {
+  font-size: large;
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+}
+
+.follow-function {
+  display: flex;
+}
+.follower {
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.do-following {
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  font-weight: bold;
+}
+
+.done-followed {
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  font-weight: bold;
+}
+/* マイページここまで */
+
+/* フォロー・フォロワーページ */
+.follow-wrapper {
+  padding: 70px;
+  height: 900px;
+  background-image: url(https://beiz.jp/images_T/white/white_00080.jpg);
+ 
+}
+
+.follow-container {
+  padding: 50px 200px;
+}
+
+.followers-index {
+  display: flex;
+  padding:0 100px;
+  margin-top: 20px;
+  width: 80%;
+}
+
+.follow-introduce {
+  width: 100%;
+  padding: 20px;
+  
+}
+
+
+/* フォロー・フォロワーページ ここまで */
+
+/* いいねした人一覧 */
+
+.like-wrapper {
+  padding: 70px;
+  height: 900px;
+  background-image: url(https://beiz.jp/images_T/white/white_00080.jpg);
+ 
+}
+
+.like-container {
+  padding: 50px 200px;
+}
+
+.like-index {
+  display: flex;
+  padding:0 100px;
+  margin-top: 20px;
+  width: 80%;
+}
+
+.like-introduce {
+  width: 100%;
+  padding: 20px;
+  
+}
+
+/* いいねした人一覧ここまで */
+
+/* tweet詳細&コメント投稿ページここから */
+
+.more-list {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.fa-edit{
+ margin: 0 5px;
+ cursor: pointer;
+}
+.fa-trash-alt{
+ margin: 0 5px;
+ cursor: pointer;
+}
+.how-many-likes {
+ margin-right: 5px;
+}
+/* tweet詳細&コメント投稿ページここまで */
+
+/* コメント入力部分 */
+
+.commentform {
+  padding: 2em 2em;
+  margin: 2em; 
+  margin-left: 7em;
+  font-weight: bold;
+  color: #555;/*文字色*/
+  background: #FFF;
+  border: solid 3px #00aced;/*線*/
+  border-radius: 10px;/*角の丸み*/
+  width: 400px;
+}
+.commentform p {
+  margin: 0; 
+  padding: 0;
+}
+
+.submit{
+  box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2);
+	background-color: #00aced; /* 送信ボタンの背景色 */
+	color: white;
+	border-radius: 15px;
+	height: 40px;
+	border: none;
+	padding: 0 10px;
+  margin-right: 20px;
+	line-height: 40px;
+	vertical-align: middle;
+	text-align: center;
+	transition: all .2s ease;
+  cursor: pointer;
+}
+
+.submit:active{
+  transform: translateY(4px);
+  border-bottom: none;
+  border-bottom: 2px solid #000000;
+}
+
+/* コメント入力部分ここまで */
+
+/* コメント一覧 */
+
+/*--------------------
+ 吹き出しを作る
+--------------------*/
+
+.comment-container {
+  margin-left: 300px;
+  margin-top: 50px;
+}
+.balloon {
+  margin-bottom: 2em;
+  position: relative;
+  max-width: 500px;
+  }
+  .balloon:before,.balloon:after {
+  clear: both;
+  content: "";
+  display: block;
+  }
+  .balloon figure {
+  width: 60px;
+  height: 60px;
+  }
+  .balloon-image-left {
+  float: left;
+  margin-right: 20px;
+  }
+  
+  .balloon figure img {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #aaa;
+  border-radius: 50%;
+  margin: 0;
+  }
+  .balloon-image-description {
+  padding: 5px 0 0;
+  font-size: 10px;
+  text-align: center;
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  }
+  .balloon-text-right {
+  position: relative;
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 10px;
+  max-width: -webkit-calc(100% - 120px);
+  max-width: calc(100% - 120px);
+  display: inline-block;
+  margin-bottom: 15px;
+  }
+  .balloon-text-right {
+  border-color: #aaa;
+  }
+
+  .balloon-text-right {
+  float: left;
+  }
+
+  .balloon p {
+  margin: 0 0 20px;
+  }
+  .balloon p:last-child {
+  margin-bottom: 0;
+  }
+  /* 三角部分 */
+  .balloon-text-right:before {
+  position: absolute;
+  content: '';
+  border: 10px solid transparent;
+  border-right: 10px solid #aaa;
+  top: 15px;
+  left: -20px;
+  }
+  .balloon-text-right:after {
+  position: absolute;
+  content: '';
+  border: 10px solid transparent;
+  border-right: 10px solid #fff;
+  top: 15px;
+  left: -19px;
+  }
+  
+/* コメント一覧ここまで */
+
+/* 新規投稿ここから */
+.tweet-container {
+  text-align: center;
+  padding-top: 100px;
+}
+.tweet-container p {
+  margin-right: 300px;
+  margin-bottom: 15px;
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+}
+.text-post{
+  margin: 2em 0;
+  padding: 1em;
+  width: 30%;
+  border: 1px solid #ccc; 
+  background-color: #fff; 
+  box-shadow: 1px 1px 2px #ccc;
+  
+ }
+
+.fa-images {
+  color: #00aced;
+  margin-bottom: 20px;
+  padding-right: 350px;
+  cursor: pointer;
+}
+.submit-tweet {
+  box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2);
+  vertical-align: middle;
+	transition: all .2s ease;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  padding: 12px;
+  width: 20%;
+  margin: 0 auto;
+  display: block;
+  background-color: #00aced;
+  cursor: pointer;
+  color: white;
+  font-size: large;
+  font-weight: bold
+}
+
+.submit-tweet:active {
+  transform: translateY(4px);
+  border-bottom: none;
+  border-bottom: 2px solid #000000;
+}
+
+/* 新規投稿ここまで */
+
+/* イベント投稿画面 */
+/* イベント編集画面 */
+.event-subject {
+  font-size: x-large;
+  margin: 40px 0;
+}
+
+.event-date{
+  text-align: center;
+}
+
+#event_start_time_4i {
+  padding: 1px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+#event_start_time_5i {
+  padding: 1px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+#event_finish_time_4i {
+  padding: 1px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+#event_finish_time_5i {
+  padding: 1px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+.submit-btn h6 {
+  text-align: center;
+}
+/* イベント投稿画面ここまで */
+/* イベント編集画面ここまで */
+
+/* エントリー画面 */
+
+.confirmation {
+  width: 80px;
+}
+
+.entry-event-name{
+  text-align: center;
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+}
+.entry-event-date{
+  text-align: center;
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+}
+.entry-total-fee{
+  text-align: center;
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+}
+.card-brand{
+  text-align: center;  
+}
+#card-exp-month{
+  padding: 1px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin: 0 auto;
+}
+#card-exp-year{
+  padding: 1px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin: 0 auto;
+}
+
+.card-exp{
+  margin:0 auto ;
+}
+/* エントリー画面ここまで */
+
+/* イベント詳細ページ */
+
+.event-owner {
+ padding-top: 30px;
+ margin:0 5px;
+}
+.event-owner h2 {
+  font-size: large;
+}
+.event-pic {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.entry-btn{
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  padding: 12px;
+  width: 50%;
+  margin: 40px auto;
+  display: block;
+  background-color: #00aced;
+  cursor: pointer;
+  
+}
+
+.entry-btn p{
+  color: #fff;
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+}
+
+.entry-btn:hover{
+  opacity: 0.7;
+}
+
+/* イベント詳細ページここまで */
+
+/* イベント一覧ページ */
+
+
+
+ .box-title {
+  font-size: 1.2em;
+  background: #5fc2f5;
+  padding: 4px;
+  text-align: center;
+  color: #FFF;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+.event-index p {
+  padding: 15px 20px;
+  margin: 0;
+}
+
+.search-event-input{
+  margin-left: 20px;
+  padding: 0 10px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  padding: 3px;
+  width: 70%;
+}
+
+.event-index-pic {
+  height: 100%;
+  width: 100%
+}
+/* イベント一覧ページここまで */
+
+/* 知恵袋新規投稿ページ */
+
+.question-wrapper {
+  height: 100%;
+  background-image: url(https://beiz.jp/images_T/white/white_00080.jpg);
+}
+.question-container {
+  padding: 100px 20px 30px 20px;
+  height: 100%;
+  text-align: center;
+}
+
+.question-title{
+  margin-bottom:40px;
+}
+
+#question_title {
+  padding:10px;
+  width: 100%;
+}
+#question_post{
+  padding: 10px; 
+  width: 100%;
+  height: 200px;
+}
+
+.question-text{
+  margin-bottom:60px;
+}
+
+.question-border{
+ height: 100%;
+ width: 50%;
+ border: 1px solid #ddd;
+ padding: 60px;
+ margin: 0 auto;
+
+}
+
+.submit-question{
+  margin: 25px 0px;
+}
+
+
+/* 知恵袋新規投稿ページここまで */
+/* 知恵袋一覧ページ */
+
+.question-index-wrapper {
+  height: 900px;
+  background-image: url(https://beiz.jp/images_T/white/white_00080.jpg);
+}
+.question-index-container {
+  padding: 100px 20px 30px 20px;
+  
+  height: 100%;
+  text-align: center;
+}
+
+.question-index-container h1 {
+  height: 100px; 
+}
+
+.question-contents {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+}
+
+
+.title-katamari{
+  position: relative;
+  background: #fff0cd;
+  box-shadow: 0px 0px 0px 5px #fff0cd;
+  border: dashed 2px white;
+  padding: 1em 1em;
+  color: #454545;
+  max-width: 300px;
+}
+.title-katamari:after{
+  position: absolute;
+  content: '';
+  right: -7px;
+  top: -7px;
+  border-width: 0 15px 15px 0;
+  border-style: solid;
+  border-color: #ffdb88 #fff #ffdb88;
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+.title-katamari p {
+  margin: 0; 
+  padding: 0;
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  font-size: large;
+  font-weight: solid;
+}
+
+
+.name-of-title{
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+  
+}
+.question-index-nickname{
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+}
+.question-index-createdate{
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+/* 知恵袋一覧ページここまで */
+/* 知恵袋詳細ページ */
+
+.question-show-wrapper{
+  height: 100%;
+  background-image:  url(https://beiz.jp/images_T/white/white_00080.jpg);
+}
+.question-show-container{
+  padding: 100px 20px 30px 20px;
+  height: 100%;
+  text-align: center;
+}
+.question-title{
+padding-top: 30px
+}
+
+.q-title{
+  width: 50%;
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  color: #00aced;
+  padding-left: 2em;
+}
+.q-create-date{
+  width: 50%;
+  font-size: small;
+}
 .question-content {
   margin: 2em auto;
   padding: 1em;
-  width: 100%;
+  width: 50%;
   border: 1px solid #a9a9a9;
   background-color: #fff;
   box-shadow: 1.5px 1.5px 2px #696969;
@@ -1111,11 +1183,55 @@ footer p {
   margin: 20 auto; 
   padding: 50px;
 }
+.q-person{
+  color: gold;
+  font-weight: bold;
+}
+
+.answer-container {
+  padding: 30px;
+}
+
+.answer-area {
+  padding: 20px;
+  margin: 0 auto;
+  text-align: center;
+  width: 30%;
+  height: 130px;
+  border: 1px solid #ccc;
+}
+
+.reply-answer {
+  box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2);
+  vertical-align: middle;
+	transition: all .2s ease;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  padding: 7px;
+  width: 6%;
+ 
+  display: block;
+  background-color: #00aced;
+  cursor: pointer;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  margin-left: 44em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.reply-answer:active {
+  transform: translateY(4px);
+  border-bottom: none;
+  border-bottom: 2px solid #000000;
+}
+
 
 .answer-content{
   position: relative;
   display: inline-block;
-  margin: 1.5em 0;
+  margin: 1.0em 0;
   padding: 7px 10px;
   min-width: 120px;
   max-width: 100%;
@@ -1138,4 +1254,77 @@ footer p {
 .answer-content strong {
   margin: 0;
   padding: 20px;
+}
+
+.answer-people{
+  margin: 10px 0 0 0;
+  display: flex;
+  justify-content: center;
+}
+.answer-name{
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 47px;
+}
+
+#answers b{
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  font-weight: bold;
+  font-size: large;
+  color: #00aced;
+  margin-bottom: 15px;
+}
+.answer-date{
+  font-size: small;
+  margin-left: 12em;
+}
+.answer-pic {
+  margin-top: 10px;
+}
+
+/* 投稿者本人コメント */
+.question-answer-content{
+  position: relative;
+  display: inline-block;
+  margin: 1.0em 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #ffe5e0;
+}
+
+.question-answer-content:before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  margin-left: -15px;
+  border: 15px solid transparent;
+  border-bottom: 15px solid #ffe5e0;
+  
+}
+
+.question-answer-content strong {
+  margin: 0;
+  padding: 20px;
+}
+.real-person {
+  font-size: small;
+  margin-left: 5em;
+}
+
+/* 投稿者本人コメントここまで */
+/* 知恵袋詳細ページここまで */
+
+.num-of-followers {
+  margin-right: 10px; 
+}
+
+.tweets {
+  margin-left: auto;
+  margin-right: auto;
+  width: 30em
 }

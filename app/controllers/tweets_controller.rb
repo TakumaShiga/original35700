@@ -1,13 +1,12 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :search]
   before_action :set_tweet, only: [:edit, :update, :show, :destroy]
-  before_action :prohibit_access, only: [:edit, :update, :destroy] 
+  before_action :prohibit_access, only: [:edit, :update, :destroy]
 
   def index
-    @tweets = Tweet.includes(:user).order("created_at DESC")
-    
+    @tweets = Tweet.includes(:user).order('created_at DESC')
   end
-  
+
   def new
     @tweet = Tweet.new
   end
@@ -32,10 +31,10 @@ class TweetsController < ApplicationController
 
   def update
     if @tweet.update(tweet_params)
-       redirect_to root_path, notice: '投稿を編集しました'
+      redirect_to root_path, notice: '投稿を編集しました'
     else
-       flash.now[:alert] = '投稿の編集ができませんでした'
-       render :edit
+      flash.now[:alert] = '投稿の編集ができませんでした'
+      render :edit
     end
   end
 
@@ -47,6 +46,7 @@ class TweetsController < ApplicationController
   def search
     @tweets = Tweet.search(params[:keyword])
   end
+
   private
 
   def set_tweet
@@ -54,9 +54,7 @@ class TweetsController < ApplicationController
   end
 
   def prohibit_access
-    unless current_user.id == @tweet.user_id
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_user.id == @tweet.user_id
   end
 
   def tweet_params

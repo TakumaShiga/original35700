@@ -7,8 +7,8 @@ class Event < ApplicationRecord
   has_many :registrations
   has_one_attached :image
 
-  validates :fee, presence: true ,numericality: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください'}
-  
+  validates :fee, presence: true, numericality: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください' }
+
   with_options presence: true do
     validates :event_name
     validates :event_date
@@ -18,15 +18,15 @@ class Event < ApplicationRecord
     validates :place_name
     validates :deadline
     validates :description
-  
-    with_options numericality: { other_than: 1, message: 'を選択してください'} do
+
+    with_options numericality: { other_than: 1, message: 'を選択してください' } do
       validates :category_id
       validates :prefecture_id
     end
   end
 
   def self.search(search)
-    if search != ""
+    if search != ''
       Event.where('event_name LIKE(?)', "%#{search}%")
     else
       Event.all

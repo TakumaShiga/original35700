@@ -1,33 +1,66 @@
-<div class="contents row">
-  <div class="container">
-    <p>
-      <%= @question.title %>
-      <%= @question.created_at %>
-    </p>
+<div class="question-show-wrapper">
+  <div class="question-show-container">
+    <div class="question-title">
+      <div class="q-title">
+        <%= @question.title %>
+      </div>
+      <div class="q-create-date">
+       <div class="q-person">投稿者 <%= @question.user.nickname %></div>
+       <div>投稿日時 <%= @question.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+       </div>
+       <%= link_to "知恵袋トップへ", questions_path, class:"under-line"%>
+      </div>
+    </div>
      <p class="question-content"><%= @question.post %></p>
     <span>
     <% if current_user.id == @question.user_id %>
       <%= link_to question_path(@question), method: :delete, data: {
             confirm: '本当に削除して良いですか?',
             cencel: 'やめる',
-            commit: '削除する'}, title: '削除確認'  do %>
+            commit: '削除する'}, title: '削除確認', class: "under-line"  do %>
         <i class="fas fa-trash-alt"></i>
     <% end %>  
-      <%= link_to edit_question_path(@question), method: :get do %>
+      <%= link_to edit_question_path(@question), method: :get, class:"under-line" do %>
         <i class="fas fa-edit"></i>
       <% end %>
     <% end %>  
     </span>
+    <%# 回答エリア %>
     <div class="answer-container">
       <%= form_with(model: [@question, @answer], local: true) do |f| %>
-        <%= f.label :"回答する"%>
-        <%= f.text_area :message, placeholder: "500文字以内でご入力ください" %> 
-        <%= f.submit "回答" %>
+        <%= f.text_area :message, placeholder: "回答する(500文字以内)" , class: "answer-area"%> 
+        <%= f.submit "Reply", class:"reply-answer" %>
       <% end %>   
       <div id="answers">
       <b>回答一覧</b>
         <% @answers.each do |answer| %> 
-          <p><%= link_to answer.user.nickname, user_path(answer.user.id) %><p>
+        <%if @question.user_id == answer.user_id %>
+
+         <p class="answer-people">
+          <span><%= image_tag answer.user.image, class:"user-pic answer-pic",id: "img" %></span>
+          <%= link_to answer.user.nickname, user_path(answer.user.id), class:"under-line answer-name" %>
+          <p class="real-person">(投稿者本人)<p>
+          <p>
+          <div class="answer-date">
+            <%= answer.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+          </div>
+          <div class="question-answer-content">
+            <strong><%= answer.message %></strong>   
+            <span>
+              <%=link_to question_answer_path(@question, @question.answers.ids), method: :delete do %>
+              <i class="fas fa-trash-alt"></i>
+              <% end %>
+            </span>
+          </div> 
+
+        <% else %>
+          <p class="answer-people">
+          <span><%= image_tag answer.user.image, class:"user-pic answer-pic",  id:"img" %></span>
+          <%= link_to answer.user.nickname, user_path(answer.user.id), class:"under-line answer-name"%>
+          <p>
+          <div class="answer-date">
+            <%= answer.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+          </div>
           <div class="answer-content">
             <strong><%= answer.message %></strong>   
             <span>
@@ -36,6 +69,7 @@
               <% end %>
             </span>
           </div>
+        <% end %>
         <% end %>
       <div>
     </div>
