@@ -14,11 +14,6 @@
           <i class="fab fa-google "><span>Googleでログイン</span></i>
         <% end %>
       </div>
-      
-    <div class= "login-flash-message">
-      <%= flash[:notice] %>
-      <%= flash[:alert] %>
-    </div> 
 
     <%= form_with model: @user, url: new_user_session_path, local: true do |f|%>
       <%= render 'layouts/error_messages', model: f.object %>

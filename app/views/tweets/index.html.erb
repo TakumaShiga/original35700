@@ -29,7 +29,7 @@
       <% @tweets.each do |tweet| %>
         <div class="tweets">
           <div class="nickname">
-          <span><%= image_tag current_user.image, class:"user-pic" %></span>
+          <span><%= image_tag tweet.user.image, class:"user-pic" %></span>
           <%=link_to tweet.user.nickname, user_path(tweet.user.id), class: "under-line" %>
           </div>
           <div class="slider">
