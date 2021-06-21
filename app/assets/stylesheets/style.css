@@ -13,6 +13,15 @@
 
 
 /* 画像のサイズ */
+
+#introduce-pic {
+  max-width:135px !important;
+  height:auto !important;
+  object-fit:cover !important;
+  border-radius:50% !important;
+  object-position:0px 0px !important;
+ }
+
 .images {
   max-width:100%;
   height:auto;
@@ -540,15 +549,6 @@ h5 {
   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   font-size: 40px;
   padding: 0 40px
- }
-
- .introduce-pic {
-  width:150px;
-  height:150px;
-  object-fit:cover;
-  border-radius:50%;
-  object-position:0px 0px;
-  
  }
 
  .edit-icon {

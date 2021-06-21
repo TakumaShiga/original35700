@@ -3,7 +3,7 @@
     <div class="introduce-wrapper">
       <div class="introduce-container">
         <div class="introduce-myself">
-          <span><%= image_tag @user.image, class:"introduce-pic" %></span>
+          <span><%= image_tag @user.image, id:"introduce-pic" %></span>
           <span class="my-nickname"><%= @user.nickname %>
           <%=link_to edit_user_path(@user) do%>
           <i class="edit-icon fas fa-user-edit">プロフィールを編集</i>
@@ -38,11 +38,13 @@
   <div class="contents row">
     <p><%= @nickname %>さんの投稿一覧</p>
       <% @tweets.each do |tweet| %>
-      <div class="tweets">
-        <% tweet.images.each do |image| %>
-          <span><%= image_tag image.variant(gravity: :center, resize:"600x600").processed, class: 'images' %></span>
-        <% end %>
-        <p><%= tweet.text %></p>
-      </div>
+        <div class="tweets">
+          <div class="slider">
+            <% tweet.images.each do |image| %>
+              <span><%= image_tag image.variant(gravity: :center, resize:"600x600").processed, class: 'images' %></span>
+            <% end %>
+          </div>
+          <p><%= tweet.text %></p>
+        </div>
      <% end %>
   </div>

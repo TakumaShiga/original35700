@@ -4,7 +4,7 @@
     <% @followings.each do |user| %>
     <div class="followers-index">
       
-        <div><%= image_tag user.image, class:"user-pic" %>
+        <div><%= image_tag user.image, class:"user-pic", id: "img" %>
         <%= link_to user.nickname, [user], class: "under-line do-following " %> 
         </div>
         <div class="follow-introduce">
