@@ -74,5 +74,6 @@ gem 'omniauth', '~>1.9.1'
 gem 'active_hash'
 gem 'bootstrap', '~> 4.5.0'
 gem 'payjp'
+gem "aws-sdk-s3", require: false
 
 
