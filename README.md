@@ -88,7 +88,7 @@ PAYJPクレジットカード決済機能<br>
 
 ## 投稿詳細画面
 [![Image from Gyazo](https://i.gyazo.com/3c186e44d860b9e97dcacb7d3f7d32de.gif)](https://gyazo.com/3c186e44d860b9e97dcacb7d3f7d32de)
-
+<br>
 [![Image from Gyazo](https://i.gyazo.com/fdd2581e2004dea34a32789e314e4a08.gif)](https://gyazo.com/fdd2581e2004dea34a32789e314e4a08)
 
 
@@ -98,7 +98,7 @@ PAYJPクレジットカード決済機能<br>
 
 ## ユーザー詳細画面（マイページ）
 [![Image from Gyazo](https://i.gyazo.com/ed1d5d0c952fb40796b1e15cbae8c550.gif)](https://gyazo.com/ed1d5d0c952fb40796b1e15cbae8c550)
-
+<br>
 [![Image from Gyazo](https://i.gyazo.com/6ca371e4aea93382a3257a06478dcfd9.gif)](https://gyazo.com/6ca371e4aea93382a3257a06478dcfd9)
 
 ・他のユーザー詳細画面に「フォローする」表示があるのでクリックするとフォローできる<br>
@@ -120,9 +120,9 @@ PAYJPクレジットカード決済機能<br>
 
 ## イベントエントリー画面
 [![Image from Gyazo](https://i.gyazo.com/3550a96658f23a768af7842fa95d2d9f.gif)](https://gyazo.com/3550a96658f23a768af7842fa95d2d9f)
-
+<br>
 [![Image from Gyazo](https://i.gyazo.com/691aa2f99c92da6d9ae79556fd834ac6.gif)](https://gyazo.com/691aa2f99c92da6d9ae79556fd834ac6)
-
+<br>
 [![Image from Gyazo](https://i.gyazo.com/157625f76c2aadee141f529cdaca68c6.gif)](https://gyazo.com/157625f76c2aadee141f529cdaca68c6)
 
 ・クレジットカード情報（カード番号、有効期限、セキュリティコード）、郵便番号、都道府県、市町村、番地、建物名、電話番号を入力し、「エントリーする」をクリックするとエントリーが完了し、トップページへ遷移する<br>
@@ -132,7 +132,7 @@ PAYJPクレジットカード決済機能<br>
 
 ## ランナー質問投稿ページ
 [![Image from Gyazo](https://i.gyazo.com/eb02f5d35daf07a5e67d9bd5b4a02ecd.gif)](https://gyazo.com/eb02f5d35daf07a5e67d9bd5b4a02ecd)
-
+<br>
 [![Image from Gyazo](https://i.gyazo.com/671739f4d77a12037b6ae47e453c8af2.gif)](https://gyazo.com/671739f4d77a12037b6ae47e453c8af2)
 
 ・ログインユーザーはトップページの「ランナー知恵袋」をクリックすると、質問一覧ページへアクセスできる<br>
@@ -150,14 +150,13 @@ PAYJPクレジットカード決済機能<br>
 <br>
 
 ## 使用技術
-ruby 2.6.5<br>
-Rails 6.0.3.7<br>
+Ruby 2.6.5<br>
+Ruby on Rails 6.0.3.7<br>
 MySQL  5.6.51<br>
 Github  2.30.1<br>
 heroku 7.54.0<br>
 Visual Studio Code 1.56.2<br>
-AWS
-S3
+AWS S3
 <br>
 
 ## 課題や今後実装したい機能
@@ -169,6 +168,7 @@ S3
 ## DB設計
 
 [![Image from Gyazo](https://i.gyazo.com/7a5882f777ed87c64eb8dd8ba75b4cbe.png)](https://gyazo.com/7a5882f777ed87c64eb8dd8ba75b4cbe)
+<br>
 
 ## users
 
