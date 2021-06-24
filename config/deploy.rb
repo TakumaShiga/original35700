@@ -1,5 +1,5 @@
 
-lock 'Capistranoのバージョン'
+lock '3.16.0'
 
 
 set :application, 'original35700'
