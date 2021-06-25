@@ -5,7 +5,7 @@
     <div class="like-index">
     <% if @tweet.likes.ids.present? %>
       <div><%= image_tag like.user.image, class:"user-pic", id: "img" %>
-        <%= link_to like.user.nickname, user_path(like.user.id), class: "under-line do-following " %> 
+       <p><%= link_to like.user.nickname, user_path(like.user.id), class: "under-line do-following " %></p> 
       </div>
     <%end%>
       <div class="like-introduce">

@@ -258,9 +258,9 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 
 .tweet-btn {
   border: 1px solid #ddd;
-  border-radius: 30px;
+  border-radius: 25px;
   padding: 8px;
-  width: 50%;
+  width: 65%;
   margin: 0 auto;
   display: block;
   background-color: #00aced;
