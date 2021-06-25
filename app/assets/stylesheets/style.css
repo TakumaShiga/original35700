@@ -259,7 +259,7 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 .tweet-btn {
   border: 1px solid #ddd;
   border-radius: 25px;
-  padding: 8px;
+  padding: 5px;
   width: 65%;
   margin: 0 auto;
   display: block;
@@ -551,7 +551,7 @@ h5 {
 
  .my-nickname {
   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
-  font-size: 40px;
+  font-size: 30px;
   padding: 0 40px
  }
 
@@ -1001,7 +1001,9 @@ h5 {
 
 /* イベント一覧ページ */
 
-
+.event-list {
+  list-style: none;
+}
 
  .box-title {
   font-size: 1.2em;
@@ -1029,7 +1031,7 @@ h5 {
 
 .event-index-pic {
   height: 100%;
-  width: 100%
+  max-width: 100%
 }
 /* イベント一覧ページここまで */
 

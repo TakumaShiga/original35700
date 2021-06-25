@@ -24,7 +24,7 @@
       <p class="Form-Item-Label"><span class="Form-Item-Label-Required confirmation">開催日時</span></p>
         <div class="entry-event-date">
         <%= @event.event_date %>
-        <%= @event.start_time.strftime('%H:%H') %>〜<%= @event.finish_time.strftime('%H:%H') %>
+        <%= @event.start_time.strftime('%H:%M') %>〜<%= @event.finish_time.strftime('%H:%M') %>
       </div>
       <div class="Form-Item">
       </div>
