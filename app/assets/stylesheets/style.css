@@ -552,9 +552,9 @@ h5 {
 
  .my-nickname {
   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
-  font-size: 28px;
+  font-size: large;
   padding: 0 10px;
-  width: 80px;
+  width: 300px;
  }
 
  .edit-icon {
