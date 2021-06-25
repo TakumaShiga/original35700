@@ -275,7 +275,7 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   color: #fff;
   font-size: large;
   font-weight: bold;
-  margin: 0 auto;
+  text-align: center;
 }
 .boshuusuru {
   text-align: center;
