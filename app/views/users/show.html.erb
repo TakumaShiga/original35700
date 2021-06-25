@@ -5,9 +5,11 @@
         <div class="introduce-myself">
           <span><%= image_tag @user.image, id:"introduce-pic" %></span>
           <span class="my-nickname"><%= @user.nickname %>
-          <%=link_to edit_user_path(@user) do%>
-          <i class="edit-icon fas fa-user-edit">プロフィールを編集</i>
-          <% end %>
+          <% if current_user.id == @user.id %>
+            <%=link_to edit_user_path(@user) do%>
+            <i class="edit-icon fas fa-user-edit">プロフィールを編集</i>
+            <% end %>
+          <% end %>  
           </span>
           <span class="introduce-text">
             <%= @user.introduce %>
