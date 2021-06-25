@@ -4,9 +4,9 @@
       <div class="introduce-container">
         <div class="introduce-myself">
           <span><%= image_tag @user.image, id:"introduce-pic" %></span>
-          <span class="my-nickname"><%= @user.nickname %>
+          <span class="my-nickname"><%= @user.nickname %></span>
           <% if current_user.id == @user.id %>
-            <%=link_to edit_user_path(@user) do%>
+          <span><%=link_to edit_user_path(@user) do%>
             <i class="edit-icon fas fa-user-edit">プロフィールを編集</i>
             <% end %>
           <% end %>  
