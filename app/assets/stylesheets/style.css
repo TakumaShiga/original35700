@@ -260,12 +260,13 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   border: 1px solid #ddd;
   border-radius: 25px;
   height: 60px;
-  padding: 5px;
+  padding-top: 15px;
   width: 70%;
   margin: 0 auto;
   display: block;
   background-color: #00aced;
   cursor: pointer;
+
 }
 
 .tweet-btn:hover {
@@ -552,7 +553,7 @@ h5 {
 
  .my-nickname {
   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
-  font-size: 25px;
+  font-size: 28px;
   padding: 0 10px;
   width: 300px;
  }
@@ -574,7 +575,7 @@ h5 {
 
  .introduce-text {
    width: 100%;
-   padding: 40px;
+   padding: 50px;
  }
 
  .introduce-container {

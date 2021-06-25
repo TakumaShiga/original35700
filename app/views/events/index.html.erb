@@ -18,7 +18,7 @@
             <%= link_to event.event_name, event_path(event), class: "under-line" %>
           </div>
           <div class="event-index-pic">
-            <%= image_tag event.image.variant(resize:"350x350^", crop:"350x350+0+0").processed, class: "images" %>
+            <%= image_tag event.image.variant(resize:"350x350^").processed, class: "images" %>
           </div>
             <ul class="event-list">
               <li>
