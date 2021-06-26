@@ -15,8 +15,8 @@
 /* 画像のサイズ */
 
 #introduce-pic {
-  max-width:120px !important;
-  height:120px !important;
+  max-width:130px !important;
+  height:130px !important;
   object-fit:cover !important;
   border-radius:50% !important;
   object-position:0px 0px !important;
