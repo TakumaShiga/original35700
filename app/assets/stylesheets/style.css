@@ -15,8 +15,8 @@
 /* 画像のサイズ */
 
 #introduce-pic {
-  max-width:135px !important;
-  height:auto !important;
+  max-width:120px !important;
+  height:120px !important;
   object-fit:cover !important;
   border-radius:50% !important;
   object-position:0px 0px !important;
@@ -560,7 +560,7 @@ h5 {
 
 
 .user-edit-btn {
-  width: 30%; 
+  width: 25%; 
 }
 
  .edit-icon {
@@ -580,7 +580,7 @@ h5 {
 
  .introduce-text {
    width: 100%;
-   padding: 40px;
+   padding: 60px;
  }
 
  .introduce-container {
