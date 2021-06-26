@@ -551,9 +551,14 @@ h5 {
   height: 100%; 
 }
 
+.fa-envelope {
+  font-weight: bold;
+}
+
  .my-nickname {
   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   font-size: 28px;
+  letter-spacing: 0.1em;
   padding: 0 10px;
   width: 300px;
   text-align: center;
