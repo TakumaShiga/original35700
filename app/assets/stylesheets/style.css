@@ -355,10 +355,6 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 /* ユーザーサインページ */
 /* ユーザーログインページ */
 
-.user-edit-btn {
-  width: 50%;
-  
-}
 
 .header-container {
   display: flex;
@@ -552,8 +548,7 @@ h5 {
 
 /* マイページここから */
 .introduce-wrapper {
-  height: 100%;
-  
+  height: 100%; 
 }
 
  .my-nickname {
@@ -562,6 +557,11 @@ h5 {
   padding: 0 10px;
   width: 300px;
  }
+
+
+.user-edit-btn {
+  width: 30%; 
+}
 
  .edit-icon {
    font-size: 15px;
@@ -580,7 +580,7 @@ h5 {
 
  .introduce-text {
    width: 100%;
-   padding: 50px;
+   padding: 40px;
  }
 
  .introduce-container {
