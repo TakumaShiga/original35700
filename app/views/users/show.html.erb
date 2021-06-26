@@ -6,11 +6,11 @@
           <span><%= image_tag @user.image, id:"introduce-pic" %></span>
           <p class="my-nickname"><%= @user.nickname %></p>
           <% if current_user.id == @user.id %>
-          <span class="user-edit-btn"><%=link_to edit_user_path(@user) do%>
+          <div class="user-edit-btn"><%=link_to edit_user_path(@user) do%>
             <i class="edit-icon fas fa-user-edit">プロフィールを編集</i>
             <% end %>
           <% end %>  
-          </span>
+          </div>
           <span class="introduce-text">
             <%= @user.introduce %>
           </span>
