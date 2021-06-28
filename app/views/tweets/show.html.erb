@@ -2,7 +2,11 @@
   <div class="content-post" style="background-image: url(<%= @tweet.images %>);">
     <div class="tweets">
       <div class="nickname">
-        <span><%= image_tag @tweet.user.image, class:"user-pic" %></span>
+      <% if @tweet.user.image.attached? %>
+        <span><%= image_tag @tweet.user.image.variant(resize: '90x90'), class:"user-pic" %></span>
+      <% else %>
+        <span><%= image_tag "/assets/original.jpg", size: '90x90' %></span>  
+      <% end %>   
           <%=link_to @tweet.user.nickname, user_path(@tweet.user.id), class: "under-line" %>
       </div>
       <div class="slider">
@@ -43,7 +47,11 @@
       <% @comments.each do |comment| %>
         <div class="balloon">
          <figure class="balloon-image-left">
+          <% if comment.user.image.attached? %>
             <%= image_tag comment.user.image, id:"img" %>
+          <% else %>
+            <%= image_tag '/assets/original.jpg', id:'img' %>
+          <% end %>  
          <figcaption class="balloon-image-description">
            <%= comment.user.nickname %>
           </figcaption>

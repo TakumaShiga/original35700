@@ -3,7 +3,11 @@
     <div class="introduce-wrapper">
       <div class="introduce-container">
         <div class="introduce-myself">
+        <% if @user.image.attached? %>
           <span><%= image_tag @user.image, id:"introduce-pic" %></span>
+        <% else %>
+          <span><%= image_tag '/assets/original.jpg', id:"introduce-pic" %></span>  
+        <% end %>  
           <p class="my-nickname"><%= @user.nickname %></p>
           <% if current_user.id == @user.id %>
            <div class="user-edit-btn">
@@ -50,7 +54,7 @@
         <div class="tweets">
           <div class="slider">
             <% tweet.images.each do |image| %>
-              <span><%= image_tag image.variant(gravity: :center, resize:"600x600").processed, class: 'images' %></span>
+              <span><%= image_tag image.variant(gravity: :center, resize:"600x600").processed, class: 'images' if tweet.images.attached? %></span>
             <% end %>
           </div>
           <p><%= tweet.text %></p>

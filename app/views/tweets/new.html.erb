@@ -1,5 +1,9 @@
  <div class="tweet-container">
-  <span><%= image_tag current_user.image, class:"user-pic" %>さん、どんな1日でしたか?</span>
+    <% if current_user.image.attached?  %>
+      <span><%= image_tag current_user.image.variant(resize: '100x100'), class:"user-pic"%>さん、どんな1日でしたか?</span>
+    <% else %> 
+      <p class="tweet-user-nickname"><%= @tweet.user.nickname%>さん、どんな1日でしたか?<p>
+    <% end %>
     <%= form_with model: @tweet, url: tweets_path, local: true do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
       <%= f.text_area :text, placeholder: "How was your day?", class:"text-post", rows: "10" %>

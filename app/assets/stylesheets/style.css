@@ -20,7 +20,36 @@
   object-fit:cover !important;
   border-radius:50% !important;
   object-position:0px 0px !important;
+  height: auto !important;
+  margin: auto !important;
  }
+
+.header-pic {
+  width: auto;
+  height: auto;
+  object-fit:cover;
+  border-radius:50%;
+  object-position:0px 0px;
+  margin: auto;
+}
+
+.user-pic {
+  width: auto;
+  height: auto;
+  object-fit:cover;
+  border-radius:50%;
+  object-position:0px 0px;
+  margin: auto;
+}
+
+.user-edit-pic {
+  width: auto;
+  height: auto;
+  object-fit:cover;
+  border-radius:50%;
+  object-position:0px 0px;
+  margin: auto;
+}
 
 .images {
   max-width:100%;
@@ -33,6 +62,7 @@
 
 #img{
   max-width: 100%;
+  
 }
 
 img {
@@ -196,6 +226,23 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 }
 
+.header-nickname {
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  margin-left: 25em;
+}
+
+.header-guest{
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  margin-left: 45em;
+  font-size: medium;
+}
+
+.header-site{
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  font-size: small;
+  padding-right: 15px
+}
+
 /* ヘッダーここまで */
 
 /* 検索フォーム */
@@ -311,13 +358,7 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
    font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
  }
 
- .user-pic {
-    width:60px;
-    height:60px;
-    object-fit:cover;
-    border-radius:50%;
-    object-position:0px 0px;
- }
+ 
 
  .text-area {
    padding: 20px;
@@ -361,10 +402,18 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   margin-bottom: 40px;
 }
 
+.edit-user-nickname {
+  font-size: x-large;
+  font-weight: bold;
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+}
+
 .profile-edit{
   padding-left: 20px;
-  font-size: 25px;
+  padding-top: 8px;
+  font-size: large;
   font-weight: bold;
+  width: 60%;
 }
 #user_birth_day_1i {
   padding: 5px;
@@ -655,9 +704,13 @@ h5 {
 }
 
 .follow-introduce {
-  width: 100%;
-  padding: 20px;
+  width: 150%;
+  padding: 10px;
   
+}
+
+.follow-reference {
+  width: 120%;
 }
 
 
@@ -1185,9 +1238,9 @@ padding-top: 30px
   width: 50%;
   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 27px;
   color: #00aced;
-  padding-left: 2em;
+  margin: 0 auto;
 }
 .q-create-date{
   width: 50%;
@@ -1288,6 +1341,7 @@ padding-top: 30px
   font-weight: bold;
   display: inline-block;
   margin-top: 47px;
+  padding: 20px 0 0 10px;
 }
 
 #answers b{

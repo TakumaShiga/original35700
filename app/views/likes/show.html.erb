@@ -4,10 +4,16 @@
     <% @likes.each do |like| %>
     <div class="like-index">
     <% if @tweet.likes.ids.present? %>
-      <div><%= image_tag like.user.image, class:"user-pic", id: "img" %>
-       <p><%= link_to like.user.nickname, user_path(like.user.id), class: "under-line do-following " %></p> 
-      </div>
-    <%end%>
+      <% if like.user.image.attached? %>
+        <div><%= image_tag like.user.image.variant(resize: '90x90'), class:"user-pic", id: "img" %>
+          <p><%= link_to like.user.nickname, user_path(like.user.id), class: "under-line do-following " %></p> 
+        </div>
+      <% else %>
+        <div><%= image_tag "/assets/original.jpg", size: '90x90', id: "img" %>
+          <p><%= link_to like.user.nickname, user_path(like.user.id), class: "under-line do-following " %></p> 
+        </div>
+      <% end %>  
+    <% end %>
       <div class="like-introduce">
         <%= like.user.introduce %>
       </div>

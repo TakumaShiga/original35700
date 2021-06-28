@@ -3,10 +3,17 @@
     <h1>Followers</h1>
     <% @followers.each do |user| %>
     <div class="followers-index">
-      
-        <div><%= image_tag user.image, class:"user-pic", id: "img" %>
-       <p><%= link_to user.nickname, [user], class: "under-line done-followed" %></p> 
+      <% if user.image.attached? %>
+        <div class="follow-reference">
+          <%= image_tag user.image.variant(resize: '80x80'), class:"user-pic", id: "img" %>
+        <p><%= link_to user.nickname, [user], class: "under-line done-followed" %></p> 
         </div>
+      <% else %>
+        <div class="follow-reference">
+          <%= image_tag '/assets/original.jpg', class:"user-pic" %>
+        <p><%= link_to user.nickname, [user], class: "under-line done-followed" %></p> 
+        </div>
+      <% end %>  
         <div class="follow-introduce">
           <%= user.introduce %>
         </div>

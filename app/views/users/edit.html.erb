@@ -1,8 +1,12 @@
   <div class="Form">
     <div class="header-container">
-      <span><%=image_tag @user.image, class: "user-pic" %><span>
+      <% if @user.image.attached? %>
+        <span><%=image_tag @user.image.variant(resize: '500x500'), class: "user-edit-pic" %><span>
+      <% else %>
+        <p class="edit-user-nickname"><%= @user.nickname %>さん</p>
+      <% end %>
         <div class="profile-edit" >
-          <h1>プロフィール編集</h1>
+          <h5>プロフィール編集</h5>
         </div>
       </div>
       <%= form_with model: @user, url: user_path(@user), local: true do |f| %>

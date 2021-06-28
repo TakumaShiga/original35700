@@ -19,8 +19,8 @@ RSpec.describe "ユーザー新規登録", type: :system do
       fill_in 'パスワード確認', with: @user.password_confirmation
       fill_in '自己紹介文', with: @user.introduce
       fill_in 'プロフィール画像', with: @user.image
-      fill_in '', with: @user.
-      fill_in '', with: @user.
+      fill_in '生年月日', with: @user.birth_day
+      fill_in '性別', with: @user.gender
       # サインアップボタンを押すとユーザーモデルのカウントが1上がることを確認する
       expect{
         find('input[name="commit]').click
@@ -41,27 +41,27 @@ RSpec.describe "ユーザー新規登録", type: :system do
   context 'ユーザー新規登録ができないとき' do
     it '誤った情報ではユーザー新規登録ができずに新規登録ページへ戻ってくる' do
       # トップページに移動する
-  visit root_path
-  # トップページにサインアップページへ遷移するボタンがあることを確認する
-  expect(page).to have_content('新規登録')
-  # 新規登録ページへ移動する
-  visit new_user_registration_path
-  # ユーザー情報を入力する
-  fill_in 'お名前', with: @user.full_name
-      fill_in 'ニックネーム', with: @user.nickname
-      fill_in 'メールアドレス', with: @user.email
-      fill_in 'パスワード', with: @user.password
-      fill_in 'パスワード確認', with: @user.password_confirmation
-      fill_in '自己紹介文', with: @user.introduce
-      fill_in '性別', with: @user.gender
-      fill_in '生年月日', with: @user.birth_day
-      fill_in '', with: @user.
-  # サインアップボタンを押してもユーザーモデルのカウントは上がらないことを確認する
-  expect{
-    find('input[name="commit"]').click
-  }.to change { User.count }.by(0)
-  # 新規登録ページへ戻されることを確認する
-  expect(current_path).to eq user_registration_path
+    visit root_path
+    # トップページにサインアップページへ遷移するボタンがあることを確認する
+    expect(page).to have_content('新規登録')
+    # 新規登録ページへ移動する
+    visit new_user_registration_path
+    # ユーザー情報を入力する
+    fill_in 'お名前', with: @user.full_name
+    fill_in 'ニックネーム', with: @user.nickname
+    fill_in 'メールアドレス', with: @user.email
+    fill_in 'パスワード', with: @user.password
+    fill_in 'パスワード確認', with: @user.password_confirmation
+    fill_in '自己紹介文', with: @user.introduce
+    fill_in '性別', with: @user.gender
+    fill_in '生年月日', with: @user.birth_day
+    fill_in '', with: @user.
+    # サインアップボタンを押してもユーザーモデルのカウントは上がらないことを確認する
+    expect{
+      find('input[name="commit"]').click
+    }.to change { User.count }.by(0)
+    # 新規登録ページへ戻されることを確認する
+    expect(current_path).to eq user_registration_path
     end
   end
 

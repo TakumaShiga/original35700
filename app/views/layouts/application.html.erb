@@ -30,10 +30,14 @@
          RUNTweet
          </h1>
         <% end %>
-        <% if user_signed_in? %>
-        <span><%= image_tag current_user.image, class:"user-pic header-pic" %></span>
+        <% if user_signed_in? && current_user.image.attached? %>
+          <span><%= image_tag current_user.image.variant(resize: '80x80'), class:"header-pic" %></span>
+        <% elsif user_signed_in?%>
+          <p class="header-nickname"><%= current_user.nickname %>さん</p>
+        <% else %> 
+          <div class="header-guest">ゲストさん</div> 
+          <div class="header-site"><%= link_to "Sign up?", new_user_registration_path, class: "under-line" %> or <%= link_to "Log in?",new_user_session_path, class: "under-line" %></div> 
         <% end %>
-        
         <nav class="header-nav">
         <% if user_signed_in? %>
         

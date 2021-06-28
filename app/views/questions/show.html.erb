@@ -37,7 +37,11 @@
         <%if @question.user_id == answer.user_id %>
 
          <p class="answer-people">
-          <span><%= image_tag answer.user.image, class:"user-pic answer-pic",id: "img" %></span>
+         <% if answer.user.image.attached? %>
+          <span><%= image_tag answer.user.image.variant(resize: '80x80'), class:"user-pic answer-pic",id: "img" %></span>
+         <% else %>
+          <span><%= image_tag '/assets/original.jpg', size: '80x80', id: 'img' %></span>
+         <% end %>  
           <%= link_to answer.user.nickname, user_path(answer.user.id), class:"under-line answer-name" %>
           <p class="real-person">(投稿者本人)<p>
           <p>
@@ -55,7 +59,11 @@
 
         <% else %>
           <p class="answer-people">
-          <span><%= image_tag answer.user.image, class:"user-pic answer-pic",  id:"img" %></span>
+          <% if answer.user.image.attached? %>
+            <span><%= image_tag answer.user.image.variant(resize: '80x80'), class:"user-pic answer-pic",id: "img" %></span>
+          <% else %>
+            <span><%= image_tag '/assets/original.jpg', size: '80x80', id: 'img' %></span>
+          <% end %>  
           <%= link_to answer.user.nickname, user_path(answer.user.id), class:"under-line answer-name"%>
           <p>
           <div class="answer-date">

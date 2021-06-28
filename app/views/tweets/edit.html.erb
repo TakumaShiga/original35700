@@ -1,5 +1,9 @@
   <div class="tweet-container">
-    <span><%= image_tag current_user.image, class:"user-pic" %>さん、こんにちは</span>
+    <% if current_user.image.attached?%>
+      <span><%= image_tag current_user.image.variant(resize: '90x90'), class:"user-pic" %>さん、こんにちは</span>
+    <% else %>
+      <p class="tweet-user-nickname" ><% current_user.nickname %></p>
+    <% end %>
       <%= form_with model: @tweet, url: tweet_path(@tweet), local: true do |f| %>
         <%= render 'layouts/error_messages', model: f.object %>
 

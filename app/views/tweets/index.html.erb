@@ -28,12 +28,16 @@
       <% @tweets.each do |tweet| %>
         <div class="tweets">
           <div class="nickname">
-          <span><%= image_tag tweet.user.image, class:"user-pic" %></span>
+          <% if tweet.user.image.attached?  %>
+            <span><%= image_tag tweet.user.image.variant(resize: '80x80'), class:"user-pic" %></span>
+          <% else %>
+            <span><%= image_tag '/assets/original.jpg', class:"user-pic" %></span>
+          <% end %>
           <%=link_to tweet.user.nickname, user_path(tweet.user.id), class: "under-line" %>
           </div>
           <div class="slider">
             <% tweet.images.each do |image| %>
-              <span><%=image_tag image.variant(resize:"600x600").processed, class: 'images'%></span> 
+              <span><%=image_tag image.variant(resize:"600x600").processed, class: 'images' if tweet.images.attached? %></span> 
             <% end %>  
           </div>
           <div class="text-area">

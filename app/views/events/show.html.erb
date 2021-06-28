@@ -3,7 +3,7 @@
           <h2>主催 <%= @event.user.nickname %></h2>
         </div>
         <div class="event-pic">
-          <%= image_tag @event.image.variant(resize:"400x400").processed %>
+          <%= image_tag @event.image.variant(resize:"400x400").processed if @event.image.attached? %>
         </div>
 
       <p class="Form-Item-Label"><span class="Form-Item-Label-Required confirmation">イベント名</span></p>
