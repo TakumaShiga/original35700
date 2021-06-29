@@ -62,7 +62,7 @@
           <% if answer.user.image.attached? %>
             <span><%= image_tag answer.user.image.variant(resize: '80x80'), class:"user-pic answer-pic",id: "img" %></span>
           <% else %>
-            <span><%= image_tag '/assets/original.jpg', size: '80x80', class:"user-pic answer-pic", id: 'img' %></span>
+            <span><%= image_tag '/assets/original.jpg', size: '80x80', class:"answer-pic", id: 'img' %></span>
           <% end %>  
           <%= link_to answer.user.nickname, user_path(answer.user.id), class:"under-line answer-name"%>
           <p>
