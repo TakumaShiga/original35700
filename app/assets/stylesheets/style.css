@@ -231,7 +231,8 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 
 .header-nickname {
   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
-  margin-left: 25em;
+  margin-left: 42em;
+  font-size: medium;
 }
 
 .header-guest{
