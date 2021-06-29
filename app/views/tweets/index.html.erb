@@ -50,7 +50,7 @@
             <div class="detail">
               <% if user_signed_in? %>
                 <%= link_to tweet_path(tweet.id), method: :get, class:"under-line" do %>  
-                <i class="far fa-comment-dots fa-2x"></i>
+                <i class="far fa-comment-dots fa-2x"></i> <%= tweet.comments.count %>
               <% end %>
               
               <% end %>
