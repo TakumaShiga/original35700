@@ -75,7 +75,10 @@ img {
   padding: 20px 0;
 }
 
-
+.answer-pic {
+  margin-top: 20px;
+  border-radius:50%;
+}
 
 /* 画像サイズここまで */
 
@@ -1355,9 +1358,7 @@ padding-top: 30px
   font-size: small;
   margin-left: 12em;
 }
-.answer-pic {
-  margin-top: 10px;
-}
+
 
 /* 投稿者本人コメント */
 .question-answer-content{
