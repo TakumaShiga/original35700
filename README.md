@@ -49,6 +49,7 @@ SNSアカウント登録、ログイン機能<br>
 ActiveHash機能<br>
 Formオブジェクト機能<br>
 PAYJPクレジットカード決済機能<br>
+AWS EC2による自動デプロイ
 <br>
 
 ## DEMO
@@ -157,6 +158,7 @@ Github  2.30.1<br>
 heroku 7.54.0<br>
 Visual Studio Code 1.56.2<br>
 AWS S3
+AWS EC2
 <br>
 
 ## 課題や今後実装したい機能
