@@ -9,9 +9,9 @@
 
        <%= f.text_area :text, class:"text-post", rows: "10" %>
         <div class="tweet-image">
-          <label>
-            <%= f.label :images, id: "images", class: "far fa-images fa-2x" do %>
-             <%= f.file_field :images, name: 'tweet[images][]', id: "images", style:"display:none;" %>
+         <label>
+            <%= f.label :image, id: "images", class: "far fa-images fa-2x" do %>
+              <%= f.file_field :images, name: 'tweet[images][]', id: "tweet_image", style:"display:none;" %>
             <% end %>
           </label>
         </div>
