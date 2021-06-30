@@ -8,7 +8,7 @@
 <br>
 
 ## 本番環境
-https://original35700.herokuapp.com/<br>
+http://35.75.70.113/<br>
 ユーザー名: admin<br>
 パスワード: 4204<br>
 
