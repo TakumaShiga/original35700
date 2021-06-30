@@ -18,6 +18,8 @@ class User < ApplicationRecord
   has_many :answers
   has_many :events
   has_many :registrations
+  has_many :room_users
+  has_many :rooms, through: :room_users
   has_one_attached :image
 
   has_many :active_relationships, class_name: 'Follow', foreign_key: 'user_id'
