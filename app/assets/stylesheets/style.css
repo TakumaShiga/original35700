@@ -94,7 +94,41 @@ font-size:large;
 font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 }
 
-/* エラーメッセージ */
+/* エラーメッセージ ここまで*/
+
+/* DM関係 */
+  .room-wrapper{
+    height: 100vh;
+    background-image: url(https://beiz.jp/images_P/pastel/pastel_00118.jpg) ;
+    background-size : cover;
+  }
+  .room-container {
+    padding: 40px;
+    height: 100%;
+  }
+
+  .user-select {
+    text-align: center;
+   
+  }
+  .selection {
+    padding: 5px 10px;
+  }
+
+  .room-form {
+    margin-top: 200px;
+  }
+  #create-message-btn{
+    margin-top: 80px;
+    display: block;
+  }
+
+  .message-wrapper{
+    height: 100vh;
+    background-image:url(https://beiz.jp/images_P/pastel/pastel_00118.jpg) ;
+    background-size : cover;
+  }
+/* DM関係ここまで */
 
 .menu {
 	display: block;
