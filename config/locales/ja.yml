@@ -29,6 +29,9 @@ ja:
         title: タイトル
         post: 質問
 
+      message:
+        content: メッセージ
+
   activemodel:
     attributes:      
         registration_address:
