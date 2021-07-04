@@ -1,0 +1,21 @@
+<div class="room-wrapper">
+  <div class="room-container">
+    <div class="room-form">
+      <div class="user-select">
+        <%= form_with model: @room, local: true do |f|%>
+        <%= render 'layouts/error_messages', model: f.object %>
+          <select class="selection" name="room[user_ids][]">
+            <option value=''>だれにメッセージを送りたいですか？</option>
+              <% User.where.not(id: current_user.id).each do |user| %>
+            <option value=<%=user.id%>><%= user.nickname %></option>
+              <% end %>
+            <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
+          </select>  
+          <div class="submit-btn">
+            <%= f.submit "Create a message", id: "create-message-btn", class: 'Form-Btn'%>
+          </div>
+        <% end %>
+      </div>
+    </div>  
+  </div>
+</div>
