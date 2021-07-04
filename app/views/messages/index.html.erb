@@ -1,4 +1,25 @@
 <div class="message-wrapper">
   <div class="message-container">
+    <%= form_with model: [@room, @message], local: true do |f|%>
+    <%= render 'layouts/error_messages' ,model: f.object %>
+      <div class="message-form">
+        <%= f.text_area :content, class: "content-form", placeholder: "メッセージ..."%>
+      </div>
+      <div class="send-btn">
+        <%= f.submit "Send", class: "reply-message" %>
+      </div>
+    <% end %>
+    <%# メッセージのやりとり %>
+    <div class="message-field">
+      <% @messages.each do |message| %>
+        <% if @room.user_id == message.user_id %>
+          <%= message.content %>
+          <%= message.created_at%>
+        <% else %>
+          <%= message.content %>
+          <%= message.created_at%>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

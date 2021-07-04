@@ -128,6 +128,62 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
     background-image:url(https://beiz.jp/images_P/pastel/pastel_00118.jpg) ;
     background-size : cover;
   }
+
+ .message-container{
+  height: 100%;
+  padding: 60px;
+  position: relative;
+ }
+
+.message-form{
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 40px;
+  margin-left: 275px;
+}
+/* .send-btn { */
+  /* position: absolute;
+  bottom: 0;
+  border-radius: 20%;
+} */
+
+.content-form {
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  height: 50px;
+  width: 50vw;
+  padding: 10px;
+  box-shadow: 1px 1px 2px #ccc;
+  
+}
+
+.reply-message {
+  box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2);
+  vertical-align: middle;
+	transition: all .2s ease;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  padding: 5px;
+  width: 8%;
+  position: absolute;
+  bottom: 0;
+  
+  display: block;
+  background-color: #00aced;
+  cursor: pointer;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  margin-left: 57em;
+  margin-top: 20px;
+  margin-bottom: 48px;
+}
+
+.reply-message:active {
+  transform: translateY(4px);
+  border-bottom: none;
+  border-bottom: 2px solid #000000;
+}
 /* DM関係ここまで */
 
 .menu {
