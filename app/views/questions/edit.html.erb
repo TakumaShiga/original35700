@@ -6,11 +6,11 @@
     <%= render 'layouts/error_messages', model: f.object %>
       <div class="question-title">
         <p><%= f.label :"タイトル" %></p>
-        <%= f.text_field :title, placeholder: "100文字以内でご入力ください" %>
+        <%= f.text_field :title, placeholder: "100文字以内でご入力ください", maxlength: "100" %>
       </div>
       <div class="question-text">
         <p><%= f.label :"質問内容"%></p>
-        <%= f.text_area :post, placeholder: "600文字以内でご入力ください" %>
+        <%= f.text_area :post, placeholder: "600文字以内でご入力ください", maxlength: "600" %>
       </div>
     </div>
       <div class="submit-question">

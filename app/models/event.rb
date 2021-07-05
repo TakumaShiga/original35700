@@ -8,7 +8,7 @@ class Event < ApplicationRecord
   has_one_attached :image
 
   validates :fee, presence: true, numericality: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください' }
-
+  validates :fee, numericality: {only_integer: true, greater_than_or_equal_to: 0, message: "は0円以上の金額にしてください"}
   with_options presence: true do
     validates :event_name
     validates :event_date

@@ -6,7 +6,7 @@
     <% end %>
     <%= form_with model: @tweet, url: tweets_path, local: true do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
-      <%= f.text_area :text, placeholder: "How was your day?", class:"text-post", rows: "10" %>
+      <%= f.text_area :text, placeholder: "How was your day?", class:"text-post", rows: "10", maxlength:"140" %>
         <div class="tweet-image">
           <label>
             <%= f.label :image, id: "images", class: "far fa-images fa-2x" do %>

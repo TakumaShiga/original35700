@@ -7,7 +7,7 @@
 
      <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>イベント名</p>
         <div class="Form-Item">
-          <%= f.text_field :event_name, autofocus: true, class: "Form-Item-Input" %>
+          <%= f.text_field :event_name, autofocus: true, class: "Form-Item-Input", maxlength:"30", placeholder:"大会名など(30文字以内)" %>
         </div>
     
 
@@ -31,19 +31,19 @@
 
       <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>開催場所(住所)</p>
           <div class="Form-Item">
-          <%= f.text_field :place_number, class: "Form-Item-Input" %>
+          <%= f.text_field :place_number, class: "Form-Item-Input", placeholder: "番地まで詳しい住所を入力してください", maxlength: "140" %>
         </div>
       
 
       <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>集合場所</p>
           <div class="Form-Item">
-          <%= f.text_field :place_name, placeholder: "詳しい場所の名前をご記入ください", class: "Form-Item-Input" %>
+          <%= f.text_field :place_name, placeholder: "詳しい場所の名前をご記入ください", class: "Form-Item-Input", maxlength:"20" %>
         </div>
         
 
       <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>イベントの特徴</p>
           <div class="Form-Item">
-          <%= f.text_area :description, placeholder: "イベント内容を記入してください", class: "Form-Item-Textarea"%>
+          <%= f.text_area :description, placeholder: "イベント内容を記入してください(300文字以内)", class: "Form-Item-Textarea", maxlength:"300" %>
         </div>
     
 
@@ -59,7 +59,7 @@
 
      <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>エントリー費</p>
           <div class="Form-Item">
-          <%= f.text_field :fee, class:"Form-Item-Input", id:"entry-price", placeholder:"例）1000円" %>
+          <%= f.text_field :fee, class:"Form-Item-Input", id:"entry-price", placeholder:"例）1000", maxlength:"5" %>
         </div>
 
         <p class="Form-Item-Label">エントリー手数料(10%)</p>
