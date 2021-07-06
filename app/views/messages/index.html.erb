@@ -10,15 +10,15 @@
       </div>
     <% end %>
     <%# メッセージのやりとり %>
-    <div class="message-field">
-      <% @messages.each do |message| %>
-        <% if @room.user_id == message.user_id %>
-          <%= message.content %>
-          <%= message.created_at%>
-        <% else %>
-          <%= message.content %>
-          <%= message.created_at%>
-        <% end %>
+    <div id="messages">
+      <% @messages.reverse_each do |message| %>
+            <div class="exchange-field">
+              <div class="message-text">
+              <%= image_tag message.user.image.variant(resize: "60x60"), class:"message-pic"%>
+              <%= message.content %>
+              </div>
+              <p class="message-date"><%= message.created_at.strftime("%Y-%m-%d %H:%M:%S")%></p>
+            </div>
       <% end %>
     </div>
   </div>

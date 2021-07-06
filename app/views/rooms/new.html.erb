@@ -3,9 +3,15 @@
     <div class="room-form">
       <div class="user-select">
         <%= form_with model: @room, local: true do |f|%>
-        <%= render 'layouts/error_messages', model: f.object %>
+          <%= render 'layouts/error_messages', model: f.object %>
+          <div class="chat-room-name">
+            <%= f.label :チャットルームを作ろう, class: 'room-name'%>
+          </div>
+          <div class='chat-room-form'>
+            <%= f.text_field :name, class: 'room_name_field', placeholder: 'ルーム名を入力してください(15文字以内)', maxlength:"15"%>
+          </div>
           <select class="selection" name="room[user_ids][]">
-            <option value=''>だれにメッセージを送りたいですか？</option>
+            <option value=''>誰とチャットしたいですか？</option>
               <% User.where.not(id: current_user.id).each do |user| %>
             <option value=<%=user.id%>><%= user.nickname %></option>
               <% end %>

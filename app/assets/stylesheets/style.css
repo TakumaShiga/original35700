@@ -80,6 +80,12 @@ img {
   border-radius:50%;
 }
 
+.message-pic {
+  border-radius: 50%;
+  width: auto;
+  height: auto;
+}
+
 /* 画像サイズここまで */
 
 /* エラーメッセージ */
@@ -97,6 +103,25 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 /* エラーメッセージ ここまで*/
 
 /* DM関係 */
+
+  .room-index-wrapper{
+    height: 100vh;
+    background-image: url(https://beiz.jp/images_P/pastel/pastel_00118.jpg) ;
+    background-size : cover;
+  }
+  .room-index-container{
+    padding: 40px;
+    height: 100%;
+  }
+  .rooms-index{
+    height: 100%;
+    text-align: center;
+    padding-top: 100px;
+  }
+  .chat-room p{
+    font-size: large;
+    font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  }
   .room-wrapper{
     height: 100vh;
     background-image: url(https://beiz.jp/images_P/pastel/pastel_00118.jpg) ;
@@ -107,14 +132,26 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
     height: 100%;
   }
 
+  .chat-room-form{
+    margin:20px 0 40px 0;
+  }
+  .room-name{
+    font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  }
+  .room_name_field {
+    padding: 10px 20px;
+    width: 40%; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
   .user-select {
     text-align: center;
-   
   }
   .selection {
     padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
   }
-
   .room-form {
     margin-top: 200px;
   }
@@ -122,9 +159,8 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
     margin-top: 80px;
     display: block;
   }
-
   .message-wrapper{
-    height: 100vh;
+    height: 100%;
     background-image:url(https://beiz.jp/images_P/pastel/pastel_00118.jpg) ;
     background-size : cover;
   }
@@ -141,11 +177,6 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   margin-bottom: 40px;
   margin-left: 275px;
 }
-/* .send-btn { */
-  /* position: absolute;
-  bottom: 0;
-  border-radius: 20%;
-} */
 
 .content-form {
   border: 1px solid #ccc;
@@ -154,7 +185,6 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   width: 50vw;
   padding: 10px;
   box-shadow: 1px 1px 2px #ccc;
-  
 }
 
 .reply-message {
@@ -183,6 +213,21 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   transform: translateY(4px);
   border-bottom: none;
   border-bottom: 2px solid #000000;
+}
+
+#messages {
+  height: 100vh;
+  width: 70%;
+  margin: 0 auto;
+  padding: 60px;
+}
+.message-text{
+  font-size: large;
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+}
+.message-date{
+  font-size: x-small;
+  padding-left: 55px;
 }
 /* DM関係ここまで */
 
@@ -407,7 +452,6 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   display: block;
   background-color: #00aced;
   cursor: pointer;
-
 }
 
 .tweet-btn:hover {
@@ -418,11 +462,24 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   font-size: large;
   font-weight: bold;
   text-align: center;
+  display: block;
+  height: 100%;
+  border-radius: 25px;
 }
 .boshuusuru {
   text-align: center;
 }
 
+.fa-comments{
+  color: #00aced;
+  font-size: large;
+  font-weight: bold
+}
+.fa-comments span {
+  color: #00aced;
+  font-size: large;
+  font-weight: bold
+}
 /* サイドメニューここまで */
 
 .contents {

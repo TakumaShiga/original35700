@@ -1,0 +1,11 @@
+<div class="room-index-wrapper">
+  <div class="room-index-container">
+    <div class="rooms-index">
+      <% @rooms.each do |room|%>
+        <div class="chat-room">
+         <p><%=link_to room.name, room_messages_path(room), class:"under-line"%><p>
+        </div>
+      <% end %>
+    <div>
+  </div>
+<div>
