@@ -8,7 +8,7 @@
 <br>
 
 ## 本番環境
-http://35.75.70.113/<br>
+https://www.runtweet-app.xyz<br>
 ユーザー名: admin<br>
 パスワード: 4204<br>
 
