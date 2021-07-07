@@ -1,11 +1,16 @@
 <div class="room-index-wrapper">
   <div class="room-index-container">
     <div class="rooms-index">
+    <% @room_users.each do |room_user|  %>
       <% @rooms.each do |room|%>
+       <% if room_user.user_id == current_user.id%>
         <div class="chat-room">
-         <p><%=link_to room.name, room_messages_path(room), class:"under-line"%><p>
+          <p><%=link_to room.name, room_messages_path(room), class:"under-line"%></p>
+          <span><%= room.created_at.strftime("%Y-%m-%d %H:%M:%S")%><span>
         </div>
+       <% end %>
       <% end %>
+    <% end %>
     <div>
   </div>
 <div>

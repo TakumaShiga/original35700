@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
 
   def index 
     @rooms = Room.all.order("created_at DESC")
+    @room_users = RoomUser.all
   end
 
   def new
@@ -23,4 +24,5 @@ class RoomsController < ApplicationController
   def room_params
     params.require(:room).permit(:name, user_ids: [])
   end
+
 end

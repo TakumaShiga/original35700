@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :move_to_index, only: [:create, :destroy]
   def index
     @message = Message.new
     @room = Room.find(params[:room_id])
