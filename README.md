@@ -169,7 +169,7 @@ AWS EC2
 
 ## DB設計
 
-[![Image from Gyazo](https://i.gyazo.com/7a5882f777ed87c64eb8dd8ba75b4cbe.png)](https://gyazo.com/7a5882f777ed87c64eb8dd8ba75b4cbe)
+[![Image from Gyazo](https://i.gyazo.com/b1ae84d5d30f710c1933735e081ec0f5.png)](https://gyazo.com/b1ae84d5d30f710c1933735e081ec0f5)
 <br>
 
 ## users
@@ -192,6 +192,9 @@ has_many :likes
 has_many :questions
 has_many :answers
 has_many :registrations
+has_many :rooms through: :room_users
+has_many :room_users
+has_many :messages
 
 has_many :active_relationships, class_name: 'Follow', foreign_key: 'user_id'
 has_many :passive_relationships, class_name: 'Follow', foreign_key: 'target_user_id'
@@ -315,7 +318,6 @@ has_one_attached :image
 
 ## registrations
 
-
 | Column    | Type       | Options           |
 | --------- | ---------- | ----------------- |
 | user      | references | foreign_key: true |
@@ -324,3 +326,35 @@ has_one_attached :image
 belongs_to :user
 belongs_to :event
 has_one: address
+
+
+## rooms
+
+| Column  | Type       | Options           |
+| --------| ---------- | ----------------- |
+| name    | strings    | null: false       |
+
+has_many: users through: :room_users
+has_many: room_users
+
+
+## room_users
+
+| Column   | Type       | Options           |
+| -------- | ---------- | ----------------- |
+| room     | references | foreign_key: true |
+| user     | references | foreign_key: true |
+ 
+ has_many: users 
+ has_many: rooms
+
+
+## messages
+
+| Column | Type       | Options            |    
+| -------| ---------- | ------------------ | 
+| room   | references |  foreign_key: true | 
+| user   | references |  foreign_key: true |
+
+belongs_to :room
+belongs_to :user
