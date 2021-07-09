@@ -20,10 +20,17 @@
 box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
 .under-line {
   text-decoration-line: none;
 }
-
 
 .notifications {
   color: white;

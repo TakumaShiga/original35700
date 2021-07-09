@@ -106,7 +106,7 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 
   .room-index-wrapper{
     height: 100vh;
-    background-image: url(https://beiz.jp/images_P/pastel/pastel_00118.jpg) ;
+    background-image: url(https://beiz.jp/images_T/white/white_00080.jpg);
     background-size : cover;
   }
   .room-index-container{
@@ -119,13 +119,14 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
     padding-top: 100px;
   }
   .chat-room p{
-    font-size: large;
+    font-size: x-large;
     font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  }
+  .chat-room span{
+    font-size: x-small;
   }
   .room-wrapper{
     height: 100vh;
-    background-image: url(https://beiz.jp/images_P/pastel/pastel_00118.jpg) ;
-    background-size : cover;
   }
   .room-container {
     padding: 40px;
@@ -159,34 +160,31 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
     margin-top: 80px;
     display: block;
   }
-  .message-wrapper{
+  #message-wrapper{
     height: 100%;
-    background-image:url(https://beiz.jp/images_P/pastel/pastel_00118.jpg) ;
-    background-size : cover;
   }
 
- .message-container{
+ #message-container{
   height: 100%;
-  padding: 60px;
-  position: relative;
  }
 
 .message-form{
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 40px;
-  margin-left: 275px;
+  padding-top: 120px;
+  display: flex;
+  justify-content: center;
 }
-
 .content-form {
   border: 1px solid #ccc;
   border-radius: 30px;
   height: 50px;
-  width: 50vw;
+  width: 30vw;
   padding: 10px;
   box-shadow: 1px 1px 2px #ccc;
 }
-
+.message-send{
+ margin-right: 23em;
+ margin-top: 8px;
+}
 .reply-message {
   box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2);
   vertical-align: middle;
@@ -194,19 +192,14 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   border: 1px solid #ddd;
   border-radius: 30px;
   padding: 5px;
-  width: 8%;
-  position: absolute;
-  bottom: 0;
-  
+  width: 90%;
   display: block;
   background-color: #00aced;
   cursor: pointer;
   color: white;
   font-size: large;
   font-weight: bold;
-  margin-left: 57em;
-  margin-top: 20px;
-  margin-bottom: 48px;
+  margin-left: 1em;
 }
 
 .reply-message:active {
@@ -216,10 +209,10 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 }
 
 #messages {
-  height: 100vh;
+  height: 100%;
   width: 70%;
   margin: 0 auto;
-  padding: 60px;
+  padding: 0 60px;
 }
 .message-text{
   font-size: large;
@@ -228,6 +221,12 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 .message-date{
   font-size: x-small;
   padding-left: 55px;
+}
+.message-text span{
+  font-size: small;
+}
+.message-text p {
+  padding-left: 50px;
 }
 /* DM関係ここまで */
 
@@ -1376,11 +1375,13 @@ h5 {
 .question-show-wrapper{
   height: 100%;
   background-image:  url(https://beiz.jp/images_T/white/white_00080.jpg);
+  background-size: cover;
 }
 .question-show-container{
   padding: 100px 20px 30px 20px;
   height: 100%;
   text-align: center;
+  
 }
 .question-title{
 padding-top: 30px
@@ -1495,7 +1496,10 @@ padding-top: 30px
   margin-top: 47px;
   padding: 20px 0 0 10px;
 }
-
+#answers {
+  background-image:  url(https://beiz.jp/images_T/white/white_00080.jpg);
+  background-size: cover;
+}
 #answers b{
   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   font-weight: bold;

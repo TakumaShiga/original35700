@@ -1,21 +1,29 @@
-<div class="message-wrapper">
-  <div class="message-container">
+<div id="message-wrapper">
+  <div id="message-container">
     <%= form_with model: [@room, @message], local: true do |f|%>
-    <%= render 'layouts/error_messages' ,model: f.object %>
       <div class="message-form">
-        <%= f.text_area :content, class: "content-form", placeholder: "メッセージ..."%>
+        <div class='message-area'>
+          <%= f.text_area :content, class: "content-form", placeholder: "メッセージ...", maxlength: "100" %>
+        </div>
+        <div class="message-send">
+          <%= f.submit "Send", class: "reply-message" %>
+        </div>
       </div>
-      <div class="send-btn">
-        <%= f.submit "Send", class: "reply-message" %>
-      </div>
+      <%= render 'layouts/error_messages' ,model: f.object %>
     <% end %>
     <%# メッセージのやりとり %>
     <div id="messages">
-      <% @messages.reverse_each do |message| %>
+      <% @messages.reverse.each do |message| %>
             <div class="exchange-field">
               <div class="message-text">
-              <%= image_tag message.user.image.variant(resize: "60x60"), class:"message-pic"%>
-              <%= message.content %>
+              <% if message.user.image.attached? %>
+                <%= image_tag message.user.image.variant(resize: "60x60"), class:"message-pic"%>
+                <%= message.content %>
+              <% else %>
+                <br>
+                <span><%= message.user.nickname %>さん</span>
+                <p><%= message.content %></p>
+              <% end %>
               </div>
               <p class="message-date"><%= message.created_at.strftime("%Y-%m-%d %H:%M:%S")%></p>
             </div>

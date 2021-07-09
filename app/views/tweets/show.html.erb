@@ -4,8 +4,6 @@
       <div class="nickname">
       <% if @tweet.user.image.attached? %>
         <span><%= image_tag @tweet.user.image.variant(resize: '90x90'), class:"user-pic" %></span>
-      <% else %>
-        <span><%= image_tag "/assets/original.jpg", size: '90x90' %></span>  
       <% end %>   
           <%=link_to @tweet.user.nickname, user_path(@tweet.user.id), class: "under-line" %>
       </div>
@@ -50,10 +48,9 @@
           <% if comment.user.image.attached? %>
             <%= image_tag comment.user.image, id:"img" %>
           <% else %>
-            <%= image_tag '/assets/original.jpg', id:'img' %>
+            <div class="comment"><%= comment.user.nickname %></div>
           <% end %>  
          <figcaption class="balloon-image-description">
-           <%= comment.user.nickname %>
           </figcaption>
           </figure>
          <div class="balloon-text-right">
