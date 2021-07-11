@@ -225,8 +225,8 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 .message-text span{
   font-size: small;
 }
-.message-text p {
-  padding-left: 50px;
+.message-text{
+  margin-top: 10px;
 }
 /* DM関係ここまで */
 
