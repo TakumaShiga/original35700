@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :move_to_index
+  before_action :forbidden_user, only: [:destroy]
 
   def index
     @message = Message.new
@@ -31,10 +31,9 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:content).merge(user_id: current_user.id)
   end
 
-   def move_to_index
-     @room_user = RoomUser.new
-    unless current_user.id == @room_user.user_id
-      redirect_to root_path
-    end
+  def forbidden_user
+    @message = Message.find_by(id: params[:id])
+    redirect_to root_path, notice: '権限がありません' unless current_user.id == @message.user_id
   end
+
 end
