@@ -1,16 +1,19 @@
 <div class="room-index-wrapper">
   <div class="room-index-container">
     <div class="rooms-index">
-    <% @room_users.each do |room_user|  %>
-      <% @rooms.each do |room|%>
-       <% if room_user.user_id == current_user.id%>
-        <div class="chat-room">
-          <p><%=link_to room.name, room_messages_path(room), class:"under-line"%></p>
-          <span ><%= room.created_at.strftime("%Y-%m-%d %H:%M:%S")%><span>
-        </div>
-       <% end %>
+      <%= link_to new_room_path, class: "under-line" do %>
+        <h2><i class="fas fa-house-user">  新しいチャットルームを作成</i></h2>
       <% end %>
-    <% end %>
+      <% @rooms.each do |room|%>
+        <% @room_users.each do |room_user|%>
+          <% if room_user.user_id == current_user.id%>
+            <div class="chat-room">
+              <p><%=link_to room.name, room_messages_path(room), class:"under-line"%></p>
+              <span ><%= room.created_at.strftime("%Y-%m-%d %H:%M:%S")%><span>
+            </div>
+          <% end %> 
+        <% end %>
+      <% end %>
     <div>
   </div>
 <div>

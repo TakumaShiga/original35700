@@ -118,6 +118,11 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
     text-align: center;
     padding-top: 100px;
   }
+  .rooms-index h2{
+    text-align: left;
+    font-size: large;
+    margin: 30px 0 0 10px;
+  }
   .chat-room p{
     font-size: x-large;
     font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
@@ -127,12 +132,13 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   }
   .room-wrapper{
     height: 100vh;
+    background-image: url(https://beiz.jp/images_T/white/white_00080.jpg);
+    background-size : cover;
   }
   .room-container {
     padding: 40px;
     height: 100%;
   }
-
   .chat-room-form{
     margin:20px 0 40px 0;
   }
@@ -163,11 +169,9 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   #message-wrapper{
     height: 100%;
   }
-
  #message-container{
   height: 100%;
  }
-
 .message-form{
   padding-top: 120px;
   display: flex;
@@ -201,18 +205,16 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   font-weight: bold;
   margin-left: 1em;
 }
-
 .reply-message:active {
   transform: translateY(4px);
   border-bottom: none;
   border-bottom: 2px solid #000000;
 }
-
 #messages {
   height: 100%;
   width: 70%;
   margin: 0 auto;
-  padding: 0 60px;
+  padding: 10px 60px;
 }
 .message-text{
   font-size: large;
@@ -306,8 +308,6 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 #cp_navimenuid:checked ~ .menu > .menubar {
 	display: none;
 }
-
-
 .header-3 { 
   box-sizing: border-box; 
   width: 100%; 
@@ -315,7 +315,6 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   top: 0px;
   z-index: 10;
 } 
-
 .header-inner { 
   display: flex; 
   align-items: center; 
@@ -326,7 +325,6 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   margin: 0 auto; 
   font-size: 1.2em; 
 } 
-
 .header-button {
    box-sizing: border-box; 
    display: inline-block; 
@@ -335,46 +333,38 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
    text-decoration: none; 
    cursor: pointer; 
    user-select: none; 
-  } 
-  
+  }   
 .header-login { 
   color: #999; 
 } 
-
 .logo {
   font-size: 37px; 	
   font-family: 'Anton', sans-serif;
   color: #00aced;
 }
-
 .fas {
   color: #00aced;
 } 
-
 .header-pic {
   margin-left: 700px;
   margin-top: 12px;
 }
-
 .header-inner h6 {
   margin-right: 950px;
   margin-top: 60px;
   font-size: small;
   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 }
-
 .header-nickname {
   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   margin-left: 42em;
   font-size: medium;
 }
-
 .header-guest{
   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   margin-left: 45em;
   font-size: medium;
 }
-
 .header-site{
   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   font-size: small;
@@ -388,7 +378,6 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 .search-form {
   margin: 20px 0 70px 0;
 }
-
 .search-input {
   margin-left: 20px;
   padding: 0 10px;
@@ -398,7 +387,6 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   padding: 3px;
   width: 70%;
 }
-
 .search-btn{
   border-radius: 20px;
   background: #3879D9;
@@ -417,7 +405,6 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 .article {
   display:flex;
 }
-
 .side {
   background-color:#fff;
   width: 380px;
@@ -427,11 +414,9 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   position: fixed;
   padding-top: 100px;
 }
-
 .menu-contents {
   list-style: none;
 }
-
 .content {
   margin: 50px auto;
   font-size: large;
@@ -440,7 +425,6 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 .content span {
   margin-left: 10px;
 }
-
 .tweet-btn {
   border: 1px solid #ddd;
   border-radius: 25px;
@@ -452,7 +436,6 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   background-color: #00aced;
   cursor: pointer;
 }
-
 .tweet-btn:hover {
   opacity: 0.7;
 }
@@ -468,7 +451,6 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 .boshuusuru {
   text-align: center;
 }
-
 .fa-comments{
   color: #00aced;
   font-size: large;
@@ -487,9 +469,7 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   height: 100%;
   text-align: center;
   padding-top: 70px;
-  
 }
-
 .tweets {
   margin: 3em auto;
   margin-bottom: 50px;
@@ -499,7 +479,6 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   border: 1px solid #fff; /* 枠線 */
   box-shadow: 0 0 5px 1.5px #a9a9a9;
  }
-
  .nickname {
    font-size: large;
    font-weight: bold; 
@@ -507,9 +486,6 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
    margin-bottom: 20px;
    font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
  }
-
- 
-
  .text-area {
    padding: 20px;
  }
@@ -672,18 +648,14 @@ font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   font-size: 20px;
   cursor: pointer;
 }
-
 .Form-Btn:hover {
  opacity: 0.7;
 }
-
 .sign-up{ 
   margin-top: 20px;
 }
 
 /* ユーザー編集ページここまで */
-
-
 
 /* ユーザー新規登録 */
 h1 {
@@ -691,7 +663,6 @@ h1 {
   font-size: xx-large;
   color: #00aced;
 }
-
 h5 {
   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 }
@@ -707,7 +678,6 @@ h5 {
   margin-top: 20px;
   padding-left: 20px;
 }
-
 .fab {
   margin:30px 20px;
   border: 1px solid #bbb;
@@ -716,14 +686,12 @@ h5 {
   color: #fff;
   font-weight: bold;
 } 
-
 .fa-facebook-f{
   background-color: #305097;
 }
 .fa-google{
   background-color: #db4a39;
 }
-
 .gender-select{
   display: flex;
   justify-content: center;
@@ -741,19 +709,15 @@ h5 {
   margin-left:10px ;
 
 }
-
 /* ユーザー新規登録ここまで */
-
 
 /* マイページここから */
 .introduce-wrapper {
   height: 100%; 
 }
-
 .fa-envelope {
-  font-weight: bold;
+  font-weight: ;
 }
-
  .my-nickname {
   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
   font-size: 28px;
@@ -762,13 +726,10 @@ h5 {
   width: 300px;
   text-align: center;
  }
-
-
 .user-edit-btn {
   width: 25%; 
   margin-top: 35px;
 }
-
  .edit-icon {
    font-size: 15px;
    text-align: center;
@@ -811,7 +772,6 @@ h5 {
   font-size: large;
   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 }
-
 .follow-function {
   display: flex;
 }
@@ -840,30 +800,23 @@ h5 {
   padding: 70px;
   height: 900px;
   background-image: url(https://beiz.jp/images_T/white/white_00080.jpg);
- 
 }
-
 .follow-container {
   padding: 50px 200px;
 }
-
 .followers-index {
   display: flex;
   padding:0 100px;
-  margin-top: 20px;
-  width: 80%;
+  margin-top: 40px;
+  width: 70%;
 }
-
 .follow-introduce {
-  width: 150%;
-  padding: 10px;
-  
+  width: 300%;
+  padding: 0 10px 10px 0;
 }
-
 .follow-reference {
   width: 120%;
 }
-
 
 /* フォロー・フォロワーページ ここまで */
 
