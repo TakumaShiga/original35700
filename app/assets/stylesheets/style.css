@@ -100,6 +100,13 @@ font-size:large;
 font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 }
 
+.sign-up-error p{
+  color: red;
+  font-size: medium;
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+  margin-left: 160px;
+}
+
 /* エラーメッセージ ここまで*/
 
 /* DM関係 */
