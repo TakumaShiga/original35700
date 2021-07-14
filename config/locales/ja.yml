@@ -15,12 +15,10 @@ ja:
       event:
         fee: エントリー費
         event_name: イベント名
-        event_date: 開催日
-        start_time: 開始時間
-        finish_time: 終了時間
+        event_date: 開催日時
         place_number: 開催場所
         place_name: 集合場所
-        deadline: 申込期限日
+        deadline: エントリー期限日
         description: イベントの特徴
         category_id: カテゴリー
         prefecture_id: 地域
@@ -31,6 +29,9 @@ ja:
 
       message:
         content: メッセージ
+
+      room:
+        name: チャットルーム名
 
   activemodel:
     attributes:      

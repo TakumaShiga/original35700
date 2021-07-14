@@ -3,13 +3,18 @@
       <h2>新しいイベントを募集する<h2>
     </div>
     <%= form_with model: @event, url: events_path, local: true do |f| %>
-      <%= render 'layouts/error_messages', model: f.object %>
 
      <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>イベント名</p>
         <div class="Form-Item">
           <%= f.text_field :event_name, autofocus: true, class: "Form-Item-Input", maxlength:"30", placeholder:"大会名など(30文字以内)" %>
         </div>
-    
+      <%# <%エラーメッセージ%>  
+      <div class="event-error">
+        <% if @event.errors.include?(:event_name) %>
+          <p><%= @event.errors.full_messages_for(:event_name).first %></p>
+        <% end %>
+      </div>
+      <%# <%エラーメッセージ%>
 
        <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>開催日時</p>
         <div class="Form-Item">
@@ -18,49 +23,102 @@
           <div class="event-date">
           <%= f.time_select :start_time, minute_step: 15, class: "Form-Item-Input" %>〜<%= f.time_select :finish_time, minute_step: 15, class: "Form-Item-Input" %>
        </div>
-      
+       <%# <%エラーメッセージ%> 
+        <div class="event-error">
+          <% if @event.errors.include?(:event_date) %>
+            <p><%= @event.errors.full_messages_for(:event_date).first %></p>
+          <% end %>
+        </div>
+       <%# <%エラーメッセージ%> 
+
       <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>カテゴリー</p>
           <div class="Form-Item">
         <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"Form-Item-Input", id:"event-category"}) %>
-      </div>  
+      </div> 
+      <%# <%エラーメッセージ%> 
+        <div class="event-error">
+          <% if @event.errors.include?(:category_id) %>
+            <p><%= @event.errors.full_messages_for(:category_id).first %></p>
+          <% end %>
+        </div>
+       <%# <%エラーメッセージ%>  
 
       <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>開催地域</p>
         <div class="Form-Item">
         <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class: "Form-Item-Input", id:"event-place"}) %>
       </div>
+      <%# <%エラーメッセージ%> 
+        <div class="event-error">
+          <% if @event.errors.include?(:prefecture_id) %>
+            <p><%= @event.errors.full_messages_for(:prefecture_id).first %></p>
+          <% end %>
+        </div>
+       <%# <%エラーメッセージ%> 
 
       <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>開催場所(住所)</p>
-          <div class="Form-Item">
+        <div class="Form-Item">
           <%= f.text_field :place_number, class: "Form-Item-Input", placeholder: "番地まで詳しい住所を入力してください", maxlength: "140" %>
         </div>
-      
+      <%# <%エラーメッセージ%> 
+        <div class="event-error">
+          <% if @event.errors.include?(:place_number) %>
+            <p><%= @event.errors.full_messages_for(:place_number).first %></p>
+          <% end %>
+        </div>
+       <%# <%エラーメッセージ%> 
 
       <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>集合場所</p>
-          <div class="Form-Item">
+        <div class="Form-Item">
           <%= f.text_field :place_name, placeholder: "詳しい場所の名前をご記入ください", class: "Form-Item-Input", maxlength:"20" %>
         </div>
-        
+        <%# <%エラーメッセージ%> 
+        <div class="event-error">
+          <% if @event.errors.include?(:place_name) %>
+            <p><%= @event.errors.full_messages_for(:place_name).first %></p>
+          <% end %>
+        </div>
+       <%# <%エラーメッセージ%> 
 
       <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>イベントの特徴</p>
           <div class="Form-Item">
           <%= f.text_area :description, placeholder: "イベント内容を記入してください(300文字以内)", class: "Form-Item-Textarea", maxlength:"300" %>
         </div>
-    
+      <%# <%エラーメッセージ%> 
+        <div class="event-error">
+          <% if @event.errors.include?(:description) %>
+            <p><%= @event.errors.full_messages_for(:description).first %></p>
+          <% end %>
+        </div>
+       <%# <%エラーメッセージ%> 
 
-      <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>申し込み期限</p>
+      <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>エントリー期限</p>
           <div class="Form-Item">
         <%= f.date_field :deadline,class: "Form-Item-Input" %>
       </div>
+      <%# <%エラーメッセージ%> 
+        <div class="event-error">
+          <% if @event.errors.include?(:deadline) %>
+            <p><%= @event.errors.full_messages_for(:deadline).first %></p>
+          <% end %>
+        </div>
+       <%# <%エラーメッセージ%> 
 
       <p class="Form-Item-Label"><span class="Form-Item-Label-Required">任意</span>画像</p>
-          <div class="Form-Item">
-        <%= f.file_field :image, class: "Form-Item-Input" %>
-      </div>
-
-     <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>エントリー費</p>
-          <div class="Form-Item">
-          <%= f.text_field :fee, class:"Form-Item-Input", id:"entry-price", placeholder:"例）1000", maxlength:"5" %>
+        <div class="Form-Item">
+          <%= f.file_field :image, class: "Form-Item-Input" %>
         </div>
+
+      <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>エントリー費</p>
+        <div class="Form-Item">
+          <%= f.text_field :fee, class:"Form-Item-Input", id:"entry-price", placeholder:"例）1000円(半角数字 0円以上)", maxlength:"5" %>
+        </div>
+        <%# <%エラーメッセージ%> 
+        <div class="event-error">
+          <% if @event.errors.include?(:fee) %>
+            <p><%= @event.errors.full_messages_for(:fee).first %></p>
+          <% end %>
+        </div>
+       <%# <%エラーメッセージ%> 
 
         <p class="Form-Item-Label">エントリー手数料(10%)</p>
           <div class="Form-Item">
