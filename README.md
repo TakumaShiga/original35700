@@ -24,6 +24,7 @@ https://www.runtweet-app.xyz<br>
 
 ## 機能一覧
 
+AWS EC2による自動デプロイ
 ユーザー登録、ログイン機能(devise)<br>
 SNSアカウント登録、ログイン機能<br>
 ユーザ編集機能<br>
@@ -49,7 +50,7 @@ SNSアカウント登録、ログイン機能<br>
 ActiveHash機能<br>
 Formオブジェクト機能<br>
 PAYJPクレジットカード決済機能<br>
-AWS EC2による自動デプロイ
+Action Cableを用いたリアルタイムチャット機能<br>
 <br>
 
 ## DEMO
