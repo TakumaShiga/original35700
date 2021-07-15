@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :search]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :move_to_index, except: [:index, :search]
   before_action :prohibit_user, only: [:edit, :update, :destroy]
 
   def index
@@ -51,12 +51,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
-  def move_to_index
-    redirect_to root_path unless user_signed_in?
-  end
-
   def prohibit_user
-    redirect_to root_path unless current_user.id == @event.user_id
+    redirect_to root_path, notice: '権限がありません' unless current_user.id == @event.user_id
   end
 
   def event_params

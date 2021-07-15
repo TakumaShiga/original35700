@@ -35,7 +35,6 @@
       <b>回答一覧</b>
         <% @answers.each do |answer| %> 
         <%if @question.user_id == answer.user_id %>
-
          <p class="answer-people">
          <% if answer.user.image.attached? %>
           <span><%= image_tag answer.user.image.variant(resize: '80x80'), class:"user-pic answer-pic",id: "img" %></span>
@@ -47,14 +46,15 @@
             <%= answer.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
           </div>
           <div class="question-answer-content">
-            <strong><%= answer.message %></strong>   
-            <span>
+          <strong><%= answer.message %></strong>   
+          <span>
+            <% if current_user.id == answer.user_id %>
               <%=link_to question_answer_path(@question, @question.answers.ids), method: :delete do %>
-              <i class="fas fa-trash-alt"></i>
+                <i class="fas fa-trash-alt"></i>
               <% end %>
-            </span>
-          </div> 
-
+            <% end %>
+          </span>
+        </div> 
         <% else %>
           <p class="answer-people">
           <% if answer.user.image.attached? %>
@@ -66,15 +66,17 @@
             <%= answer.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
           </div>
           <div class="answer-content">
-            <strong><%= answer.message %></strong>   
-            <span>
+          <strong><%= answer.message %></strong>   
+          <span>
+            <% if current_user.id == answer.user_id %>
               <%=link_to question_answer_path(@question, @question.answers.ids), method: :delete do %>
-              <i class="fas fa-trash-alt"></i>
+                <i class="fas fa-trash-alt"></i>
               <% end %>
-            </span>
-          </div>
+            <% end %>
+          </span>
+        </div>
         <% end %>
-        <% end %>
+      <% end %>
       <div>
     </div>
   </div>
