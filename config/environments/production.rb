@@ -5,7 +5,7 @@ Rails.application.configure do
   config.action_cable.allowed_request_origins = ['https://original35700.herokuapp.com', 'http://original35700.herokuapp.com']
 
   ActionCable.server.config.disable_request_forgery_protection = true
-  config.action_cable.url = "ws://35.75.70.113/cable" 
+  config.action_cable.url = "ws://www.runtweet-app.xyz/cable" 
   config.action_cable.allowed_request_origins = ['https://www.runtweet-app.xyz']
   # Code is not reloaded between requests.
   config.cache_classes = true
