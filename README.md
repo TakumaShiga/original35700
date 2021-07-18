@@ -31,7 +31,7 @@ https://original35700.herokuapp.com/<br>
 AWS EC2による自動デプロイ<br>
 ユーザー登録、ログイン機能(devise)<br>
 SNSアカウント登録、ログイン機能<br>
-いいね機能(Ajax)<br<>
+いいね機能(Ajax)<br>
 いいね数表示機能<br>
 いいね一覧機能<br>
 ユーザーフォロー機能<br>
