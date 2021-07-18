@@ -162,15 +162,12 @@ MySQL  5.6.51<br>
 Github  2.30.1<br>
 heroku 7.54.0<br>
 Visual Studio Code 1.56.2<br>
-AWS S3
+AWS S3<br>
 AWS EC2
 <br>
 
 ## 課題や今後実装したい機能
 ・レスポンシブ対応<br>
-・ダイレクトメッセージ機能<br>
-・通知機能（いいね通知、コメント通知、フォロー通知）<br>
-<br>
 
 ## DB設計
 
