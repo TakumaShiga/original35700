@@ -28,7 +28,7 @@ https://original35700.herokuapp.com/<br>
 
 ## 機能一覧
 
-AWS EC2による自動デプロイ
+AWS EC2による自動デプロイ<br>
 ユーザー登録、ログイン機能(devise)<br>
 SNSアカウント登録、ログイン機能<br>
 ユーザ編集機能<br>
