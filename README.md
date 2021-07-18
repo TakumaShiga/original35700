@@ -12,6 +12,10 @@ https://www.runtweet-app.xyz<br>
 ユーザー名: admin<br>
 パスワード: 4204<br>
 
+※改修作業により上記URLでアクセスできない場合がございます。その場合は、大変お手数ですが下記のURLからアクセスをお願い致します。<br>
+https://original35700.herokuapp.com/<br>
+ユーザー名: admin<br>
+パスワード: 4204<br>
 <br>
 
 ## 制作背景(意図)
