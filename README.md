@@ -180,6 +180,8 @@ AWS EC2
 ## 現在学習していること
 ・Linux, Git, SQL, Webの基本知識(サーバー、ネットワーク) <br>
 
+・Qiita URL : https://qiita.com/sub3_15Ts<br>
+
 ## DB設計
 
 [![Image from Gyazo](https://i.gyazo.com/b1ae84d5d30f710c1933735e081ec0f5.png)](https://gyazo.com/b1ae84d5d30f710c1933735e081ec0f5)
