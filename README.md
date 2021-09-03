@@ -38,21 +38,22 @@ https://original35700.herokuapp.com/<br>
 ## 機能一覧
 
 AWS EC2による自動デプロイ<br>
-ユーザー登録、ログイン機能(devise)<br>
-SNSアカウント登録、ログイン機能<br>
+SNSアカウント登録、ログイン機能(API)<br>
+PAYJPクレジットカード決済機能(API)<br>
 いいね機能(Ajax)<br>
+Action Cableを用いたリアルタイムチャット機能<br>
+画像スライドショー機能(Slick)<br>
+ユーザー登録、ログイン機能(devise)<br>
+RSpec単体テストコード<br>
+ActiveHash機能<br>
 いいね数表示機能<br>
 いいね一覧機能<br>
 ユーザーフォロー機能<br>
 フォロー一覧機能<br>
 フォロワー一覧機能<br>
-ActiveHash機能<br>
-画像スライドショー機能(Slick)<br>
 複数枚画像投稿機能<br>
 画像プレビュー機能<br>
 Formオブジェクト機能<br>
-PAYJPクレジットカード決済機能<br>
-Action Cableを用いたリアルタイムチャット機能<br>
 ユーザ編集機能<br>
 投稿機能<br>
 投稿編集・削除機能<br>
@@ -180,7 +181,7 @@ AWS EC2
 
 ## 現在学習していること
 ・Linux, Git, SQL, Webの基本知識(サーバー、ネットワーク) <br>
-・積極的に共同開発にも参加していきたいです<br>
+・Docker導入予定<br>
 ・Qiita URL : https://qiita.com/sub3_15Ts<br>
 
 ## DB設計
