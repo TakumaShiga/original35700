@@ -39,6 +39,8 @@ https://original35700.herokuapp.com/<br>
 ## 機能一覧
 
 AWS EC2による自動デプロイ<br>
+AWS ACMよりSSL証明発行（https化）<br>
+AWS Route53でドメインの取得<br>
 SNSアカウント登録、ログイン機能(API)<br>
 PAYJPクレジットカード決済機能(API)<br>
 いいね機能(Ajax)<br>
@@ -55,17 +57,7 @@ ActiveHash機能<br>
 複数枚画像投稿機能<br>
 画像プレビュー機能<br>
 Formオブジェクト機能<br>
-ユーザ編集機能<br>
-投稿機能<br>
-投稿編集・削除機能<br>
-コメント投稿機能<br>
-コメント削除<br>
-質問投稿機能<br>
-質問編集・削除機能<br>
-質問回答・削除機能<br>
-イベント募集機能<br>
-イベント編集・削除機能<br>
-イベント申し込み機能<br>
+その他、新規投稿、編集、削除機能<br>
 <br>
 
 ## DEMO
