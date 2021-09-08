@@ -173,7 +173,8 @@ AWS EC2
 ・レスポンシブ対応<br>
 
 ## 現在学習していること
-・Linux, Git, SQL, Webの基本知識(サーバー、ネットワーク) <br>
+・AWS 現在AWS Cloud Techに参加し学習中<br>
+・Linux, Git, SQL, Webの基本知識<br>
 ・Docker導入予定<br>
 ・Qiita URL : https://qiita.com/sub3_15Ts<br>
 
